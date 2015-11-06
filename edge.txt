@@ -1,0 +1,5 @@
+1 Prop12 2
+2 Prop24 4
+4 Prop45 5
+5 Prop52 2
+6 Prop65 7
