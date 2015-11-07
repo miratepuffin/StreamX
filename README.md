@@ -24,3 +24,9 @@ addEdge src edg dest
 addNode id
 rmvEdge src edg dest
 rmvNode id
+
+For TemporalTest there is the new command of loadOld -
+this takes in a date time in the format:
+loadOld yyyy-MM-dd HH:mm:ss
+and will search the prev folder for the closest graph to this date - setting it as the used graph
+
