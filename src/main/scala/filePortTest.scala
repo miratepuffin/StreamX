@@ -13,10 +13,11 @@ import org.apache.log4j.Logger
 import org.apache.log4j.Level
 import org.apache.spark.HashPartitioner
 import org.apache.spark.streaming.dstream.DStream
+import org.apache.spark.streaming.dstream.ReceiverInputDStream
 import java.util.Date
 import java.io.File;
 
-object fromFileTest {
+object filePortTest {
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
   val ssc = new StreamingContext(sc, Seconds(10))
@@ -31,25 +32,43 @@ object fromFileTest {
   //create empty graph
 
   def main(args: Array[String]) {
-    if (args.length < 1) {
-      System.err.println("Requires text file location")
+    if (args.length < 1 || args.length > 3) {
+      System.err.println("Requires text file location or host/port")
       System.exit(1)
     } //requires you to specify a IP/port from which the data is incoming (localhost 9999 for example)
-
-    val lines = ssc.textFileStream(args(0))
+    if(args.length == 1){
+      val lines = ssc.textFileStream(args(0))
+       extractRDDFromFile(lines)//extract the RDD inside the dstream
+    }
+    if (args.length == 2){
+      val lines = ssc.socketTextStream(args(0), args(1).toInt, StorageLevel.MEMORY_AND_DISK_SER) 
+       extractRDDFromHost(lines)//extract the RDD inside the dstream
+    }
+   
     
-    extractRDD(lines)//extract the RDD inside the dstream
+    
+   
 
     ssc.start() //run the stream and await termination
     ssc.awaitTermination()
   }
 
-  def extractRDD ( lines: DStream[String] ) {
+  def extractRDDFromFile ( lines: DStream[String] ) {
     lines.foreachRDD( rdd => { // allow for access to the RDD inside of the DStream
       count=count+1 // count of itterations run
       if (!rdd.partitions.isEmpty){ //check if the partition is empty (no new data) as otherwise we get empty collection exception
         rdd.foreach {line => println(line)
         actionCheck(line.split(" "))} //otherwise we check what actions have been requested
+      }
+      doStuff() // random method for print statements etc
+      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+    })
+  }
+   def extractRDDFromHost ( lines: DStream[String] ) {
+    lines.foreachRDD( rdd => { // allow for access to the RDD inside of the DStream
+      count=count+1 // count of itterations run
+      if (!rdd.partitions.isEmpty){ //check if the partition is empty (no new data) as otherwise we get empty collection exception
+        rdd.foreach (line => actionCheck(line.split(" "))) //otherwise we check what actions have been requested
       }
       doStuff() // random method for print statements etc
       //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin

@@ -17,7 +17,7 @@ import org.apache.spark.streaming.dstream.ReceiverInputDStream
 object DeleteTest {
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
-  val ssc = new StreamingContext(sc, Seconds(3))
+  val ssc = new StreamingContext(sc, Seconds(10))
   var count = 0
 
   //create the context from which you are streaming
