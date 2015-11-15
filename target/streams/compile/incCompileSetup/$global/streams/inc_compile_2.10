@@ -1,0 +1,1255 @@
+format version: 5
+output mode:
+1 items
+0 -> single
+output directories:
+1 items
+output dir -> /home/bloo/git/StreamX/target/scala-2.10/classes
+compile options:
+0 items
+javac options:
+0 items
+compiler version:
+1 items
+0 -> 2.10.4
+compile order:
+1 items
+0 -> Mixed
+name hashing:
+1 items
+0 -> true
+products:
+62 items
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$2.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$doStuff$1.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$doStuff$2.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$doStuff$3.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$extractRDD$1$$anonfun$apply$1.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$extractRDD$1.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$.class
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$2.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$3.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$4.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$doStuff$1.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$doStuff$2.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$doStuff$3.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$extractRDD$1$$anonfun$apply$1.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$extractRDD$1.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$timeChecker$1.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$.class
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest.class
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$$anonfun$main$1$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$$anonfun$main$1$$anonfun$2.class
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$$anonfun$main$1.class
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$.class
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/Main$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/Main$.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/Main.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod$$anonfun$main$1$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod$$anonfun$main$1.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod$.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount$$anonfun$main$1$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount$$anonfun$main$1.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount$.class
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$2.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$3.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$4.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$addEdge$1.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$closestGraph$1.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$extractRDD$1$$anonfun$apply$1.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$extractRDD$1.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$status$1.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$status$2.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$status$3.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$.class
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$1.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$2.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$3.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$4.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$doStuff$1.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$doStuff$2.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$doStuff$3.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$extractRDD$1$$anonfun$apply$1.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$extractRDD$1.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$timeChecker$1.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$.class
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest.class
+binary dependencies:
+48 items
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+direct source dependencies:
+0 items
+direct external dependencies:
+0 items
+public inherited source dependencies:
+0 items
+public inherited external dependencies:
+0 items
+member reference internal dependencies:
+0 items
+member reference external dependencies:
+0 items
+inheritance internal dependencies:
+0 items
+inheritance external dependencies:
+0 items
+class names:
+62 items
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$$anonfun$2
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$$anonfun$doStuff$1
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$$anonfun$doStuff$2
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$$anonfun$doStuff$3
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$$anonfun$extractRDD$1
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest$$anonfun$extractRDD$1$$anonfun$apply$1
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$2
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$3
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$4
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$doStuff$1
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$doStuff$2
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$doStuff$3
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$extractRDD$1
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$extractRDD$1$$anonfun$apply$1
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest$$anonfun$timeChecker$1
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SteadyTest
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SteadyTest$
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SteadyTest$$anonfun$main$1
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SteadyTest$$anonfun$main$1$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SteadyTest$$anonfun$main$1$$anonfun$2
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Main
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Main$
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Main$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> PleaseWorkForTheLoveOfGod
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> PleaseWorkForTheLoveOfGod$
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> PleaseWorkForTheLoveOfGod$$anonfun$main$1
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> PleaseWorkForTheLoveOfGod$$anonfun$main$1$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> NetworkWordCount
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> NetworkWordCount$
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> NetworkWordCount$$anonfun$main$1
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> NetworkWordCount$$anonfun$main$1$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$2
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$3
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$4
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$addEdge$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$closestGraph$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$extractRDD$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$extractRDD$1$$anonfun$apply$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$status$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$status$2
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest$$anonfun$status$3
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$1
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$2
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$3
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$4
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$doStuff$1
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$doStuff$2
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$doStuff$3
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$extractRDD$1
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$extractRDD$1$$anonfun$apply$1
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest$$anonfun$timeChecker$1
+used names:
+893 items
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> !=
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> &&
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> +
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> <
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> ==
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Boolean
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> DeleteTest
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> EdgeTriplet
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> HashPartitioner
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Long
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> MEMORY_AND_DISK_SER
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> NonFatal
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> ReceiverInputDStream
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> String
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> System
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Tuple2
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> VertexId
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> actionCheck
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> addEdge
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> addNode
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> args
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> attr
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> awaitTermination
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> checkEdge
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> collect
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> control
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> count
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> count_=
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> currentTimeMillis
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> doStuff
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> dstId
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> dstream
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> epred
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> err
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> extractRDD
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> foreach
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> foreachRDD
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> id
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> idRDD
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> isEmpty
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> java
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> length
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> line
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> lines
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> map
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> myGraph
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> myGraph_=
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> newNode
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> newedge
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> newgraph
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> nodeName
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> org
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> package
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> parallelize
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> partitions
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> println
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> qual$1
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> qual$2
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> refArrayOps
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> removeEdge
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> removeNode
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> saveAsTextFile
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> saveGraph
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> sc
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> socketTextStream
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> sparkConf
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> split
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> srcId
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> ssc
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> start
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> subgraph
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> timestamp
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> toInt
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> triplet
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> triplets
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> unary_!
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> union
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> util
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> vertices
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> vid
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> wrapRefArray
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> x$2
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> x$3
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> x$4
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> x$5
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> !=
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> &&
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> +
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> -
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> <
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> ==
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Boolean
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Date
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> EdgeTriplet
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> File
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> HashPartitioner
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Long
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> MEMORY_AND_DISK_SER
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Math
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> NonFatal
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> NumberFormatException
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> ReceiverInputDStream
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> SimpleDateFormat
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> String
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> System
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> TemporalTest
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Tuple2
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> VertexId
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> abs
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> actionCheck
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> addEdge
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> addNode
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> args
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> attr
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> awaitTermination
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> checkEdge
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> chosen
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> collect
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> control
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> count
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> count_=
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> currentTimeMillis
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> date
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> dest
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> diff
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> difference
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> doStuff
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> dstId
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> dstream
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> edg
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> edgeRDD
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> epred
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> err
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> extractRDD
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> file
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> fileTime
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> foreach
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> foreachRDD
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> format
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> getName
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> getTime
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> givenTime
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> id
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> idRDD
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> io
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> isEmpty
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> java
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> length
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> line
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> lines
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> listFiles
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> map
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> myGraph
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> myGraph_=
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> name
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> newNode
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> newedge
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> newgraph
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> nodeName
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> org
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> package
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> parallelize
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> parse
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> partitions
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> prevList
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> previous
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> println
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> qual$1
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> qual$2
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> readGraph
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> refArrayOps
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> removeEdge
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> removeNode
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> saveAsTextFile
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> savePoint
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> sc
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> socketTextStream
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> sparkConf
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> split
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> src
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> srcId
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> ssc
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> start
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> subgraph
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> substring
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> text
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> textFile
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> timeChecker
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> timestamp
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> toInt
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> toList
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> triplet
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> triplets
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> unary_!
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> union
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> util
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> vertRDD
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> vertices
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> vertx
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> vid
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> wrapRefArray
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> x$2
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> x$3
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> x$4
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> x$5
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> +
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> <
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> ==
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> HashPartitioner
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Long
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> MEMORY_AND_DISK_SER
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> NonFatal
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> SteadyTest
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> String
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> System
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> VertexId
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> args
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> awaitTermination
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> control
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> err
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> foreachRDD
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> graphToGraphOps
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> isEmpty
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> java
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> length
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> line
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> lines
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> map
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> myGraph
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> newedges
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> newgraph
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> numEdges
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> numVertices
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> org
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> package
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> parallelize
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> partitions
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> println
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> refArrayOps
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> relationships
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> sc
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> socketTextStream
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> sparkConf
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> split
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> ssc
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> start
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> toInt
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> unary_!
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> union
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> util
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> vertices
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> wrapRefArray
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> +
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> <
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Any
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> HashPartitioner
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Main
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> String
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> System
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> args
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> conf
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> err
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> getClass
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> getenv
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> graph
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> graphToGraphOps
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> jarOfClass
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> java
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> length
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> line
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> map
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> numEdges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> numVertices
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> org
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> package
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> println
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> sc
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> setJars
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> setSparkHome
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> split
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> textFile
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> toList
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> +
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> <
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> HashPartitioner
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Long
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> MEMORY_AND_DISK_SER
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> NonFatal
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> PleaseWorkForTheLoveOfGod
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> String
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> System
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> VertexId
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> args
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> awaitTermination
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> control
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> err
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> foreachRDD
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> graph
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> graphToGraphOps
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> isEmpty
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> java
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> length
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> line
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> lines
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> map
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> numEdges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> numVertices
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> org
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> package
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> partitions
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> println
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> refArrayOps
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> socketTextStream
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> sparkConf
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> split
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> ssc
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> start
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> toInt
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> unary_!
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> util
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> +
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> <
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> HashPartitioner
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Long
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> MEMORY_AND_DISK_SER
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> NetworkWordCount
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> NonFatal
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> String
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> System
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> VertexId
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> args
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> awaitTermination
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> control
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> err
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> foreachRDD
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> graph
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> graphToGraphOps
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> isEmpty
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> java
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> length
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> line
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> lines
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> map
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> numEdges
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> numVertices
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> org
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> package
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> partitions
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> println
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> refArrayOps
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> socketTextStream
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> sparkConf
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> split
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> ssc
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> start
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> toInt
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> unary_!
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> util
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> !=
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> +
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> -
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> <
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> ==
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Boolean
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> DStream
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Date
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> EdgeTriplet
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> File
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Long
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> MEMORY_AND_DISK_SER
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Math
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> NonFatal
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> NumberFormatException
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> SimpleDateFormat
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> String
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> System
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Tuple2
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> VertexId
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> abs
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> addEdge
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> addNode
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> args
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> attr
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> awaitTermination
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> checkEdge
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> chosen
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> closestGraph
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> collect
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> command
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> control
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> count
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> count_=
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> currentTimeMillis
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> date
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> dest
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> diff
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> difference
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> dstId
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> dstream
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> edg
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> edge
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> edgeRDD
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> epred
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> err
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> extractRDD
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> file
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> filePortTest
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> fileTime
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> foreach
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> foreachRDD
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> format
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> getName
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> getTime
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> givenTime
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> id
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> idRDD
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> io
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> isEmpty
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> java
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> length
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> line
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> lines
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> listFiles
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> map
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> myGraph
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> myGraph_=
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> name
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> newNodes
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> newgraph
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> node
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> nodeName
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> org
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> package
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> parallelize
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> parse
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> partitions
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> performOperation
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> prevList
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> println
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> qual$1
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> qual$2
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> readGraph
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> refArrayOps
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> removeEdge
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> removeNode
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> saveAsTextFile
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> savePoint
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> sc
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> socketTextStream
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> sparkConf
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> split
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> src
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> srcId
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> ssc
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> start
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> subgraph
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> substring
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> text
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> textFile
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> textFileStream
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> timestamp
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> toInt
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> toList
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> triplet
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> triplets
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> unary_!
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> union
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> util
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> v
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> vertRDD
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> vertices
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> vertx
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> vid
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> wrapRefArray
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> x$2
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> x$3
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> x$4
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> x$5
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> ||
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> !=
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> +
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> -
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> <
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> <init>
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> ==
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> AnyRef
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Array
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Boolean
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> ClassTag
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> DStream
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Date
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Edge
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> EdgeTriplet
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> File
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Graph
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> HashPartitioner
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Level
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Logger
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Long
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Math
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> NonFatal
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> NumberFormatException
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> OFF
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Predef
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> RDD
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Seconds
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> SimpleDateFormat
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> SparkConf
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> SparkContext
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> StorageLevel
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> StreamingContext
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> String
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> System
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Tuple2
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> Unit
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> VertexId
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> abs
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> actionCheck
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> addEdge
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> addNode
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> apache
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> apply
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> args
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> attr
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> augmentString
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> awaitTermination
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> checkEdge
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> chosen
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> collect
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> control
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> count
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> count_=
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> currentTimeMillis
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> date
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> dest
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> diff
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> difference
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> doStuff
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> dstId
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> dstream
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> edg
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> edgeRDD
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> edges
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> epred
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> err
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> exit
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> extractRDD
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fields
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> file
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fileTime
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> foreach
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> foreachRDD
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> format
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromEdges
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> fromFileTest
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> getLogger
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> getName
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> getTime
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> givenTime
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> graphx
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> id
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> idRDD
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> io
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> isEmpty
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> java
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> lang
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> length
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> line
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> lines
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> listFiles
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> log4j
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> map
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> materializeClassTag
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> myGraph
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> myGraph_=
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> name
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> newNode
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> newedge
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> newgraph
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> nodeName
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> org
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> package
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> parallelize
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> parse
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> partitions
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> prevList
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> previous
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> println
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> qual$1
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> qual$2
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> rdd
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> readGraph
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> refArrayOps
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> removeEdge
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> removeNode
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> saveAsTextFile
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> savePoint
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> sc
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> scala
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> setAppName
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> setLevel
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> spark
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> sparkConf
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> split
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> src
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> srcId
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> ssc
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> start
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> storage
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> streaming
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> subgraph
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> substring
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> text
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> textFile
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> textFileStream
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> timeChecker
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> timestamp
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> toList
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> toLong
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> triplet
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> triplets
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> unary_!
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> union
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> util
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> vertRDD
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> vertices
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> vertx
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> vid
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> wrapRefArray
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> x$2
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> x$3
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> x$4
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> x$5
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> ||
+product stamps:
+62 items
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$1.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$2.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$doStuff$1.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$doStuff$2.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$doStuff$3.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$extractRDD$1$$anonfun$apply$1.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$$anonfun$extractRDD$1.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest$.class -> lastModified(1447623956000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/DeleteTest.class -> lastModified(1447623955000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/Main$$anonfun$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/Main$.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/Main.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount$$anonfun$main$1$$anonfun$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount$$anonfun$main$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount$.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/NetworkWordCount.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod$$anonfun$main$1$$anonfun$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod$$anonfun$main$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod$.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/PleaseWorkForTheLoveOfGod.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$$anonfun$main$1$$anonfun$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$$anonfun$main$1$$anonfun$2.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$$anonfun$main$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest$.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/SteadyTest.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$2.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$3.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$4.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$doStuff$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$doStuff$2.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$doStuff$3.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$extractRDD$1$$anonfun$apply$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$extractRDD$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$$anonfun$timeChecker$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest$.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/TemporalTest.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$1.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$2.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$3.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$4.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$addEdge$1.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$closestGraph$1.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$extractRDD$1$$anonfun$apply$1.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$extractRDD$1.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$status$1.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$status$2.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$$anonfun$status$3.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest$.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/filePortTest.class -> lastModified(1447628604000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$2.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$3.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$4.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$doStuff$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$doStuff$2.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$doStuff$3.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$extractRDD$1$$anonfun$apply$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$extractRDD$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$$anonfun$timeChecker$1.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest$.class -> lastModified(1447617059000)
+/home/bloo/git/StreamX/target/scala-2.10/classes/fromFileTest.class -> lastModified(1447617059000)
+source stamps:
+8 items
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> hash(f9d202be201748eaeb3f18d3f9d0b54901c9be22)
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> hash(c8d4b0737bcf049852b135dba3ce239ae43b5668)
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> hash(3af94ab0cbb904c300f4382f73f2fea2c0d10e0f)
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> hash(403afad6ef9d1c8d90ec05706a08709f92aa2ba7)
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> hash(cba1f8b0c221c0a1a024b3f2fb3fff5d47683cbb)
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> hash(e9534370211c743b06ae5b49aa7e78e8cbd0c18c)
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> hash(6f789fa2b301116a706227e5116060d5ebece72d)
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> hash(0aa13ce20f83b28d601387ed244188d1dd4a20cd)
+binary stamps:
+6 items
+/home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar -> lastModified(1396501213000)
+/home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar -> lastModified(1443615475000)
+/home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar -> lastModified(1443615493000)
+/home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar -> lastModified(1443615380000)
+/home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar -> lastModified(1396783702000)
+/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> lastModified(1445622230000)
+class names:
+6 items
+/home/bloo/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar -> org.apache.log4j.Level
+/home/bloo/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.5.1.jar -> org.apache.spark.SparkContext$
+/home/bloo/.ivy2/cache/org.apache.spark/spark-graphx_2.10/jars/spark-graphx_2.10-1.5.1.jar -> org.apache.spark.graphx.Edge
+/home/bloo/.ivy2/cache/org.apache.spark/spark-streaming_2.10/jars/spark-streaming_2.10-1.5.1.jar -> org.apache.spark.streaming.StreamingContext
+/home/bloo/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar -> scala.Tuple2
+/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar -> java.lang.Object
+internal apis:
+8 items
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHA/V14WAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAI3NyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cCqo2lt0AAZub3RpZnlzcQB+AAwm3EzvdAAHYWRkTm9kZXNxAH4ADNeRjSp0AAVjb3VudHNxAH4ADEMzWiZ0AAR3YWl0c3EAfgAMH+JfinQADSRhc0luc3RhbmNlT2ZzcQB+AAxrjdzsdAALYWN0aW9uQ2hlY2tzcQB+AAy49Vx3dAAGZXF1YWxzc3EAfgAMPHq+nXQACXNhdmVHcmFwaHNxAH4ADAssv0p0AAxhc0luc3RhbmNlT2ZzcQB+AAzN2AkZdAAMc3luY2hyb25pemVkc3EAfgAMWfIU33QAAnNjc3EAfgAMiPMkenQACkRlbGV0ZVRlc3RzcQB+AAy/r+g5dAANJGlzSW5zdGFuY2VPZnNxAH4ADMtAjDx0AARtYWluc3EAfgAMl9dvVXQAA3NzY3NxAH4ADGz5jSx0AAlub3RpZnlBbGxzcQB+AAydU3PMdAAKZXh0cmFjdFJERHNxAH4ADPeo4jJ0AAxpc0luc3RhbmNlT2ZzcQB+AAyDypxLdAAHYWRkRWRnZXNxAH4ADMwxZMZ0AAlzcGFya0NvbmZzcQB+AAw9ebnZdAAKcmVtb3ZlTm9kZXNxAH4ADIEdOFd0AAI9PXNxAH4ADLg1BpV0AAVjbG9uZXNxAH4ADKJy4+J0AAdteUdyYXBoc3EAfgAMm4K7qXQACHRvU3RyaW5nc3EAfgAMZhC9HnQACWNoZWNrRWRnZXNxAH4ADBJiY6Z0AAIhPXNxAH4ADA+xaWJ0AAdkb1N0dWZmc3EAfgAMQVl3gnQACnJlbW92ZUVkZ2VzcQB+AAzP2YOFdAAIZ2V0Q2xhc3NzcQB+AAxt4LOmdAACbmVzcQB+AAw8inpVdAACZXFzcQB+AAyT31XAdAACIyNzcQB+AAxnxrDzdAAIZmluYWxpemVzcQB+AAxck7ZJdAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBdeHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAcQB+ACV1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAE3hzYnRpLlNhZmVMYXp5JEltcGxQAi6Tl5dAPwIAA1oACGJpdG1hcCQwTAACX3R0ABJMamF2YS9sYW5nL09iamVjdDtMAARldmFsdAARTHNjYWxhL0Z1bmN0aW9uMDt4cgAWeHNidGkuYXBpLkFic3RyYWN0TGF6edN3tQFfu+egAgAAeHABc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHBzcQB+AHQBc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AF1MAAlpbmhlcml0ZWRxAH4AXUwAB3BhcmVudHNxAH4AXXhxAH4Ae3NxAH4AdAF1cQB+AFgAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AF5xAH4AZ3VxAH4AaAAAAABzcQB+AGoAcQB+ACl1cQB+AGwAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AenQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AHpzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AJZ1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgCDeHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBvdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgCKWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgB6c3EAfgCJdAAFQXJyYXlxAH4Aj3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgCJdAAGU3RyaW5nc3EAfgCNc3EAfgCQdXEAfgCTAAAAA3NxAH4AlXQABGphdmFzcQB+AJV0AARsYW5ncQB+AJpwc3EAfgB0AXVxAH4AWAAAAABwc3EAfgB0AXVxAH4ArgAAAAJzcQB+AIl0AAZPYmplY3RxAH4AsnNxAH4AiXQAA0FueXEAfgCPcHB1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ0cfm51cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAAwL2hvbWUvYmxvby9naXQvU3RyZWFtWC90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAU+dICviAXSOrrPxjT+dC1SQHJviI=
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCYQCFUAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAJXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cLMPUTJ0AAZub3RpZnlzcQB+AAzYfmQvdAAHYWRkTm9kZXNxAH4ADDjUzaV0AAVjb3VudHNxAH4ADBXT9rZ0AAR3YWl0c3EAfgAMTDCIz3QADSRhc0luc3RhbmNlT2ZzcQB+AAzHteIbdAALYWN0aW9uQ2hlY2tzcQB+AAwLs6sadAAGZXF1YWxzc3EAfgAMCJsUnXQACXNhdmVHcmFwaHNxAH4ADA0m9St0AAxhc0luc3RhbmNlT2ZzcQB+AAy4c93adAAMc3luY2hyb25pemVkc3EAfgAMrAkHtnQAAnNjc3EAfgAMb/utmnQADSRpc0luc3RhbmNlT2ZzcQB+AAwN7LNwdAAMVGVtcG9yYWxUZXN0c3EAfgAMp/ccCnQAC3RpbWVDaGVja2Vyc3EAfgAMTE9my3QABG1haW5zcQB+AAyegQMWdAADc3Njc3EAfgAMrDBg+3QACW5vdGlmeUFsbHNxAH4ADAY3uQd0AApleHRyYWN0UkREc3EAfgAMT41vz3QADGlzSW5zdGFuY2VPZnNxAH4ADIGJ8KF0AAdhZGRFZGdlc3EAfgAMajD82XQACXNwYXJrQ29uZnNxAH4ADHNwVjx0AApyZW1vdmVOb2Rlc3EAfgAMyzV463QAAj09c3EAfgAM5SdQzHQABWNsb25lc3EAfgAMCv0Z8nQAB215R3JhcGhzcQB+AAwOSydTdAAIdG9TdHJpbmdzcQB+AAxDbYL/dAAJY2hlY2tFZGdlc3EAfgAMrFmU4nQAAiE9c3EAfgAMmErwanQAB2RvU3R1ZmZzcQB+AAy79c5jdAAKcmVtb3ZlRWRnZXNxAH4ADIEVMdl0AAhnZXRDbGFzc3NxAH4ADGL6/QF0AAlyZWFkR3JhcGhzcQB+AAxbGnPkdAACbmVzcQB+AAzl39jjdAACZXFzcQB+AAy4opyxdAACIyNzcQB+AAyaK+8idAAIZmluYWxpemVzcQB+AAx3AYjndAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBheHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAcQB+ACd1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAE3hzYnRpLlNhZmVMYXp5JEltcGxQAi6Tl5dAPwIAA1oACGJpdG1hcCQwTAACX3R0ABJMamF2YS9sYW5nL09iamVjdDtMAARldmFsdAARTHNjYWxhL0Z1bmN0aW9uMDt4cgAWeHNidGkuYXBpLkFic3RyYWN0TGF6edN3tQFfu+egAgAAeHAAcHNyACB4c2J0aS5TYWZlTGF6eSQkYW5vbmZ1biRzdHJpY3QkMQAAAAAAAAAAAgABTAAHdmFsdWUkMXEAfgB5eHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgB4AHBzcQB+AH1zcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AYUwACWluaGVyaXRlZHEAfgBhTAAHcGFyZW50c3EAfgBheHEAfgCBc3EAfgB4AHBzcQB+AH11cQB+AFwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AGJxAH4Aa3VxAH4AbAAAAABzcQB+AG4AcQB+ACt1cQB+AHAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AgHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AIBzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AJ51cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgCLeHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBzdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgCSWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgCAc3EAfgCRdAAFQXJyYXlxAH4Al3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgCRdAAGU3RyaW5nc3EAfgCVc3EAfgCYdXEAfgCbAAAAA3NxAH4AnXQABGphdmFzcQB+AJ10AARsYW5ncQB+AKJzcQB+AHgAcHNxAH4AfXVxAH4AXAAAAABzcQB+AHgAcHNxAH4AfXVxAH4AtgAAAAJzcQB+AJF0AAZPYmplY3RxAH4AunNxAH4AkXQAA0FueXEAfgCXdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVEMsyYgdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFMjUsHN7zwSYUrE126POI5rkO1Zo
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHDi2dCaAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAGHNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cKwHoxt0AAZub3RpZnlzcQB+AAwsS3j7dAAEd2FpdHNxAH4ADJG7Jj90AA0kYXNJbnN0YW5jZU9mc3EAfgAMJo/LBHQABmVxdWFsc3NxAH4ADEsitNh0AAxhc0luc3RhbmNlT2ZzcQB+AAxXOLP/dAAMc3luY2hyb25pemVkc3EAfgAM8xc2iXQAAnNjc3EAfgAMsoDtcHQAClN0ZWFkeVRlc3RzcQB+AAxCGaqUdAANJGlzSW5zdGFuY2VPZnNxAH4ADKrd2uR0AARtYWluc3EAfgAMBdH0rXQAA3NzY3NxAH4ADPCZWA50AAlub3RpZnlBbGxzcQB+AAxfbVtIdAAMaXNJbnN0YW5jZU9mc3EAfgAMrlcxJ3QACXNwYXJrQ29uZnNxAH4ADNDo4SF0AAI9PXNxAH4ADDOwjtJ0AAVjbG9uZXNxAH4ADDrTnEp0AAh0b1N0cmluZ3NxAH4ADPw7lL50AAIhPXNxAH4ADEgXmLV0AAhnZXRDbGFzc3NxAH4ADP+cbip0AAJuZXNxAH4ADIRdj0t0AAJlcXNxAH4ADMmlZF90AAIjI3NxAH4ADCmgLTZ0AAhmaW5hbGl6ZXNxAH4ADIeQObh0AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AEd4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc8cREyFpnNwkAgABQgAFZmxhZ3N4cABxAH4AHXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cABwc3IAIHhzYnRpLlNhZmVMYXp5JCRhbm9uZnVuJHN0cmljdCQxAAAAAAAAAAACAAFMAAd2YWx1ZSQxcQB+AF94cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AF4AcHNxAH4AY3NyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBHTAAJaW5oZXJpdGVkcQB+AEdMAAdwYXJlbnRzcQB+AEd4cQB+AGdzcQB+AF4AcHNxAH4AY3VxAH4AQgAAAAFzcgANeHNidGkuYXBpLkRlZlK+n+J8tDZpAgACTAAKcmV0dXJuVHlwZXQAEEx4c2J0aS9hcGkvVHlwZTtbAA92YWx1ZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9QYXJhbWV0ZXJMaXN0O3hxAH4ASHEAfgBRdXEAfgBSAAAAAHNxAH4AVABxAH4AIXVxAH4AVgAAAABzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AA1MAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgBmdAAEVW5pdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4AZnNyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAAnNyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAFc2NhbGFzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AhHVyABpbTHhzYnRpLmFwaS5QYXJhbWV0ZXJMaXN0O/XTOh3ys3DuAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJMaXN01sW8HGRJdOMCAAJaAAppc0ltcGxpY2l0WwAKcGFyYW1ldGVyc3QAHFtMeHNidGkvYXBpL01ldGhvZFBhcmFtZXRlcjt4cAB1cgAcW0x4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyO8+4xV2l3bVtAgAAeHAAAAABc3IAGXhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXIfRa4X00mw6gIABFoACmhhc0RlZmF1bHRMAAhtb2RpZmllcnQAHUx4c2J0aS9hcGkvUGFyYW1ldGVyTW9kaWZpZXI7TAAEbmFtZXEAfgANTAADdHBlcQB+AHF4cAB+cgAbeHNidGkuYXBpLlBhcmFtZXRlck1vZGlmaWVyAAAAAAAAAAASAAB4cQB+AFl0AAVQbGFpbnQABGFyZ3NzcgAXeHNidGkuYXBpLlBhcmFtZXRlcml6ZWQWbO5pA8m7fwIAAkwACGJhc2VUeXBlcQB+AHhbAA10eXBlQXJndW1lbnRzdAARW0x4c2J0aS9hcGkvVHlwZTt4cQB+AGZzcQB+AHd0AAVBcnJheXEAfgB9dXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAFzcQB+AHd0AAZTdHJpbmdzcQB+AHtzcQB+AH51cQB+AIEAAAADc3EAfgCDdAAEamF2YXNxAH4Ag3QABGxhbmdxAH4AiHNxAH4AXgBwc3EAfgBjdXEAfgBCAAAAAHNxAH4AXgBwc3EAfgBjdXEAfgCcAAAAAnNxAH4Ad3QABk9iamVjdHEAfgCgc3EAfgB3dAADQW55cQB+AH11cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQyzJiB1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAAwL2hvbWUvYmxvby9naXQvU3RyZWFtWC90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUOvlKsMu5BMMA9Dgvc/L+osDRDg8=
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHDN8Vq6AHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cPbjxQZ0AAZub3RpZnlzcQB+AAxOTUcbdAAEd2FpdHNxAH4ADGBKIyZ0AA0kYXNJbnN0YW5jZU9mc3EAfgAMogLr93QABmVxdWFsc3NxAH4ADIt3LQh0AAxhc0luc3RhbmNlT2ZzcQB+AAxIJtIodAAMc3luY2hyb25pemVkc3EAfgAMEvrNp3QADSRpc0luc3RhbmNlT2ZzcQB+AAwgch6MdAAEbWFpbnNxAH4ADF0q7PN0AAlub3RpZnlBbGxzcQB+AAyoh3JZdAAMaXNJbnN0YW5jZU9mc3EAfgAMRVAMlnQAAj09c3EAfgAMMdillnQABWNsb25lc3EAfgAMC2lUi3QABE1haW5zcQB+AAwp2qJXdAAIdG9TdHJpbmdzcQB+AAxsBezddAACIT1zcQB+AAz2jva6dAAIZ2V0Q2xhc3NzcQB+AAzTS0awdAACbmVzcQB+AAz/0aa8dAACZXFzcQB+AAx1h7yCdAACIyNzcQB+AAwM636fdAAIZmluYWxpemVzcQB+AAzU8EpHdAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBBeHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAcQB+ACd1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAE3hzYnRpLlNhZmVMYXp5JEltcGxQAi6Tl5dAPwIAA1oACGJpdG1hcCQwTAACX3R0ABJMamF2YS9sYW5nL09iamVjdDtMAARldmFsdAARTHNjYWxhL0Z1bmN0aW9uMDt4cgAWeHNidGkuYXBpLkFic3RyYWN0TGF6edN3tQFfu+egAgAAeHAAcHNyACB4c2J0aS5TYWZlTGF6eSQkYW5vbmZ1biRzdHJpY3QkMQAAAAAAAAAAAgABTAAHdmFsdWUkMXEAfgBZeHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgBYAHBzcQB+AF1zcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AQUwACWluaGVyaXRlZHEAfgBBTAAHcGFyZW50c3EAfgBBeHEAfgBhc3EAfgBYAHBzcQB+AF11cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB11cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AYHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AGBzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AH51cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBreHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgByWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBgc3EAfgBxdAAFQXJyYXlxAH4Ad3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBxdAAGU3RyaW5nc3EAfgB1c3EAfgB4dXEAfgB7AAAAA3NxAH4AfXQABGphdmFzcQB+AH10AARsYW5ncQB+AIJzcQB+AFgAcHNxAH4AXXVxAH4APAAAAABzcQB+AFgAcHNxAH4AXXVxAH4AlgAAAAJzcQB+AHF0AAZPYmplY3RxAH4AmnNxAH4AcXQAA0FueXEAfgB3dXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVEMsyYgdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFEA6+tbvnRyNkOwFcGoIcJ+Sqiun
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHDNXOedAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cLC9e6h0AAZub3RpZnlzcQB+AAwWJTFddAAEd2FpdHNxAH4ADAnUGcN0AA0kYXNJbnN0YW5jZU9mc3EAfgAM+NioqXQABmVxdWFsc3NxAH4ADNHEbk10AAxhc0luc3RhbmNlT2ZzcQB+AAy4SHZxdAAMc3luY2hyb25pemVkc3EAfgAMR7wpWHQADSRpc0luc3RhbmNlT2ZzcQB+AAywhgD+dAAEbWFpbnNxAH4ADJguLQ90AAlub3RpZnlBbGxzcQB+AAxovNIRdAAMaXNJbnN0YW5jZU9mc3EAfgAMs6h6tHQAGVBsZWFzZVdvcmtGb3JUaGVMb3ZlT2ZHb2RzcQB+AAxEr2icdAACPT1zcQB+AAzWWAxxdAAFY2xvbmVzcQB+AAywYr4DdAAIdG9TdHJpbmdzcQB+AAzzAXH+dAACIT1zcQB+AAyShqjfdAAIZ2V0Q2xhc3NzcQB+AAxCz/rEdAACbmVzcQB+AAyQXdkGdAACZXFzcQB+AAwGaN/ndAACIyNzcQB+AAxAT4o/dAAIZmluYWxpemVzcQB+AAzJzPp4dAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBBeHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAcQB+ACN1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAE3hzYnRpLlNhZmVMYXp5JEltcGxQAi6Tl5dAPwIAA1oACGJpdG1hcCQwTAACX3R0ABJMamF2YS9sYW5nL09iamVjdDtMAARldmFsdAARTHNjYWxhL0Z1bmN0aW9uMDt4cgAWeHNidGkuYXBpLkFic3RyYWN0TGF6edN3tQFfu+egAgAAeHAAcHNyACB4c2J0aS5TYWZlTGF6eSQkYW5vbmZ1biRzdHJpY3QkMQAAAAAAAAAAAgABTAAHdmFsdWUkMXEAfgBZeHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgBYAHBzcQB+AF1zcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AQUwACWluaGVyaXRlZHEAfgBBTAAHcGFyZW50c3EAfgBBeHEAfgBhc3EAfgBYAHBzcQB+AF11cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB11cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AYHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AGBzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AH51cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBreHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgByWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBgc3EAfgBxdAAFQXJyYXlxAH4Ad3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBxdAAGU3RyaW5nc3EAfgB1c3EAfgB4dXEAfgB7AAAAA3NxAH4AfXQABGphdmFzcQB+AH10AARsYW5ncQB+AIJzcQB+AFgAcHNxAH4AXXVxAH4APAAAAABzcQB+AFgAcHNxAH4AXXVxAH4AlgAAAAJzcQB+AHF0AAZPYmplY3RxAH4AmnNxAH4AcXQAA0FueXEAfgB3dXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVEMsyYgdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFMuh+LDCIcChoCSz8vs//11HaDy7
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHDX6YJ9AHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cMNR6jJ0AAZub3RpZnlzcQB+AAzkZmY0dAAEd2FpdHNxAH4ADJ5+Xnh0AA0kYXNJbnN0YW5jZU9mc3EAfgAM/oyc2nQABmVxdWFsc3NxAH4ADIn1FCR0AAxhc0luc3RhbmNlT2ZzcQB+AAyDtIIrdAAMc3luY2hyb25pemVkc3EAfgAMna83pnQADSRpc0luc3RhbmNlT2ZzcQB+AAyp2LtTdAAEbWFpbnNxAH4ADAYEWTZ0AAlub3RpZnlBbGxzcQB+AAzrHeqTdAAMaXNJbnN0YW5jZU9mc3EAfgAMvnrCB3QAAj09c3EAfgAMxFE5u3QABWNsb25lc3EAfgAMQmYIB3QAEE5ldHdvcmtXb3JkQ291bnRzcQB+AAxZaA9KdAAIdG9TdHJpbmdzcQB+AAyDTZHYdAACIT1zcQB+AAzttLfxdAAIZ2V0Q2xhc3NzcQB+AAyVDQAxdAACbmVzcQB+AAx8k213dAACZXFzcQB+AAzuGVuSdAACIyNzcQB+AAxtM+ywdAAIZmluYWxpemVzcQB+AAwLkmqmdAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBBeHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAcQB+ACd1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAE3hzYnRpLlNhZmVMYXp5JEltcGxQAi6Tl5dAPwIAA1oACGJpdG1hcCQwTAACX3R0ABJMamF2YS9sYW5nL09iamVjdDtMAARldmFsdAARTHNjYWxhL0Z1bmN0aW9uMDt4cgAWeHNidGkuYXBpLkFic3RyYWN0TGF6edN3tQFfu+egAgAAeHAAcHNyACB4c2J0aS5TYWZlTGF6eSQkYW5vbmZ1biRzdHJpY3QkMQAAAAAAAAAAAgABTAAHdmFsdWUkMXEAfgBZeHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgBYAHBzcQB+AF1zcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AQUwACWluaGVyaXRlZHEAfgBBTAAHcGFyZW50c3EAfgBBeHEAfgBhc3EAfgBYAHBzcQB+AF11cQB+ADwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AEJxAH4AS3VxAH4ATAAAAABzcQB+AE4AcQB+AB11cQB+AFAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AYHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AGBzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AH51cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgBreHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBTdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgByWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgBgc3EAfgBxdAAFQXJyYXlxAH4Ad3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgBxdAAGU3RyaW5nc3EAfgB1c3EAfgB4dXEAfgB7AAAAA3NxAH4AfXQABGphdmFzcQB+AH10AARsYW5ncQB+AIJzcQB+AFgAcHNxAH4AXXVxAH4APAAAAABzcQB+AFgAcHNxAH4AXXVxAH4AlgAAAAJzcQB+AHF0AAZPYmplY3RxAH4AmnNxAH4AcXQAA0FueXEAfgB3dXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVEMsyYgdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFOlTQ3AhHHQ7Bq5bSap+eOjL0MGM
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCP9tdMAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAJXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cIvwvnp0AAZub3RpZnlzcQB+AAyQUmEBdAAHYWRkTm9kZXNxAH4ADM6sTHR0AAVjb3VudHNxAH4ADIAYkFZ0AAR3YWl0c3EAfgAMo3KH4HQADSRhc0luc3RhbmNlT2ZzcQB+AAzlDg9XdAAGZXF1YWxzc3EAfgAM+I8yrHQACXNhdmVHcmFwaHNxAH4ADDywURx0AAxhc0luc3RhbmNlT2ZzcQB+AAwf6xfYdAAMc3luY2hyb25pemVkc3EAfgAMzg0fE3QAAnNjc3EAfgAMUocthnQADSRpc0luc3RhbmNlT2ZzcQB+AAwCrJB6dAAEbWFpbnNxAH4ADGyIkdB0AANzc2NzcQB+AAx+loDMdAAJbm90aWZ5QWxsc3EAfgAMF7qAfXQACmV4dHJhY3RSRERzcQB+AAyGLzxEdAAMaXNJbnN0YW5jZU9mc3EAfgAMJ7aCzXQAB2FkZEVkZ2VzcQB+AAzlT/I7dAAMY2xvc2VzdEdyYXBoc3EAfgAMw1PownQACXNwYXJrQ29uZnNxAH4ADLkmp4l0AApyZW1vdmVOb2Rlc3EAfgAM9RbXGHQAAj09c3EAfgAMG6BuinQABWNsb25lc3EAfgAMChxfwnQABnN0YXR1c3NxAH4ADCQDwLp0AAdteUdyYXBoc3EAfgAMH/5X2XQACHRvU3RyaW5nc3EAfgAMxqNxanQAEHBlcmZvcm1PcGVyYXRpb25zcQB+AAycwXBhdAAJY2hlY2tFZGdlc3EAfgAMyihmLnQADGZpbGVQb3J0VGVzdHNxAH4ADB3FgXt0AAIhPXNxAH4ADC9Brod0AApyZW1vdmVFZGdlc3EAfgAMUa7z3XQACGdldENsYXNzc3EAfgAMBj6g6nQACXJlYWRHcmFwaHNxAH4ADC7CTkZ0AAJuZXNxAH4ADI0g7LB0AAJlcXNxAH4ADHoao8N0AAIjI3NxAH4ADO7GBXR0AAhmaW5hbGl6ZXNxAH4ADIsKJ450AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AGF4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc8cREyFpnNwkAgABQgAFZmxhZ3N4cABxAH4ARXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cAFzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwcHNxAH4AeAFzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AYUwACWluaGVyaXRlZHEAfgBhTAAHcGFyZW50c3EAfgBheHEAfgB/c3EAfgB4AXVxAH4AXAAAAAFzcgANeHNidGkuYXBpLkRlZlK+n+J8tDZpAgACTAAKcmV0dXJuVHlwZXQAEEx4c2J0aS9hcGkvVHlwZTtbAA92YWx1ZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9QYXJhbWV0ZXJMaXN0O3hxAH4AYnEAfgBrdXEAfgBsAAAAAHNxAH4AbgBxAH4AJXVxAH4AcAAAAABzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AA1MAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgB+dAAEVW5pdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4AfnNyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAAnNyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAFc2NhbGFzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AmnVyABpbTHhzYnRpLmFwaS5QYXJhbWV0ZXJMaXN0O/XTOh3ys3DuAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJMaXN01sW8HGRJdOMCAAJaAAppc0ltcGxpY2l0WwAKcGFyYW1ldGVyc3QAHFtMeHNidGkvYXBpL01ldGhvZFBhcmFtZXRlcjt4cAB1cgAcW0x4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyO8+4xV2l3bVtAgAAeHAAAAABc3IAGXhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXIfRa4X00mw6gIABFoACmhhc0RlZmF1bHRMAAhtb2RpZmllcnQAHUx4c2J0aS9hcGkvUGFyYW1ldGVyTW9kaWZpZXI7TAAEbmFtZXEAfgANTAADdHBlcQB+AId4cAB+cgAbeHNidGkuYXBpLlBhcmFtZXRlck1vZGlmaWVyAAAAAAAAAAASAAB4cQB+AHN0AAVQbGFpbnQABGFyZ3NzcgAXeHNidGkuYXBpLlBhcmFtZXRlcml6ZWQWbO5pA8m7fwIAAkwACGJhc2VUeXBlcQB+AI5bAA10eXBlQXJndW1lbnRzdAARW0x4c2J0aS9hcGkvVHlwZTt4cQB+AH5zcQB+AI10AAVBcnJheXEAfgCTdXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAFzcQB+AI10AAZTdHJpbmdzcQB+AJFzcQB+AJR1cQB+AJcAAAADc3EAfgCZdAAEamF2YXNxAH4AmXQABGxhbmdxAH4AnnBzcQB+AHgBdXEAfgBcAAAAAHBzcQB+AHgBdXEAfgCyAAAAAnNxAH4AjXQABk9iamVjdHEAfgC2c3EAfgCNdAADQW55cQB+AJNwcHVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAAAc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFRDWNvpnVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0ADAvaG9tZS9ibG9vL2dpdC9TdHJlYW1YL3RhcmdldC9zY2FsYS0yLjEwL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABRveJ+iswERanBiJ+URYGDV6+znLQ==
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCqJ5NgAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAJXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cPKoEIV0AAZub3RpZnlzcQB+AAwOloF1dAAHYWRkTm9kZXNxAH4ADGfu5Lh0AAVjb3VudHNxAH4ADHZMMql0AAR3YWl0c3EAfgAMtvAJP3QADSRhc0luc3RhbmNlT2ZzcQB+AAzYKCYFdAALYWN0aW9uQ2hlY2tzcQB+AAwXje6edAAGZXF1YWxzc3EAfgAMPnUXx3QACXNhdmVHcmFwaHNxAH4ADMix+ap0AAxhc0luc3RhbmNlT2ZzcQB+AAzj4NJGdAAMc3luY2hyb25pemVkc3EAfgAM7UguNHQAAnNjc3EAfgAMCMI/UHQADSRpc0luc3RhbmNlT2ZzcQB+AAzCgc4+dAALdGltZUNoZWNrZXJzcQB+AAy5wUkEdAAEbWFpbnNxAH4ADBuH00l0AANzc2NzcQB+AAy4zyTGdAAJbm90aWZ5QWxsc3EAfgAMXdulonQACmV4dHJhY3RSRERzcQB+AAzhISP5dAAMaXNJbnN0YW5jZU9mc3EAfgAM2elGQnQAB2FkZEVkZ2VzcQB+AAxzNYpSdAAJc3BhcmtDb25mc3EAfgAM52A+RnQADGZyb21GaWxlVGVzdHNxAH4ADM083TV0AApyZW1vdmVOb2Rlc3EAfgAMo/LSxnQAAj09c3EAfgAMYvd4w3QABWNsb25lc3EAfgAMX6fqQXQAB215R3JhcGhzcQB+AAwZMyV0dAAIdG9TdHJpbmdzcQB+AAxJjTMjdAAJY2hlY2tFZGdlc3EAfgAMnmx05HQAAiE9c3EAfgAMFRlzcXQAB2RvU3R1ZmZzcQB+AAxD2h14dAAKcmVtb3ZlRWRnZXNxAH4ADPQeg4p0AAhnZXRDbGFzc3NxAH4ADJVWYet0AAlyZWFkR3JhcGhzcQB+AAyLvLT8dAACbmVzcQB+AAwBnFModAACZXFzcQB+AAxAjM/HdAACIyNzcQB+AAxb2TtHdAAIZmluYWxpemVzcQB+AAzu6JMMdAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBheHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAcQB+ADd1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAE3hzYnRpLlNhZmVMYXp5JEltcGxQAi6Tl5dAPwIAA1oACGJpdG1hcCQwTAACX3R0ABJMamF2YS9sYW5nL09iamVjdDtMAARldmFsdAARTHNjYWxhL0Z1bmN0aW9uMDt4cgAWeHNidGkuYXBpLkFic3RyYWN0TGF6edN3tQFfu+egAgAAeHAAcHNyACB4c2J0aS5TYWZlTGF6eSQkYW5vbmZ1biRzdHJpY3QkMQAAAAAAAAAAAgABTAAHdmFsdWUkMXEAfgB5eHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgB4AHBzcQB+AH1zcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AYUwACWluaGVyaXRlZHEAfgBhTAAHcGFyZW50c3EAfgBheHEAfgCBc3EAfgB4AHBzcQB+AH11cQB+AFwAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AGJxAH4Aa3VxAH4AbAAAAABzcQB+AG4AcQB+ACl1cQB+AHAAAAAAc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AgHQABFVuaXRzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AIBzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AJ51cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgCLeHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBzdAAFUGxhaW50AARhcmdzc3IAF3hzYnRpLmFwaS5QYXJhbWV0ZXJpemVkFmzuaQPJu38CAAJMAAhiYXNlVHlwZXEAfgCSWwANdHlwZUFyZ3VtZW50c3QAEVtMeHNidGkvYXBpL1R5cGU7eHEAfgCAc3EAfgCRdAAFQXJyYXlxAH4Al3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAABc3EAfgCRdAAGU3RyaW5nc3EAfgCVc3EAfgCYdXEAfgCbAAAAA3NxAH4AnXQABGphdmFzcQB+AJ10AARsYW5ncQB+AKJzcQB+AHgAcHNxAH4AfXVxAH4AXAAAAABzcQB+AHgAcHNxAH4AfXVxAH4AtgAAAAJzcQB+AJF0AAZPYmplY3RxAH4AunNxAH4AkXQAA0FueXEAfgCXdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVEMsyYgdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFAqhPOIPg7KNYBOH7SRBiNHdSiDN
+external apis:
+0 items
+source infos:
+8 items
+/home/bloo/git/StreamX/src/main/scala/DeleteTest.scala -> 
+AAAAAAAAAAA=
+/home/bloo/git/StreamX/src/main/scala/TemporalTest.scala -> 
+AAAAAAAAAAA=
+/home/bloo/git/StreamX/src/main/scala/ThirdTest.scala -> 
+AAAAAAAAAAA=
+/home/bloo/git/StreamX/src/main/scala/before getting it working /FirstTest.scala -> 
+AAAAAAAAAAA=
+/home/bloo/git/StreamX/src/main/scala/before getting it working /ForthTest.scala -> 
+AAAAAAAAAAA=
+/home/bloo/git/StreamX/src/main/scala/before getting it working /NetworkWordCount.scala -> 
+AAAAAAAAAAA=
+/home/bloo/git/StreamX/src/main/scala/filePortTest.scala -> 
+AAAAAAAAAAA=
+/home/bloo/git/StreamX/src/main/scala/fromFileTest.scala -> 
+AAAAAAAAAAA=
+compilations:
+16 items
+00 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQyzJiB1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+01 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ0cfm51cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+02 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ0jiO11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+03 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ05sgh1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+04 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ06e/t1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+05 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ060wR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+06 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ08Uft1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+07 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1HdF51cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+08 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1H1vV1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+09 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1Rn/R1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+10 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1UkRR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+11 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1ZN+x1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+12 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1bVMp1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+13 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1fiap1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+14 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1gtVZ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+15 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABUQ1jb6Z1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAMC9ob21lL2Jsb28vZ2l0L1N0cmVhbVgvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
