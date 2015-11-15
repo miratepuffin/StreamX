@@ -1,2 +1,4 @@
 project
 target
+additionalProjects/generator/generatedData
+prev
