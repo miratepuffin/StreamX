@@ -73,7 +73,7 @@ object decentParseTest {
   def parseCommands(rdd : RDD[String],tempGraph:Graph[VertexId,String]):Graph[VertexId,String] = {
     if(rdd.isEmpty){
       println("empty")
-      status(tempGraph)
+      //status(tempGraph)
       tempGraph
     }
     else{
@@ -90,7 +90,7 @@ object decentParseTest {
   def performOperation (command : Array[String], tempGraph:Graph[VertexId,String]):Graph[VertexId,String] = {
     // Checks if add edge and passes src, dest and edge.
     if (command(0) == "addEdge") {
-      println("add edge") 
+      
       addEdge (Edge(
         command(1).toLong, 
         command(3).toLong, 
@@ -224,11 +224,11 @@ object decentParseTest {
 
   def status (graph:Graph[VertexId,String]) {
     println("Performing batch processing...")
-    graph.triplets.map(triplet =>
-      triplet.srcId + " is the " + 
-      triplet.attr + " of " + 
-      triplet.dstId).collect.foreach(println(_)
-    )
+    //graph.triplets.map(triplet =>
+    //  triplet.srcId + " is the " + 
+    //  triplet.attr + " of " + 
+    //  triplet.dstId).collect.foreach(println(_)
+    //)
 
     graph.vertices.foreach(id => {println(id)})
   }

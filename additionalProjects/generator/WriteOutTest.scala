@@ -12,13 +12,14 @@ object writeOutTest{
 			val gen = genData()
 			pw.write(gen)
 			println(gen)
-			if(count == 100){
+			if(count == 1000){
 				println("inside")
 				count = 0
 				filecount = filecount +1
 				pw.close
-				pw = new PrintWriter(new File("generatedData/inputset"+filecount.toString+".txt"))
 				Thread sleep 5000
+				pw = new PrintWriter(new File("generatedData/inputset"+filecount.toString+".txt"))
+				
 			}
 			count = count +1
 		}
