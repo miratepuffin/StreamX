@@ -64,8 +64,8 @@ object nonTailParseTest {
       val tempGraph: Graph[VertexId, String] = Graph (mainGraph.vertices, mainGraph.edges, 0)
       mainGraph = parseCommands (rdd,tempGraph)
       }
-        status(mainGraph) // method for print statements etc
-
+        //status(mainGraph) // method for print statements etc
+        saveGraph()
         println("Performing batch processing...")
         //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })

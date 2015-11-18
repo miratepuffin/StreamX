@@ -30,3 +30,12 @@ this takes in a date time in the format:
 loadOld yyyy-MM-dd HH:mm:ss
 and will search the prev folder for the closest graph to this date - setting it as the used graph
 
+to run the latest version:
+spark-submit --class "nonTailParseTest" target/scala-2.10/network-word-count_2.10-1.0.jar "additionalProjects/generator/generatedData"
+this will attach it to the folder the generator works in
+
+once this is running and processing batches
+open a new terminal and navigate to additionalProjects/generator and run the gen (scala writeOutTest)
+You may want to cancel it after the first right out, so only one block of data is read in
+(I think the current generator is set to only write out 10, so you may want to change that to 100 or something, just se the number in the while loop)
+Once this is done you will see either a stackoverflow or the itteration that reads this in will freeze once it attempts to save/print any of the data
