@@ -39,3 +39,8 @@ open a new terminal and navigate to additionalProjects/generator and run the gen
 You may want to cancel it after the first right out, so only one block of data is read in
 (I think the current generator is set to only write out 10, so you may want to change that to 100 or something, just se the number in the while loop)
 Once this is done you will see either a stackoverflow or the itteration that reads this in will freeze once it attempts to save/print any of the data
+
+
+Got 10000/1000 working, must increase the stack size in the job (obviously this is a bandaid to the real issue, but who cares AM I RITE)
+Command: spark-submit --driver-java-options -Xss512M --class "nonTailParseTest" target/scala-2.10/network-word-count_2.10-1.0.jar "additionalProjects/generator/generatedData"
+new bit: --driver-java-options -Xss512M

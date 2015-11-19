@@ -63,8 +63,9 @@ object nonTailParseTest {
       if(!rdd.isEmpty){
       val tempGraph: Graph[VertexId, String] = Graph (mainGraph.vertices, mainGraph.edges, 0)
       mainGraph = parseCommands (rdd,tempGraph)
+
       }
-        //status(mainGraph) // method for print statements etc
+        status(mainGraph) // method for print statements etc
         saveGraph()
         println("Performing batch processing...")
         //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
@@ -75,11 +76,12 @@ object nonTailParseTest {
       val rddArray = rdd.collect()
       val commandLength = rddArray.length
       var altGraph: Graph[VertexId,String] = tempGraph
-      for(i <- 0 to (commandLength-1))
-        altGraph = performOperation(rddArray(i).split(" "),altGraph)
-
+      for(i <- 0 to (commandLength-1)) {
+        altGraph = performOperation(rddArray(i).split(" "), altGraph)
+        if(i%100 == 0)
+          println("at: "+i)
+      }
       altGraph
-      //status(altGraph)
 
   }
   // Map these functions to a HashMap,
@@ -220,10 +222,11 @@ object nonTailParseTest {
   def status (graph:Graph[VertexId,String]) {
 
     println("Performing batch processing...")
-    graph.triplets.take(20).map(triplet =>
-      triplet.srcId + " is the " +
-        triplet.attr + " of " +
-        triplet.dstId).array.foreach(println(_))
+    println("edge total: " + graph.edges.count())
+    //graph.triplets.take(20).map(triplet =>
+    //  triplet.srcId + " is the " +
+    //    triplet.attr + " of " +
+    //    triplet.dstId).array.foreach(println(_))
 //    graph.triplets.map(triplet =>
 //      triplet.srcId + " is the " +
 //      triplet.attr + " of " +
