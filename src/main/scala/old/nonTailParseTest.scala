@@ -66,7 +66,7 @@ object nonTailParseTest {
 
       }
         status(mainGraph) // method for print statements etc
-        saveGraph()
+        //saveGraph()
         println("Performing batch processing...")
         //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
