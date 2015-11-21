@@ -50,7 +50,6 @@ object rddReduceTest {
       System.err.println("Please input stream ip:port / file path!")
       System.exit(1)
     }
-    println("Hitler done nothing wrong")
     extractRDD(lines) // Extract RDD inside the dstream
 
     // Run stream and await termination
