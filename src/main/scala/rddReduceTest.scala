@@ -1,3 +1,5 @@
+import java.util
+
 import org.apache.spark._
 import scala.collection.mutable
 import scala.util.control.NonFatal
@@ -14,12 +16,13 @@ import org.apache.log4j.Level
 import org.apache.spark.streaming.dstream.DStream
 import java.util.Date
 import java.io.{PrintWriter, File}
-import scala.collection.mutable.HashMap
+import scala.collection.mutable.{ArrayBuffer, HashSet}
+import java.util.ArrayList
 
 object rddReduceTest {
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
-  val ssc = new StreamingContext(sc, Seconds(15))
+  val ssc = new StreamingContext(sc, Seconds(5))
   var count = 0
 
 
@@ -47,7 +50,8 @@ object rddReduceTest {
       System.err.println("Please input stream ip:port / file path!")
       System.exit(1)
     }
-      extractRDD(lines) // Extract RDD inside the dstream
+    println("Hitler done nothing wrong")
+    extractRDD(lines) // Extract RDD inside the dstream
 
     // Run stream and await termination
     ssc.start() 
@@ -66,38 +70,98 @@ object rddReduceTest {
       val tempGraph: Graph[VertexId, String] = Graph (mainGraph.vertices, mainGraph.edges, 0)
       mainGraph = parseCommands (rdd,tempGraph)
       }
-      status(mainGraph) // method for print statements etc
+      //status(mainGraph) // method for print statements etc
       println("End...")
       //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
   }
   def parseCommands(rdd : RDD[String],tempGraph:Graph[VertexId,String]):Graph[VertexId,String] = {
     var rddArray = reduceRDD(rdd)
+    var rddArray2 = rdd.toArray()
+
     val commandLength = rddArray.length
     var altGraph: Graph[VertexId,String] = Graph (tempGraph.vertices, tempGraph.edges, 0)
-    for(i <- 0 to (commandLength-1)) {
+    for(i <- 0 to (commandLength-1))
       altGraph = performOperation(rddArray(i).split(" "), altGraph)
-      if(i%100 == 0)
-        println("at: "+i)
-    }
+
+    //run without improvments to make sure same graph
+    val commandLength2 = rddArray2.length
+    var altGraph2: Graph[VertexId,String] = Graph (tempGraph.vertices, tempGraph.edges, 0)
+    for(i <- 0 to (commandLength2-1))
+      altGraph2 = performOperation(rddArray2(i).split(" "), altGraph2)
+
+
+    println("one")
+    status(altGraph)
+    println()
+    println("two")
+    status(altGraph2)
+
     altGraph
   }
 
   def reduceRDD (rdd: RDD[String]):Array[String] ={
-    var addList : HashMap[String,Boolean] = new HashMap[String,Boolean]()
-    var rddArrayBuffer = rdd.collect().toBuffer
-    var count = 0
-    val commandLength = rddArrayBuffer.length
-    for(i <- (commandLength-1) to 0 by -1) {
-      if (!addList.contains(rddArrayBuffer(i))) {
-        addList.update(rddArrayBuffer(i), true)
-      }
-      else
-        rddArrayBuffer.remove(i)
-    }
-    println("inner length "+rddArrayBuffer.length)
-    rddArrayBuffer.toArray
+    var newlist : ArrayList[String] = new ArrayList[String]()
+    var rddArray = rdd.collect()
 
+    val commandLength = rddArray.length
+    for(i <- (commandLength-1) to 0 by -1) {
+      var split = rddArray(i).split(" ")
+
+      //------------------Check if Add Edge command happens latter or is negated by a remove ------------------//
+      if(split(0).contains("addEdge")) {
+        if ( (newlist.contains(rddArray(i))) ||
+             (newlist.contains("rmvEdge " + split(1) + " " + split(2) + " " + split(3))) ||
+             (newlist.contains("rmvNode " + split(1))) ||
+             (newlist.contains("rmvNode " + split(3))) ){
+          //do not add to new list as we already have it
+          // also do not add as it is negated lower down
+        }
+        else {
+          newlist.add(rddArray(i)) // add to new list which will be sent back
+        }
+      }
+
+      //------------------Check if Add Node command happens latter or is negated by a remove ------------------//
+      else if(split(0).contains("addNode")){
+        if ( (newlist.contains(rddArray(i))) || (newlist.contains("rmvEdge " + split(1))) ) {
+          //do not add to new list as we already have it
+          // also do not add as it is negated lower down
+        }
+        else{
+           newlist.add(rddArray(i)) // add to new list which will be sent back
+        }
+      }
+
+      //------------------Check if Remove edge command happens latter or is negated by an add ------------------//
+      else if(split(0).contains("rmvEdge")){
+        if ( (newlist.contains(rddArray(i))) || (newlist.contains("addEdge " + split(1) + " " + split(2) + " " + split(3))) ){
+          //do not add to new list as we already have it
+          // also do not add as it is negated lower down
+        }
+        else{
+          newlist.add(rddArray(i)) // add to new list which will be sent back
+        }
+      }
+
+      //------------------Check if Remove node command happens latter ------------------//
+      else if(split(0).contains("rmvNode")){
+        if (newlist.contains(rddArray(i))) {
+          //do not add to new list as we already have it
+        }
+        //we do not check for the negation, as removing a Node removes all connected edges, adding just the node back would not negate that
+        else{
+          newlist.add(rddArray(i)) // add to new list which will be sent back
+        }
+      }
+    }
+    println("old length "+ rddArray.length)
+    val tempBuffer = new ArrayBuffer[String]()
+    val size = newlist.size()-1
+    for(i <- size to 0 by -1)
+      tempBuffer += newlist.get(i)
+    println("new length "+ tempBuffer.length)
+    tempBuffer.toArray
   }
   // Map these functions to a HashMap,
   // and use .drop(1) to pass rest of arr
@@ -237,16 +301,12 @@ object rddReduceTest {
   def status (graph:Graph[VertexId,String]) {
 
     println("Performing batch processing...")
-    println("edge total: " + graph.numEdges.toInt)
-    //graph.triplets.take(20).map(triplet =>
-    //  triplet.srcId + " is the " +
-    //    triplet.attr + " of " +
-    //    triplet.dstId).array.foreach(println(_))
-//    graph.triplets.map(triplet =>
-//      triplet.srcId + " is the " +
-//      triplet.attr + " of " +
-//      triplet.dstId).collect.foreach(println(_)
-    println("vertex total: " + graph.numVertices.toInt)
-    //graph.vertices.foreach(id => {println(id)})
+   println("edge total: " + graph.numEdges.toInt)
+   graph.triplets.map(triplet =>
+     triplet.srcId + " is the " +
+     triplet.attr + " of " +
+     triplet.dstId).foreach(println(_))
+   println("vertex total: " + graph.numVertices.toInt)
+    graph.vertices.foreach(id => {println(id)})
   }
 }

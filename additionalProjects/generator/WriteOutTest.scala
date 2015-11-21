@@ -13,8 +13,8 @@ object WriteOutTest{
 		while(true){
 			val gen = genData()
 			pw.write(gen)
-			//println(gen)
-			if(count == 1000){
+			println(gen)
+			if(count == 20){
 				println("inside")
 				count = 0
 				filecount = filecount +1
@@ -30,13 +30,13 @@ object WriteOutTest{
 	def genData():String={
 		val random: Random = new Random()
 		val probability: Double = random.nextDouble()
-		if(probability<=1.40)
-			"addEdge "+random.nextInt(10) + " dasd " + random.nextInt(10)+ "\n"
-		else if(probability>0.40 && probability <= 0.6)
-			"addNode "+random.nextInt(10) +"\n"
-		else if(probability>0.60 && probability <= 0.8)
-			"rmvEdge "+random.nextInt(10) + " dasd " + random.nextInt(10)+ "\n"
+		if(probability<=0.40)
+			"addEdge "+random.nextInt(5) + " dasd " + random.nextInt(5)+ "\n"
+		else if(probability>0.40 && probability <= 0.7)
+			"addNode "+random.nextInt(5) +"\n"
+		else if(probability>0.70 && probability <= 0.9)
+			"rmvEdge "+random.nextInt(5) + " dasd " + random.nextInt(5)+ "\n"
 		else 
-			"rmvNode "+random.nextInt(10) +"\n"  
+			"rmvNode "+random.nextInt(5) +"\n"
 	}
 }
