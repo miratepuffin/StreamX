@@ -41,38 +41,36 @@ class StreamX(val stream : DStream[String]) {
 			if(!rdd.isEmpty) {
 				var spout : List[String] = rdd.collect().toList
 
-				graph = graphRecursion(spout)
+				graphRecursion(spout)
 			}
 
 			printGraph
 		})
 	}
 
-	def graphRecursion(spout : List[String]) : Graph[String, String] = spout match{
-		case x :: tail => {
-			var data = x.split(" ")
+	def graphRecursion(spout : List[String]) {
+		if (spout.isEmpty) return
 
-			// Get operation command 
-			var operation = data.head
-			var subgraph = Graph(users, edges)
+		var head = spout.head
+		var tail = spout.tail
 
-			try {
+		var data = head.split(" ")
 
-				var function = map.get(operation).get // .get to unwrap Some<function>
-				graph = function(data.tail)    // sub-, or union-, graph of function
+		// Get operation command 
+		var operation = data.head
+		var subgraph = Graph(users, edges)
 
-				return graphRecursion(tail)
+		try {
+			var function = map.get(operation).get // .get to unwrap Some<function>
+			graph = function(data.tail)           // sub-, or union-, graph of function
 
-			} catch {
-				case nse : NoSuchElementException => {
-					println("The method " + operation + " isn't valid.")
-				 	return graphRecursion(tail)
-				}
-			}	
+			graphRecursion(tail)
+		} catch {
+			case nse : NoSuchElementException => {
+				println("The method " + operation + " isn't valid.")
+				graphRecursion(tail)
+			}
 		}
-
-		// Edge cond. Return empty graph
-		case _ => graph
 	}
 
 	// Constucts a new graph from Edges
