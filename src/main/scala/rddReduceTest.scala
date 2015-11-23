@@ -76,14 +76,17 @@ object rddReduceTest {
   }
 
   def parseCommands(rdd: RDD[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
-    var rddArray = reduceRDD(rdd)
+    var addRmvTuple = reduceRDD(rdd)
+    var addEdgeSet = addRmvTuple._1
+    var rmvEdgeSet = addRmvTuple._2
+    var addNodeSet = addRmvTuple._3
+    var rmvNodeSet = addRmvTuple._4
     var rddArray2 = rdd.toArray()
 
-    val commandLength = rddArray.length
-    var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
-    for (i <- 0 to (commandLength - 1))
-      altGraph = performOperation(rddArray(i).split(" "), altGraph)
 
+    var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
+    altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
+    altGraph = graphAdd(altGraph,addEdgeSet,addNodeSet)
     //run without improvments to make sure same graph
     val commandLength2 = rddArray2.length
     var altGraph2: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
@@ -100,110 +103,70 @@ object rddReduceTest {
     altGraph
   }
 
-  def reduceRDD(rdd: RDD[String]): Array[String] = {
-    var newlist: ArrayList[String] = new ArrayList[String]()
+  def reduceRDD(rdd: RDD[String]): (HashSet[String],HashSet[String],HashSet[String],HashSet[String]) = {
+    var addEdgeSet = new HashSet[String]() // as we will not care about order once we are finished
+    var addNodeSet = new HashSet[String]()
+    var rmvEdgeSet = new HashSet[String]() // sets are used so we don't have to check if something is contained
+    var rmvNodeSet = new HashSet[String]()
     var rddArray = rdd.collect()
     val commandLength = rddArray.length
     for (i <- (commandLength - 1) to 0 by -1) {
       var split = rddArray(i).split(" ")
-      //------------------Check if Add Edge command happens latter or is negated by a remove ------------------//
-      if (split(0).contains("addEdge")) {
-        if (!(newlist.contains(rddArray(i))) &&
-          !(newlist.contains("rmvEdge " + split(1) + " " + split(2) + " " + split(3))) &&
-          !(newlist.contains("rmvNode " + split(1))) &&
-          !(newlist.contains("rmvNode " + split(3)))) {
-          //do not add to new list as we already have it
-          // also do not add as it is negated lower down
-          newlist.add(rddArray(i)) // add to new list which will be sent back
-
-        }
-        else
-          println(rddArray(i))
+      var command = split(0)
+      var src = split(1)
+      var msg = ""
+      var dest =""
+      if(split.length > 2) {
+       msg  = split(2)
+       dest = split(3)
       }
+      //------------------Check if Add Edge command happens later or is negated by a remove ------------------//
+      if (command.contains("addEdge"))
+        if(rmvNodeSet.contains("rmvNode " + src)) // check if the src Id is removed lower down
 
-      //------------------Check if Add Node command happens latter or is negated by a remove ------------------//
-      else if (split(0).contains("addNode")) {
-        if (!(newlist.contains(rddArray(i))) &&
-          !(newlist.contains("rmvEdge " + split(1)))) {
-          //do not add to new list as we already have it
-          // also do not add as it is negated lower down
-          newlist.add(rddArray(i)) // add to new list which will be sent back
-        }
-        else
-          println(rddArray(i))
-      }
+          if(!rmvNodeSet.contains("rmvNode " + dest))// if it is then we check if the dest node is also removed, otherwise add it
+            addNodeSet.add("addNode " + dest)
 
-      //------------------Check if Remove edge command happens latter or is negated by an add ------------------//
-      else if (split(0).contains("rmvEdge")) {
-        if (!(newlist.contains(rddArray(i))) &&
-          !(newlist.contains("addEdge " + split(1) + " " + split(2) + " " + split(3)))) {
-          //do not add to new list as we already have it
-          // also do not add as it is negated lower down
-          newlist.add(rddArray(i)) // add to new list which will be sent back
-        }
-        else
-          println(rddArray(i))
-      }
+        else if(rmvNodeSet.contains("rmvNode " + dest)) // check if the dest Id is removed lower down
+          addNodeSet.add("addNode " + src) // no need to check src rmv as we know it is not there from above
 
-      //------------------Check if Remove node command happens latter ------------------//
-      else if (split(0).contains("rmvNode")) {
-        if (!(newlist.contains(rddArray(i)))) {
-          newlist.add(rddArray(i)) // add to new list which will be sent back
-          //do not add to new list as we already have it
+        else if (rmvEdgeSet.contains("rmvEdge " + src + " " + msg + " " + dest)){
+          addNodeSet.add("addNode " + src) //no need to check if they are negated as it is checked above
+          addNodeSet.add("addNode " + dest)
         }
-        else
-          println(rddArray(i))
-        //we do not check for the negation, as removing a Node removes all connected edges, adding just the node back would not negate that
-      }
+        else //if there are no remove nodes or edges then we can add the command to the subset
+          addEdgeSet(rddArray(i))
+
+      //------------------Check if Add Node command happens later or is negated by a remove ------------------//
+      else if (command.contains("addNode"))
+        if (!(rmvNodeSet.contains("rmvNode " + src)))
+          addNodeSet.add(rddArray(i))
+
+      //------------------Check if Remove edge command happens later or is negated by an add ------------------//
+      else if (command.contains("rmvEdge"))
+        if (addEdgeSet.contains("addEdge "+ src + " " + msg + " " + dest)) {} // check if it is negated
+        else if (rmvNodeSet.contains("rmvNode "+ src)){} // check if negated by a node remove below
+        else if (rmvNodeSet.contains("rmvNode "+ dest)){} // check if negated by a node remove below
+        else rmvEdgeSet.add(rddArray(i))
+
+      //------------------Check if Remove node command happens later ------------------//
+      else if (split(0).contains("rmvNode")) //rmv can't be negated as it removes all edges
+        rmvNodeSet.add(rddArray(i)) //again as set no need to check if contains
+
     }
     println("old length " + rddArray.length)
-    val tempBuffer = new ArrayBuffer[String]()
-    val size = newlist.size() - 1
-    for (i <- size to 0 by -1)
-      tempBuffer += newlist.get(i)
-    println("new length " + tempBuffer.length)
-    removeDoubles(tempBuffer.toArray)
+    val size = addNodeSet.size + rmvNodeSet.size + rmvEdgeSet.size + addEdgeSet.size
+    println("new length " + size)
+    (addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet)
   }
 
-  def removeDoubles(rddArray: Array[String]): Array[String] = {
-    var newlist: ArrayBuffer[String] = new ArrayBuffer[String]()
-    var edges = mainGraph.edges.collect()
-    var verts = mainGraph.vertices.collect()
-    val commandLength = rddArray.length
-    for (i <- 0 to (commandLength - 1)) {
-      var split = rddArray(i).split(" ")
-      //------------------Check if Add Edge command happens latter or is negated by a remove ------------------//
-      if (split(0).contains("addEdge")) {
-        if(!edges.contains(new Edge(split(1).toLong,split(3).toLong,split(2))))
-          newlist += rddArray(i)
-        else
-          println(rddArray(i))
-      }
-      //------------------Check if Add Node command happens latter or is negated by a remove ------------------//
-      else if (split(0).contains("addNode")) {
-        if(!edges.contains((split(1).toLong,1L)))
-          newlist += rddArray(i)
-        else
-          println(rddArray(i))
-      }
-      //------------------Check if Remove edge command happens latter or is negated by an add ------------------//
-      else if (split(0).contains("rmvEdge")) {
-        if(!edges.contains(new Edge(split(1).toLong,split(3).toLong,split(2))))
-          newlist += rddArray(i)
-        else
-          println(rddArray(i))
-      }
-      //------------------Check if Remove node command happens latter ------------------//
-      else if (split(0).contains("rmvNode")) {
-        if(edges.contains((split(1).toLong,1L)))
-          newlist += rddArray(i)
-        else
-          println(rddArray(i))
-      }
-    }
-    println("old length " + rddArray.length)
-    println("new length " + newlist.length)
-    newlist.toArray
+
+  def graphRemove(graph: Graph[VertexId,String], rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String]):Graph[VertexId,String]={
+    graph
+  }
+
+  def graphAdd(graph: Graph[VertexId,String], addEdgeSet: HashSet[String],addNodeSet: HashSet[String]):Graph[VertexId,String]={
+    graph
   }
 
   // Map these functions to a HashMap,
