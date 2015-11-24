@@ -69,9 +69,9 @@ object rddReduceTest {
         val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
         mainGraph = parseCommands(rdd, tempGraph)
       }
-      status(mainGraph) // method for print statements etc
-      println("End...")
-      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+//      status(mainGraph) // method for print statements etc
+//      println("End...")
+//      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
   }
 
@@ -111,7 +111,6 @@ object rddReduceTest {
     var rddArray = rdd.collect()
     val commandLength = rddArray.length
     for (i <- (commandLength - 1) to 0 by -1) {
-      println(rddArray(i))
       var split = rddArray(i).split(" ")
       var command = split(0)
       var src = split(1)
@@ -178,18 +177,16 @@ object rddReduceTest {
       //------------------Check if Remove node command happens later ------------------//
       else if (command == "rmvNode") {
           //rmv can't be negated as it removes all edges
-          println("is rmvNode")
+          //println("is rmvNode")
           rmvNodeSet.add(rddArray(i)) //again as set no need to check if contains
         }
-      else println("this shit broke")
-      println("End")
-      println()
+
     }
-    println("old length " + rddArray.length)
-    println("add Node set " + addNodeSet.size)
-    println("add edge set " + addEdgeSet.size)
-    println("remove Node set " + rmvNodeSet.size)
-    println("remove edge set " + rmvEdgeSet.size)
+    //println("old length " + rddArray.length)
+    //println("add Node set " + addNodeSet.size)
+    //println("add edge set " + addEdgeSet.size)
+    //println("remove Node set " + rmvNodeSet.size)
+    //println("remove edge set " + rmvEdgeSet.size)
     (addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet)
   }
 
@@ -203,8 +200,8 @@ object rddReduceTest {
   def edgeChecker (edgeTriplet: EdgeTriplet[VertexId,String], rmvSet: HashSet[String] ):Boolean = {
     rmvSet.foreach(edge => {
       val commandSplit = edge.split(" ")
-      if((edgeTriplet.srcId == (commandSplit(1).toLong)) && (edgeTriplet.dstId == (commandSplit(3).toLong)) || (edgeTriplet.attr == (commandSplit(2)))){
-        println("Removing "+edgeTriplet+" as " + edge )
+      if((edgeTriplet.srcId == (commandSplit(1).toLong)) && (edgeTriplet.dstId == (commandSplit(3).toLong)) && (edgeTriplet.attr == (commandSplit(2)))){
+        //println("Removing "+edgeTriplet+" as " + edge )
         return false
 
       }
@@ -215,7 +212,7 @@ object rddReduceTest {
     rmvSet.foreach(vert => {
       val commandSplit = vert.split(" ")
       if (vertex._1 == commandSplit(1).toLong) {
-        println("Removing " + vertex + " as " + vert)
+        //println("Removing " + vertex + " as " + vert)
         return false
       }
     })
