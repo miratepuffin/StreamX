@@ -23,8 +23,8 @@ class StreamX(val stream : DStream[String]) {
 	var map = Map[String, Array[String] => Graph[String, String]]()
 	map += {"addE"  -> addEdge}
 	map += {"addN"  -> addNode}
-	// map += {"rmvE"  -> rmvEdge}
-	// map += {"rmvN"  -> rmvNode}
+	map += {"rmvE"  -> removeEdge}
+	map += {"rmvN"  -> removeNode}
 	// map += {"loadG" -> loadGraph}
 	// map += {"viewG" -> viewGraph}  viewG yyyy-MM-dd HH:mm:ss
 	 
@@ -41,61 +41,92 @@ class StreamX(val stream : DStream[String]) {
 			if(!rdd.isEmpty) {
 				var spout : List[String] = rdd.collect().toList
 
-				graph = graphUnion(graph, graphRecursion(spout))
+				graphRecursion(spout)
 			}
 
 			printGraph
 		})
 	}
 
-	def graphRecursion(spout : List[String]) : Graph[String, String] = spout match{
-		case x :: tail => {
-			var data = x.split(" ")
+	def graphRecursion(spout : List[String]) {
+		if (spout.isEmpty) return
 
-			// Get function from Map acc. to Key, 
-			// .get to unwrap from Some <function>
-			var operation = map.get(data.head).get
+		var head = spout.head
+		var tail = spout.tail
 
-			// Return graph object as product of operation
-			var subgraph = operation(data.tail)
+		var data = head.split(" ")
 
-			graphUnion(graphRecursion(tail), subgraph)
+		// Get operation command 
+		var operation = data.head
+		var subgraph = Graph(users, edges)
+
+		try {
+			var function = map.get(operation).get // .get to unwrap Some<function>
+			graph = function(data.tail)           // sub-, or union-, graph of function
+
+			graphRecursion(tail)
+		} catch {
+			case nse : NoSuchElementException => {
+				println("The method " + operation + " isn't valid.")
+				graphRecursion(tail)
+			}
 		}
-		case _ => Graph(users, edges)
 	}
 
 	// Constucts a new graph from Edges
 	def addEdge(data : Array[String]) : Graph[String, String] = {
-		var src = data(0).toLong
-		var dst = data(1).toLong
+		var srcId = data(0).toLong
+		var dstId = data(1).toLong
 		var msg = data(2)
 
-		var edge = sc.parallelize(Array(Edge(src, dst, msg)))
-		Graph.fromEdges(edge, "John Doe")
+		var edge = sc.parallelize(Array(Edge(srcId, dstId, msg)))
+		// TODO: Check for diff edges (msg included)
+		//       check bi-directional
+		
+		var inter = edge.intersection(graph.edges)
+
+		if(inter.isEmpty) {
+			Graph(graph.vertices, edge.union(graph.edges))
+		}
+		else {
+			graph
+		}
 	}
 
 	// Adds a new Node to a graph
 	def addNode(data : Array[String]) : Graph[String, String] = {
-		var id = data(0).toLong
+		var srcId = data(0).toLong
 		var name = data(1)
 
-		var user = sc.parallelize(Array((id, name)))
-		Graph(user, edges) // edges is default empty
+		var user = sc.parallelize(Array((srcId, name)))
+		Graph(user.union(graph.vertices), graph.edges)
 	}
 
-	// Takes 2 graph obj. and returns the union
-	def graphUnion(
-		graph1 : Graph[String, String], 
-		graph2 : Graph[String, String]
-	) : Graph[String, String] = {
+	def removeEdge(data : Array[String]) : Graph[String, String] = {
+		var srcId = data(0).toLong
+		var dstId = data(1).toLong
 
-		Graph(
-			graph1.vertices.union(graph2.vertices),
-			graph1.edges.union(graph2.edges)
-		)
+		graph.subgraph(edge => {
+			(edge.srcId != srcId) || (edge.dstId != dstId)
+		})
 	}
+
+	def removeNode(data : Array[String]) : Graph[String, String] = {
+		var srcId = data(0).toLong
+
+		graph.subgraph(vpred = (vId, name) => vId != srcId)
+	}
+	
+	/* 
+		HELPER METHODS
+	*/
 
 	def printGraph() {
+		println("Vertices:")
 		graph.vertices.foreach(x => println(x))
+
+		println("Edges:")
+		println(graph.edges.map(_.copy()).distinct.count)
+		graph.edges.foreach(x => println(x))
 	}
 }
