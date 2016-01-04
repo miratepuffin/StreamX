@@ -33,7 +33,7 @@ object rddReduceTest {
   // Create empty graph
   var mainGraph: Graph[VertexId, String] = Graph.fromEdges(
     sc.parallelize(Array[Edge[String]]()), 0L
-  )
+  ).partitionBy(PartitionStrategy.EdgePartition2D)
 
   def main(args: Array[String]) {
 
@@ -87,20 +87,36 @@ object rddReduceTest {
     var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
     altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
     altGraph = graphAdd(altGraph,addEdgeSet,addNodeSet)
+    altGraph = partition(altGraph)
     //run without improvments to make sure same graph
     val commandLength2 = rddArray2.length
     var altGraph2: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
     for (i <- 0 to (commandLength2 - 1))
       altGraph2 = performOperation(rddArray2(i).split(" "), altGraph2)
-
-
+    altGraph2 = partition(altGraph2)
     println("one")
     status(altGraph)
     println()
     println("two")
     status(altGraph2)
-
+    println()
+    
+    if(graphEqual(altGraph, altGraph2)){
+      println("WOOP WOOP WOOP")
+    }
+    else{
+      println("Shit")
+    }
     altGraph
+  }
+
+  def partition(graph: Graph[VertexId,String])={
+    graph.partitionBy(PartitionStrategy.CanonicalRandomVertexCut).groupEdges((a, b) => {
+        if(a==b){
+          a
+        }
+        else a + " " + b
+      })
   }
 
   def reduceRDD(rdd: RDD[String]): (HashSet[String],HashSet[String],HashSet[String],HashSet[String]) = {
@@ -190,13 +206,13 @@ object rddReduceTest {
     (addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet)
   }
 
-
   def graphRemove(graph: Graph[VertexId,String], rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String]):Graph[VertexId,String]={
 
     var tempGraph = graph.subgraph(epred => edgeChecker(epred,rmvEdgeSet))
     tempGraph = tempGraph.subgraph(vpred = (vid, attr) => nodeChecker((vid, attr) ,rmvNodeSet))
     tempGraph
   }
+
   def edgeChecker (edgeTriplet: EdgeTriplet[VertexId,String], rmvSet: HashSet[String] ):Boolean = {
     rmvSet.foreach(edge => {
       val commandSplit = edge.split(" ")
@@ -208,6 +224,7 @@ object rddReduceTest {
     })
     true
   }
+
   def nodeChecker(vertex : (VertexId,VertexId), rmvSet: HashSet[String]): Boolean = {
     rmvSet.foreach(vert => {
       val commandSplit = vert.split(" ")
@@ -232,10 +249,10 @@ object rddReduceTest {
     var vertGraph: Graph[VertexId, String] = Graph(sc.parallelize(vertArray), sc.parallelize(Array[Edge[String]]()))
     //println("Vert Graph")
     //vertGraph.vertices.foreach(vert => println(vert._1))
-    var edgeGraph: Graph[VertexId, String] = Graph.fromEdges(sc.parallelize(edgeArray), 0L)
+    var edgeGraph: Graph[VertexId, String] = Graph.fromEdges(sc.parallelize(edgeArray), 1L)
     //println("Edge Graph")
     //edgeGraph.triplets.foreach(edge => println(edge.srcId+" "+edge.attr+" "+edge.dstId))
-    var midPointGraph = Graph(edgeGraph.vertices.union(vertGraph.vertices),edgeGraph.edges,0L)
+    var midPointGraph = Graph(edgeGraph.vertices.union(vertGraph.vertices),edgeGraph.edges,1L)
     //println("midPoint Graph")
     //midPointGraph.triplets.foreach(edge => println(edge.srcId+" "+edge.attr+" "+edge.dstId))
     Graph(graph.vertices.union(midPointGraph.vertices),graph.edges.union(midPointGraph.edges))
@@ -278,7 +295,7 @@ object rddReduceTest {
   def addEdge(edge: Edge[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
     // Create a new graph with given edge
     val newgraph: Graph[VertexId, String] = Graph.fromEdges(sc.parallelize(Array(edge)), 1L)
-    Graph(tempGraph.vertices.union(newgraph.vertices), tempGraph.edges.union(newgraph.edges), 0)
+    Graph(tempGraph.vertices.union(newgraph.vertices), tempGraph.edges.union(newgraph.edges), 1L)
   }
 
   def addNode(node: String, tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
@@ -289,7 +306,7 @@ object rddReduceTest {
 
     val newNodes = tempGraph.vertices.union(idRDD)
 
-    Graph(newNodes, tempGraph.edges, 0)
+    Graph(newNodes, tempGraph.edges, 1L)
   }
 
   def removeEdge(fields: Array[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
@@ -375,6 +392,14 @@ object rddReduceTest {
 
     chosen
   }
+
+  def graphEqual(graph1: Graph[VertexId, String],graph2: Graph[VertexId, String]):Boolean = {
+    if((graph1.triplets.subtract(graph2.triplets)).count()!=0){false}
+    else if((graph2.triplets.subtract(graph1.triplets)).count()!=0){false}
+    else if((graph1.vertices.subtract(graph2.vertices)).count()!=0){false}
+    else if((graph2.vertices.subtract(graph1.vertices)).count()!=0){false}
+    else true
+  } 
 
   def status(graph: Graph[VertexId, String]) {
 

@@ -14,7 +14,7 @@ object WriteOutTest{
 			val gen = genData()
 			pw.write(gen)
 			println(gen)
-			if(count == 20){
+			if(count == 30){
 				println("inside")
 				count = 0
 				filecount = filecount +1
