@@ -51,13 +51,12 @@ object rddReduceTest {
       System.exit(1)
     }
     extractRDD(lines) // Extract RDD inside the dstream
-
     // Run stream and await termination
     ssc.start()
     ssc.awaitTermination()
   }
 
-  def extractRDD(lines: DStream[String]) {
+  def extractRDD(lines: DStream[String]){
     // Put RDD in scope
     lines.foreachRDD(rdd => {
       // Count of itterations run
@@ -69,52 +68,46 @@ object rddReduceTest {
         val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
         mainGraph = parseCommands(rdd, tempGraph)
       }
-//      status(mainGraph) // method for print statements etc
-//      println("End...")
-//      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+      //status(mainGraph) // method for print statements etc
+      val testThread = new Thread(new Runnable {
+        def run() {
+          val s = System.currentTimeMillis
+          graphEqual(mainGraph, mainGraph)
+          val s2 = System.currentTimeMillis -s
+          println(s2)
+        }
+      }).start()
+      println("End...")
+      saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
+
   }
 
   def parseCommands(rdd: RDD[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
+    val startTime = System.currentTimeMillis
     var addRmvTuple = reduceRDD(rdd)
     var addEdgeSet = addRmvTuple._1
     var rmvEdgeSet = addRmvTuple._2
     var addNodeSet = addRmvTuple._3
     var rmvNodeSet = addRmvTuple._4
     var rddArray2 = rdd.toArray()
-
+    val endTime = System.currentTimeMillis - startTime
+    println("reduce time = "+endTime)
+    val startTime2 = System.currentTimeMillis
+    
 
     var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
     altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
     altGraph = graphAdd(altGraph,addEdgeSet,addNodeSet)
     altGraph = partition(altGraph)
-    //run without improvments to make sure same graph
-    val commandLength2 = rddArray2.length
-    var altGraph2: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
-    for (i <- 0 to (commandLength2 - 1))
-      altGraph2 = performOperation(rddArray2(i).split(" "), altGraph2)
-    altGraph2 = partition(altGraph2)
-    println("one")
-    status(altGraph)
-    println()
-    println("two")
-    status(altGraph2)
-    println()
-    
-    if(graphEqual(altGraph, altGraph2)){
-      println("WOOP WOOP WOOP")
-    }
-    else{
-      println("Shit")
-    }
+    val endTime2 = System.currentTimeMillis - startTime2
+    println("build time = "+endTime2)
     altGraph
   }
 
   def partition(graph: Graph[VertexId,String])={
     graph.partitionBy(PartitionStrategy.CanonicalRandomVertexCut).groupEdges((a, b) => {
-        if(a==b){
-          a
-        }
+        if(a==b){a}
         else a + " " + b
       })
   }
@@ -258,74 +251,7 @@ object rddReduceTest {
     Graph(graph.vertices.union(midPointGraph.vertices),graph.edges.union(midPointGraph.edges))
   }
 
-  // Map these functions to a HashMap,
-  // and use .drop(1) to pass rest of arr
-  def performOperation(command: Array[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
-    // Checks if add edge and passes src, dest and edge.
-    if (command(0) == "addEdge") {
-
-      addEdge(Edge(
-        command(1).toLong,
-        command(3).toLong,
-        command(2)
-      ), tempGraph)
-    }
-    // Checks if add node and passes ID
-    else if (command(0) == "addNode") {
-      addNode(command(1), tempGraph)
-    }
-    // Checks if remove edge, arr. utilised in subgraph check
-    else if (command(0) == "rmvEdge") {
-      removeEdge(command, tempGraph)
-    }
-    // Checks if remove node and passes ID
-    else if (command(0) == "rmvNode") {
-      removeNode(command(1), tempGraph)
-    }
-    // Checks if loading old graphs and passes date/time
-    else if (command(0) == "loadOld") {
-      readGraph(closestGraph(Array(command(1), command(2))))
-    }
-    else {
-      println("reached else")
-      tempGraph
-    }
-  }
-
-  def addEdge(edge: Edge[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
-    // Create a new graph with given edge
-    val newgraph: Graph[VertexId, String] = Graph.fromEdges(sc.parallelize(Array(edge)), 1L)
-    Graph(tempGraph.vertices.union(newgraph.vertices), tempGraph.edges.union(newgraph.edges), 1L)
-  }
-
-  def addNode(node: String, tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
-    // Create vertex RDD from ID and union with graph
-    val idRDD: RDD[(VertexId, VertexId)] = sc.parallelize(
-      Array((node.toLong, 1)): Array[(VertexId, VertexId)]
-    )
-
-    val newNodes = tempGraph.vertices.union(idRDD)
-
-    Graph(newNodes, tempGraph.edges, 1L)
-  }
-
-  def removeEdge(fields: Array[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
-    //create subgraph based on given fields
-    tempGraph.subgraph(epred => checkEdge(fields, epred))
-  }
-
-  def checkEdge(fields: Array[String], epred: EdgeTriplet[VertexId, String]): Boolean = {
-    (epred.srcId != (fields(1).toLong)) ||
-      (epred.dstId != (fields(3).toLong)) ||
-      (epred.attr != (fields(2)))
-  }
-
-  def removeNode(nodeName: String, tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
-    // Create subgraph where all ID's do not equal given id
-    tempGraph.subgraph(vpred = (vid, attr) => vid != nodeName.toLong)
-  }
-
-  def saveGraph() {
+  def saveGraph(){
     // Write out edges and vertices of graph into file named after current time 
     val timestamp: Long = System.currentTimeMillis //get current time
 
@@ -405,13 +331,13 @@ object rddReduceTest {
 
     println("Performing batch processing...")
     println("edge total: " + graph.numEdges.toInt)
-    graph.triplets.map(triplet =>
-      triplet.srcId + " is the " +
-        triplet.attr + " of " +
-        triplet.dstId).foreach(println(_))
+//    graph.triplets.map(triplet =>
+//      triplet.srcId + " is the " +
+//        triplet.attr + " of " +
+//        triplet.dstId).foreach(println(_))
     println("vertex total: " + graph.numVertices.toInt)
-    graph.vertices.foreach(id => {
-      println(id)
-    })
+//    graph.vertices.foreach(id => {
+//      println(id)
+//   })
   }
 }
