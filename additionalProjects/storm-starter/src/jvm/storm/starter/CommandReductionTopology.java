@@ -38,14 +38,14 @@ public class CommandReductionTopology {
     TopologyBuilder builder = new TopologyBuilder();
     int reduceSplit = 6;
     builder.setSpout("commands", new CommandSpout(), 1);
-    builder.setBolt("reducer",   new ReduceBolt(), reduceSplit).customGrouping( "commands", new CommandGrouping()).allGrouping("combiner");
-    builder.setBolt("combiner",  new CombinerBolt(reduceSplit), 1).shuffleGrouping("reducer");
+    builder.setBolt("reducer",   new ReduceBolt(), reduceSplit).customGrouping( "commands", new CommandGrouping());
+    builder.setBolt("combiner",  new CombinerBolt(reduceSplit), 10).customGrouping("reducer", new CombinerGrouping());
     Config conf = new Config();
     conf.setDebug(false);
 
     LocalCluster cluster = new LocalCluster();
     cluster.submitTopology("test", conf, builder.createTopology());
-    Utils.sleep(100000);
+    Utils.sleep(1000000);
     cluster.killTopology("test");
     cluster.shutdown();
   }

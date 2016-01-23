@@ -1,0 +1,28 @@
+77 addEdge 1 dasd 2
+56 addNode 4
+16 addNode 0
+39 rmvNode 3
+12 addNode 0
+65 addEdge 2 dasd 0
+81 addNode 1
+86 addEdge 0 dasd 4
+100 addEdge 0 dasd 1
+85 addEdge 1 dasd 4
+98 addEdge 4 dasd 3
+49 rmvNode 2
+67 rmvEdge 2 dasd 4
+66 rmvNode 1
+69 addEdge 4 dasd 1
+96 addNode 3
+45 rmvNode 4
+47 addNode 4
+90 addEdge 4 dasd 0
+59.5 addNode 2
+2 addNode 0
+6 addNode 0
+32 addNode 0
+70 rmvEdge 0 dasd 2
+54 addNode 2
+74 addNode 1
+55.5 addNode 4
+88 addEdge 4 dasd 4

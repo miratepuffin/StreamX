@@ -27,9 +27,6 @@ public class CommandGrouping implements CustomStreamGrouping{
 		}
 		else{
 			int id = Integer.parseInt(commandSplit[2].trim());
-			if(commandSplit[1].trim().equals("addNode")){
-				System.out.println("num: "+commandSplit[0]+ " id: "+id +" split: "+ targetTasks.get(id%count));
-			}
 			boltIds.add(targetTasks.get(id%count));
 			return boltIds;
 		}

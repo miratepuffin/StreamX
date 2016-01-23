@@ -48,8 +48,7 @@ import java.io.IOException;
     @Override
     public void execute(Tuple tuple) {
       collector.ack(tuple);
-      String command = tuple.getString(0);
-      //System.out.println(command);
+      String command = tuple.getString(1);
       if(receivedCount!=splitCount){
         if(command.contains("commandCount")){
            totalCommands += Integer.parseInt(command.split(" ")[1].trim());
@@ -58,6 +57,9 @@ import java.io.IOException;
         else{
           addToMap(command);
         }
+      }
+      else if (command.contains("commandCount")){
+        System.out.println("BROKE BROKE");
       }
       else{
         addToMap(command);
@@ -68,10 +70,7 @@ import java.io.IOException;
     }
     public void output(){
       try{
-        //System.out.println("Total Commands: " + totalCommands);
-        //System.out.println("Map Size: " + commands.size());
-        //System.out.println("Should be difference: " + test);
-        //System.out.println("Actual Difference: "+(totalCommands-commands.size()));
+        System.out.println("ID: "+id);
         FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
         BufferedWriter bw = new BufferedWriter(fw);
         for (Map.Entry<String, String> command : commands.entrySet()){
@@ -81,7 +80,6 @@ import java.io.IOException;
       }catch(IOException e){}
       reset();
       fileCount++;
-      collector.emit(new Values("Finished"));
     }
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
@@ -96,6 +94,7 @@ import java.io.IOException;
     }
     private void addToMap(String command){
       String[] commandSplit = command.split(" ");
+      if(command.equals("REMOVED")){receivedCommands++;return;}
       if(commands.get(commandSplit[0])==null){
         commands.put(commandSplit[0],command);  
       }

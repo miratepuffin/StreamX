@@ -26,32 +26,27 @@ import java.io.IOException;
     OutputCollector collector;
     TopologyContext context;
     int id;
-    boolean tickTuple;
-    boolean lastBatchFinished;
+    int otherid;
     ArrayList<Tuple> commands;
     HashMap<String,String> reducedCommands;
+    int batchNumber;
     @Override
     public void prepare(Map conf, TopologyContext context, OutputCollector collector) {
       this.collector = collector;
       commands = new ArrayList<>();
       this.context = context;
       id = context.getThisTaskId();
-      tickTuple =false;
-      lastBatchFinished =true;
+      otherid = context.getThisTaskIndex();
+      batchNumber =0;
     }
 
     @Override
     public void execute(Tuple tuple) {
       if (isTickTuple(tuple)) {
-        tickTuple = true;
-      }
-      else if(tuple.getValue(0).equals("Finished")){
-        lastBatchFinished=true;
-      }
-      else if(tickTuple&&lastBatchFinished){
         reduce();
       }
       else if(!(tuple.getValue(1) instanceof String)){
+        System.out.println("Sdasdasdas");
       }
       else {
         commands.add(tuple);
@@ -60,19 +55,30 @@ import java.io.IOException;
     }
     private void reduce(){
       reduceCommands();
-      collector.emit(new Values("commandCount "+reducedCommands.size()));
+      collector.emit(new Values(batchNumber,"commandCount "+reducedCommands.size()));
       for (Map.Entry<String, String> command : reducedCommands.entrySet()){
-        collector.emit(new Values(command.getValue()));
+        if(command.getValue().split(" ")[1].trim().equals("addNode")){
+          System.out.println(command.getKey() + ": "+command.getValue());
+        }
+        if(command.getValue().split(" ")[1].trim().equals("rmvNode")){
+          if(otherid == 0){
+            collector.emit(new Values(batchNumber,command.getValue()));
+          }
+          else{
+            collector.emit(new Values(batchNumber,"REMOVED"));
+          }   
+        }
+        else {
+          collector.emit(new Values(batchNumber,command.getValue()));
+        }
       }
-      //for(int i =0;)
       commands = new ArrayList<>();
       reducedCommands = null;
-      tickTuple =false;
-      lastBatchFinished=false;
+      batchNumber++;
     }
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-      declarer.declare(new Fields("command"));
+      declarer.declare(new Fields("batch","command"));
     }
     @Override
     public Map<String, Object> getComponentConfiguration() {
@@ -107,28 +113,28 @@ import java.io.IOException;
           // check if the src Id is removed lower down
           if (commandMap.get("rmvNode " + dest)==null) {
             // if it is then we check if the dest node is also removed, otherwise add it
-            commandMap.put("addNode " + dest, num + " addNode " + dest);
+            commandMap.put("addNode " + dest, num + " addNode " + dest+"\n");
           }
         }
 
         else if (commandMap.get("rmvNode " + dest)!=null) {
           // check if the dest Id is removed lower down
-          commandMap.put("addNode " + src, num + " addNode " + src); // no need to check src rmv as we know it is not there from above
+          commandMap.put("addNode " + src, num + " addNode " + src+"\n"); // no need to check src rmv as we know it is not there from above
         }
 
         else if (commandMap.get("rmvEdge " + src + " " + msg + " " + dest)!=null) {
-          commandMap.put("addNode " + src, num + " addNode " + src); //no need to check if they are negated as it is checked above
-          commandMap.put("addNode " + dest, num + ".5 addNode " + dest); //.5 command as the singular is split into 2
+          commandMap.put("addNode " + src, num + " addNode " + src+"\n"); //no need to check if they are negated as it is checked above
+          commandMap.put("addNode " + dest, num + ".5 addNode " + dest+"\n"); //.5 command as the singular is split into 2
         }
         else {
           //if there are no remove nodes or edges then we can add the command to the subset
-          commandMap.put("addEdge " + src + " " + msg + " " + dest,commandFull);
+          commandMap.put("addEdge " + src + " " + msg + " " + dest,commandFull+"\n");
         }
       }
       //------------------Check if Add Node command happens later or is negated by a remove ------------------//
       else if (command.equals("addNode")) {
         if (commandMap.get("rmvNode " + src)==null) {
-          commandMap.put("addNode"+src,commandFull);
+          commandMap.put("addNode "+src,commandFull+"\n");
         }
       }
       //------------------Check if Remove edge command happens later or is negated by an add ------------------//
@@ -136,16 +142,16 @@ import java.io.IOException;
         if (commandMap.get("addEdge " + src + " " + msg + " " + dest)!=null) {} // check if it is negated
         else if (commandMap.get("rmvNode " + src)!=null) {} // check if negated by a node remove below
         else if (commandMap.get("rmvNode " + dest)!=null) {} // check if negated by a node remove below
-        else {commandMap.put("rmvEdge " + src + " " + msg + " " + dest,commandFull);}
+        else {commandMap.put("rmvEdge " + src + " " + msg + " " + dest,commandFull+"\n");}
         }
 
       //------------------Check if Remove node command happens later ------------------//
       else if (command.equals("rmvNode")) {
-          commandMap.put("rmvNode " + src,commandFull); //again as set no need to check if contains
+          commandMap.put("rmvNode " + src,commandFull+"\n"); //again as set no need to check if contains
         }
     }
     reducedCommands = commandMap;
-    System.out.println("Before: "+commands.size() +" After:"+reducedCommands.size());
+    System.out.println("ID: " + otherid + " Before: "+commands.size() +" After:"+reducedCommands.size());
   }
 
 

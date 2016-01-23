@@ -8,7 +8,7 @@ import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
-
+import java.io.*;
 import java.util.Map;
 import java.util.Random;
 
@@ -17,16 +17,38 @@ public class CommandSpout extends BaseRichSpout {
   Random random;
   long count;
   int id;
+  boolean flip;
   @Override
   public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
     this.collector = collector;
     random = new Random();
     count = 0;
     id = context.getThisTaskId();
+    flip =true;
   }
 
   @Override
   public void nextTuple() {
+    if(flip){
+      readTest();
+      flip=!flip;  
+    }
+    
+  }
+  public void readTest(){
+     try {
+            FileReader fileReader = new FileReader("input/inputset0.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = "";
+            while((line = bufferedReader.readLine()) != null) {
+              collector.emit(new Values(id,count+" "+line));
+              count++;
+            }
+            bufferedReader.close();         
+        }
+        catch(Exception ex) {}
+  }
+  public void genRow(){
     double probability = random.nextDouble();
     String command = count + " " ;
     if(probability<=0.40)

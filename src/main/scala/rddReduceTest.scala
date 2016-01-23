@@ -18,6 +18,7 @@ import java.util.Date
 import java.io.{PrintWriter, File}
 import scala.collection.mutable.{ArrayBuffer, HashSet}
 import java.util.ArrayList
+import java.io._
 
 object rddReduceTest {
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
@@ -95,6 +96,7 @@ object rddReduceTest {
     println("reduce time = "+endTime)
     val startTime2 = System.currentTimeMillis
     
+    writeOut(addEdgeSet,addNodeSet,rmvEdgeSet,rmvNodeSet)
 
     var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
     altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
@@ -326,6 +328,23 @@ object rddReduceTest {
     else if((graph2.vertices.subtract(graph1.vertices)).count()!=0){false}
     else true
   } 
+
+  def writeOut (addEdgeSet: HashSet[String],addNodeSet: HashSet[String],rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String]) {
+    val pw = new PrintWriter(new File("Output/output.txt"))
+    addEdgeSet.toArray.map(edge => {
+      pw.write(edge+"\n")
+    })
+    addNodeSet.toArray.map(edge => {
+      pw.write(edge+"\n")
+    })  
+    rmvEdgeSet.toArray.map(edge => {
+      pw.write(edge+"\n")
+    })  
+    rmvNodeSet.toArray.map(edge => {
+      pw.write(edge+"\n")
+    }) 
+    pw.close   
+  }
 
   def status(graph: Graph[VertexId, String]) {
 
