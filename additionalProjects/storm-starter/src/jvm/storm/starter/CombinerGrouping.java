@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class CombinerGrouping implements CustomStreamGrouping{
-	List<Integer> targetTasks;
-	int count;
+	List<Integer> targetTasks; //list of combiner tasks available
+	int count; // number of combiner tasts
 	WorkerTopologyContext context;
 	GlobalStreamId stream;
 	public void prepare(WorkerTopologyContext context, GlobalStreamId stream, List<Integer> targetTasks){
@@ -20,8 +20,8 @@ public class CombinerGrouping implements CustomStreamGrouping{
 	}
 	public List<Integer> chooseTasks(int taskId, List<Object> values){
 		List<Integer> boltIds = new ArrayList();
-		int batch = (int) values.get(0);
-		boltIds.add(targetTasks.get(batch%count));
-		return boltIds;
+		int batch = (int) values.get(0); // extract the batch number from the tuple
+		boltIds.add(targetTasks.get(batch%count)); // select the combiner dealing with this batch
+		return boltIds; // return the combiner id
 	}
 }

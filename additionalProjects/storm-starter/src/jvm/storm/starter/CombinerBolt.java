@@ -31,7 +31,6 @@ import java.io.IOException;
     int receivedCount;
     int totalCommands;
     int receivedCommands;
-    int test =0;
     
     public CombinerBolt(int splitCount){
       this.splitCount  = splitCount;
@@ -67,6 +66,10 @@ import java.io.IOException;
           output();
         }
       }
+      if((receivedCount!=splitCount)&&(totalCommands==0)){
+        reset();
+        fileCount++;
+      }
     }
     public void output(){
       try{
@@ -88,20 +91,13 @@ import java.io.IOException;
     private void reset(){
       receivedCount    = 0;
       totalCommands    = 0;
-      test=0;
       receivedCommands = 0;
       commands = new HashMap<>();
     }
     private void addToMap(String command){
-      String[] commandSplit = command.split(" ");
-      if(command.equals("REMOVED")){receivedCommands++;return;}
-      if(commands.get(commandSplit[0])==null){
-        commands.put(commandSplit[0],command);  
-      }
-      else{
-        if(commandSplit[1].trim().equals("rmvNode")){
-          test++;
-        }
+      if(command.equals("REMOVED")){}
+      else if(commands.get(command)==null){
+        commands.put(command,command);  
       }
       receivedCommands++;
     }

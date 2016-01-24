@@ -26,31 +26,18 @@ public class CommandSpout extends BaseRichSpout {
     id = context.getThisTaskId();
     flip =true;
   }
-
   @Override
   public void nextTuple() {
-    if(flip){
-      readTest();
-      flip=!flip;  
-    }
+      if(flip){
+        readTest();
+        flip=!flip;  
+      }
+    //genRow();
     
-  }
-  public void readTest(){
-     try {
-            FileReader fileReader = new FileReader("input/inputset0.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = "";
-            while((line = bufferedReader.readLine()) != null) {
-              collector.emit(new Values(id,count+" "+line));
-              count++;
-            }
-            bufferedReader.close();         
-        }
-        catch(Exception ex) {}
   }
   public void genRow(){
     double probability = random.nextDouble();
-    String command = count + " " ;
+    String command = "" ;
     if(probability<=0.40)
       command += "addEdge "+random.nextInt(5) + " Relation " + random.nextInt(5)+ "\n";
     else if(probability>0.40 && probability <= 0.7)
@@ -59,10 +46,23 @@ public class CommandSpout extends BaseRichSpout {
       command += "rmvEdge "+random.nextInt(5) + " Relation " + random.nextInt(5)+ "\n";
     else 
       command += "rmvNode "+random.nextInt(5) +"\n";
+    collector.emit(new Values(id,command,count));
     count++;
-    collector.emit(new Values(id,command));
+  }
+  public void readTest(){
+     try {
+            FileReader fileReader = new FileReader("input/inputset0.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = "";
+            while((line = bufferedReader.readLine()) != null) {
+              collector.emit(new Values(id,line,count));
+              count++;
+            }
+            bufferedReader.close();         
+        }
+        catch(Exception ex) {}
   }
   @Override public void ack(Object id) {}
   @Override public void fail(Object id) {}
-  @Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("spoutID","commands"));}
+  @Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("spoutID","commands","count"));}
 }

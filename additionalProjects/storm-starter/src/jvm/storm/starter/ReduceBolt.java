@@ -57,9 +57,6 @@ import java.io.IOException;
       reduceCommands();
       collector.emit(new Values(batchNumber,"commandCount "+reducedCommands.size()));
       for (Map.Entry<String, String> command : reducedCommands.entrySet()){
-        if(command.getValue().split(" ")[1].trim().equals("addNode")){
-          System.out.println(command.getKey() + ": "+command.getValue());
-        }
         if(command.getValue().split(" ")[1].trim().equals("rmvNode")){
           if(otherid == 0){
             collector.emit(new Values(batchNumber,command.getValue()));
@@ -76,21 +73,6 @@ import java.io.IOException;
       reducedCommands = null;
       batchNumber++;
     }
-    @Override
-    public void declareOutputFields(OutputFieldsDeclarer declarer) {
-      declarer.declare(new Fields("batch","command"));
-    }
-    @Override
-    public Map<String, Object> getComponentConfiguration() {
-    Config conf = new Config();
-    int tickFrequencyInSeconds = 1;
-    conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, tickFrequencyInSeconds);
-    return conf;
-    }
-    private static boolean isTickTuple(Tuple tuple) {
-    return tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
-        && tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID);
-    }
 
 
   public void reduceCommands() {
@@ -99,42 +81,41 @@ import java.io.IOException;
     for (int i =(commands.size()-1);i>=0;i--) {
       String commandFull = commands.get(i).getString(1);
       String[] split = commandFull.split(" ");
-      String num = split[0];
-      String command = split[1];
-      String src = split[2];
+      String command = split[0];
+      String src = split[1];
       String msg = "";
       String dest ="";
-      if(split.length > 3) {
-       msg  = split[3];
-       dest = split[4];
+      if(split.length > 2) {
+       msg  = split[2];
+       dest = split[3];
       }
       if (command.equals("addEdge")) {
         if (commandMap.get("rmvNode " + src)!=null) {
           // check if the src Id is removed lower down
           if (commandMap.get("rmvNode " + dest)==null) {
             // if it is then we check if the dest node is also removed, otherwise add it
-            commandMap.put("addNode " + dest, num + " addNode " + dest+"\n");
+            commandMap.put("addNode " + dest.trim(),"addNode " + dest.trim()+"\n");
           }
         }
 
         else if (commandMap.get("rmvNode " + dest)!=null) {
           // check if the dest Id is removed lower down
-          commandMap.put("addNode " + src, num + " addNode " + src+"\n"); // no need to check src rmv as we know it is not there from above
+          commandMap.put("addNode " + src.trim(),"addNode " + src.trim()+"\n"); // no need to check src rmv as we know it is not there from above
         }
 
         else if (commandMap.get("rmvEdge " + src + " " + msg + " " + dest)!=null) {
-          commandMap.put("addNode " + src, num + " addNode " + src+"\n"); //no need to check if they are negated as it is checked above
-          commandMap.put("addNode " + dest, num + ".5 addNode " + dest+"\n"); //.5 command as the singular is split into 2
+          commandMap.put("addNode " + src.trim(), "addNode " + src.trim()+"\n"); //no need to check if they are negated as it is checked above
+          commandMap.put("addNode " + dest.trim(),"addNode " + dest.trim()+"\n"); //.5 command as the singular is split into 2
         }
         else {
           //if there are no remove nodes or edges then we can add the command to the subset
-          commandMap.put("addEdge " + src + " " + msg + " " + dest,commandFull+"\n");
+          commandMap.put("addEdge " + src + " " + msg + " " + dest.trim(),commandFull.trim()+"\n");
         }
       }
       //------------------Check if Add Node command happens later or is negated by a remove ------------------//
       else if (command.equals("addNode")) {
         if (commandMap.get("rmvNode " + src)==null) {
-          commandMap.put("addNode "+src,commandFull+"\n");
+          commandMap.put("addNode "+src.trim(),commandFull.trim()+"\n");
         }
       }
       //------------------Check if Remove edge command happens later or is negated by an add ------------------//
@@ -142,17 +123,34 @@ import java.io.IOException;
         if (commandMap.get("addEdge " + src + " " + msg + " " + dest)!=null) {} // check if it is negated
         else if (commandMap.get("rmvNode " + src)!=null) {} // check if negated by a node remove below
         else if (commandMap.get("rmvNode " + dest)!=null) {} // check if negated by a node remove below
-        else {commandMap.put("rmvEdge " + src + " " + msg + " " + dest,commandFull+"\n");}
+        else {commandMap.put("rmvEdge " + src + " " + msg + " " + dest.trim(),commandFull.trim()+"\n");}
         }
 
       //------------------Check if Remove node command happens later ------------------//
       else if (command.equals("rmvNode")) {
-          commandMap.put("rmvNode " + src,commandFull+"\n"); //again as set no need to check if contains
+          commandMap.put("rmvNode " + src.trim(),commandFull.trim()+"\n"); //again as set no need to check if contains
         }
     }
     reducedCommands = commandMap;
     System.out.println("ID: " + otherid + " Before: "+commands.size() +" After:"+reducedCommands.size());
   }
 
+  private static boolean isTickTuple(Tuple tuple) {
+    return tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
+        && tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID);
+  }
+
+  @Override
+  public void declareOutputFields(OutputFieldsDeclarer declarer) {
+    declarer.declare(new Fields("batch","command"));
+  }
+
+  @Override
+  public Map<String, Object> getComponentConfiguration() {
+    Config conf = new Config();
+    int tickFrequencyInSeconds = 1;
+    conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, tickFrequencyInSeconds);
+    return conf;
+  }
 
 }

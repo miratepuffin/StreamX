@@ -22,14 +22,14 @@ public class CommandGrouping implements CustomStreamGrouping{
 		List<Integer> boltIds = new ArrayList();
 		String command = (String) values.get(1);
 		String[] commandSplit = command.split(" ");
-		if(commandSplit[1].trim().equals("rmvNode")){
+		if(commandSplit[0].trim().equals("rmvNode")){
 			return targetTasks;
 		}
 		else{
-			int id = Integer.parseInt(commandSplit[2].trim());
-			if(commandSplit[1].trim().equals("addNode")){
-				System.out.println("num: "+commandSplit[0]+ " id: "+id +" split: "+ targetTasks.get(id%count));
-			}
+			int id = Integer.parseInt(commandSplit[1].trim());
+			// if(commandSplit[1].trim().equals("addNode")){
+			// 	System.out.println("num: "+commandSplit[0]+ " id: "+id +" split: "+ targetTasks.get(id%count));
+			// }
 			boltIds.add(targetTasks.get(id%count));
 			return boltIds;
 		}
