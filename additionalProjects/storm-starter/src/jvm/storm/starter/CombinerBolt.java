@@ -31,7 +31,7 @@ import java.io.IOException;
     int receivedCount;
     int totalCommands;
     int receivedCommands;
-    
+    int localid;
     public CombinerBolt(int splitCount){
       this.splitCount  = splitCount;
       reset();
@@ -42,6 +42,7 @@ import java.io.IOException;
       this.context = context;
       id = context.getThisTaskId();
       fileCount =0;
+      localid = context.getThisTaskIndex();
     }
 
     @Override
@@ -51,49 +52,61 @@ import java.io.IOException;
       if(receivedCount!=splitCount){
         if(command.contains("commandCount")){
            totalCommands += Integer.parseInt(command.split(" ")[1].trim());
+           System.out.println(command.split(" ")[1].trim()+ "NEW VALUES: "+totalCommands);
+           //System.out.println(fileCount+" Total commands:"+totalCommands);
            receivedCount++;
+           if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
+              output();
+           }
         }
         else{
           addToMap(command);
         }
       }
       else if (command.contains("commandCount")){
-        System.out.println("BROKE BROKE");
+        System.out.println(localid+ ": BROKE BROKE "+ receivedCommands+ " "+totalCommands); 
       }
       else{
         addToMap(command);
+        //System.out.println(localid+": RE: "+ receivedCommands+" TC: "+totalCommands);
         if(receivedCommands == totalCommands){
           output();
         }
       }
-      if((receivedCount!=splitCount)&&(totalCommands==0)){
+      if((receivedCount==splitCount)&&(totalCommands==0)){
+        System.out.println("EMPTY");
         reset();
         fileCount++;
       }
     }
+
+
     public void output(){
       try{
-        System.out.println("ID: "+id);
+        //System.out.println("ID: "+id);
         FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
         BufferedWriter bw = new BufferedWriter(fw);
         for (Map.Entry<String, String> command : commands.entrySet()){
           bw.write(command.getValue());
         }
+        bw.write("END OF FILE");
         bw.close();
+        System.out.println("output/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
       }catch(IOException e){}
       reset();
       fileCount++;
     }
-    @Override
-    public void declareOutputFields(OutputFieldsDeclarer declarer) {
-      declarer.declare(new Fields("finished"));
-    }
+
+
     private void reset(){
+      //System.out.println(localid+": Resetting");
       receivedCount    = 0;
       totalCommands    = 0;
       receivedCommands = 0;
       commands = new HashMap<>();
     }
+
+
     private void addToMap(String command){
       if(command.equals("REMOVED")){}
       else if(commands.get(command)==null){
@@ -101,4 +114,9 @@ import java.io.IOException;
       }
       receivedCommands++;
     }
+    @Override
+    public void declareOutputFields(OutputFieldsDeclarer declarer) {
+      declarer.declare(new Fields("finished"));
+    }
+
   }

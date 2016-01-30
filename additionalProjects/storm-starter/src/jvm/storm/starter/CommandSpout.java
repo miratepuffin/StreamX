@@ -28,24 +28,25 @@ public class CommandSpout extends BaseRichSpout {
   }
   @Override
   public void nextTuple() {
-      if(flip){
-        readTest();
-        flip=!flip;  
-      }
-    //genRow();
+      // if(flip){
+      //   readTest();
+      //   flip=!flip;  
+      // }
+    genRow();
     
   }
   public void genRow(){
+    //Utils.sleep();
     double probability = random.nextDouble();
     String command = "" ;
-    if(probability<=0.40)
-      command += "addEdge "+random.nextInt(5) + " Relation " + random.nextInt(5)+ "\n";
-    else if(probability>0.40 && probability <= 0.7)
-      command += "addNode "+random.nextInt(5) +"\n";
+    if(probability<=0.70)
+      command += "addEdge "+random.nextInt(500) + " Relation " + random.nextInt(500)+ "\n";
     else if(probability>0.70 && probability <= 0.9)
-      command += "rmvEdge "+random.nextInt(5) + " Relation " + random.nextInt(5)+ "\n";
+      command += "addNode "+random.nextInt(500) +"\n";
+    //else if(probability>0.70 && probability <= 1)
+    //  command += "rmvEdge "+random.nextInt(5) + " Relation " + random.nextInt(5)+ "\n";
     else 
-      command += "rmvNode "+random.nextInt(5) +"\n";
+      command += "rmvNode "+random.nextInt(500) +"\n";
     collector.emit(new Values(id,command,count));
     count++;
   }
