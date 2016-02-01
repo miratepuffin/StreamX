@@ -20,7 +20,10 @@ import scala.collection.mutable.{ArrayBuffer, HashSet}
 import java.util.ArrayList
 import java.io._
 
-object rddReduceTest {
+object combineTest {
+  // define the type used to store the list of documents that come in
+  type docList = ArrayList[Tuple6[HashSet[String],HashSet[String],HashSet[String],HashSet[String],Int,Int]] 
+
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
   val ssc = new StreamingContext(sc, Seconds(5))
@@ -51,21 +54,6 @@ object rddReduceTest {
       System.err.println("Please input stream ip:port / file path!")
       System.exit(1)
     }
-
-    // lines.foreachRDD(rdd => {
-    //   println(rdd.count())
-    //   var fileCount = 0;
-    //   rdd.foreach(line => {
-
-    //       if(line == "END OF FILE"){
-    //         fileCount = fileCount+1;
-    //         println("Files Encountered: "+fileCount);
-    //       }
-
-    //     })
-    // })
-
-
     extractRDD(lines) // Extract RDD inside the dstream
     // Run stream and await termination
     ssc.start()
@@ -82,40 +70,37 @@ object rddReduceTest {
       // otherwise; causes empty collection exception.
       if (!rdd.isEmpty) {
         val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
-        mainGraph = parseCommands(rdd, tempGraph)
+        mainGraph = parseCommands(rdd, tempGraph,count)
       }
-      //status(mainGraph) // method for print statements etc
-      // val testThread = new Thread(new Runnable {
-      //   def run() {
-      //     val s = System.currentTimeMillis
-      //     graphEqual(mainGraph, mainGraph)
-      //     val s2 = System.currentTimeMillis -s
-      //     println(s2)
-      //   }
-      // }).start()
+     
       println("End...")
       //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
-
   }
 
-  def parseCommands(rdd: RDD[String], tempGraph: Graph[VertexId, String]): Graph[VertexId, String] = {
+  def parseCommands(rdd: RDD[String], tempGraph: Graph[VertexId, String],count:Int): Graph[VertexId, String] = {
     val startTime = System.currentTimeMillis
-    var addRmvTuple = reduceRDD(rdd)
-    var addEdgeSet = addRmvTuple._1
-    var rmvEdgeSet = addRmvTuple._2
-    var addNodeSet = addRmvTuple._3
-    var rmvNodeSet = addRmvTuple._4
+    var fileList = splitRDD(rdd, count)
     val endTime = System.currentTimeMillis - startTime
-    println("reduce time = "+endTime)
+    println("split time = "+endTime)
     val startTime2 = System.currentTimeMillis
-    
-    writeOut(addEdgeSet,addNodeSet,rmvEdgeSet,rmvNodeSet)
 
     var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
-    altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
-    altGraph = graphAdd(altGraph,addEdgeSet,addNodeSet)
-    altGraph = partition(altGraph)
+    
+    //
+    for(i <- 0 to (fileList.size()-1) by 1){
+      val tuple = fileList.get(i)
+      System.out.println("ID =" + tuple._5+ " Batch ="+tuple._6)
+      var addEdgeSet = tuple._1
+      var rmvEdgeSet = tuple._2
+      var addNodeSet = tuple._3
+      var rmvNodeSet = tuple._4
+      altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
+      altGraph = graphAdd(altGraph,addEdgeSet,addNodeSet)
+      altGraph = partition(altGraph)
+      writeOut(addEdgeSet,addNodeSet,rmvEdgeSet,rmvNodeSet,count,i)
+    }
+    
     val endTime2 = System.currentTimeMillis - startTime2
     println("build time = "+endTime2)
     altGraph
@@ -128,91 +113,132 @@ object rddReduceTest {
       })
   }
 
-  def reduceRDD(rdd: RDD[String]): (HashSet[String],HashSet[String],HashSet[String],HashSet[String]) = {
+  def splitRDD(rdd: RDD[String],count: Int):docList = {
     var addEdgeSet = new HashSet[String]() // as we will not care about order once we are finished
     var addNodeSet = new HashSet[String]()
     var rmvEdgeSet = new HashSet[String]() // sets are used so we don't have to check if something is contained
     var rmvNodeSet = new HashSet[String]()
+    var id = 0;
+    var batch = 0;
+    var fileList = new docList()
     var rddArray = rdd.collect()
     val commandLength = rddArray.length
-    for (i <- (commandLength - 1) to 0 by -1) {
+    for (i <- 0 to (commandLength - 1) by 1) { // go backwards so files read first are split first (We begin at length -2 as last pos is always END OF FILE )
       var split = rddArray(i).split(" ")
       var command = split(0)
-      var src = split(1)
-      var msg = ""
-      var dest =""
-      if(split.length > 2) {
-       msg  = split(2)
-       dest = split(3)
-      }
-      //------------------Check if Add Edge command happens later or is negated by a remove ------------------//
+      //------------------Check if Add Edge command ------------------//
       if (command == "addEdge") {
-       // println("is add edge")
-        if (rmvNodeSet.contains("rmvNode " + src)) {
-          // check if the src Id is removed lower down
-          //println("remove src node counter")
-          if (!rmvNodeSet.contains("rmvNode " + dest)) {
-            // if it is then we check if the dest node is also removed, otherwise add it
-            addNodeSet.add("addNode " + dest)
-           // println("adding dest node")
-          }
-        }
-
-        else if (rmvNodeSet.contains("rmvNode " + dest)) {
-          // check if the dest Id is removed lower down
-          addNodeSet.add("addNode " + src) // no need to check src rmv as we know it is not there from above
-         // println("adding src node")
-        }
-        else if (rmvEdgeSet.contains("rmvEdge " + src + " " + msg + " " + dest)) {
-          addNodeSet.add("addNode " + src) //no need to check if they are negated as it is checked above
-          addNodeSet.add("addNode " + dest)
-          //println("removing edge, still adding nodes")
-        }
-        else {
-          //println("adding the edge - no contra")
-          //if there are no remove nodes or edges then we can add the command to the subset
-          addEdgeSet.add(rddArray(i))
-        }
+        addEdgeSet.add(rddArray(i))
       }
-      //------------------Check if Add Node command happens later or is negated by a remove ------------------//
+      //------------------Check if Add Node command ------------------//
       else if (command == "addNode") {
-        if (!(rmvNodeSet.contains("rmvNode " + src))) {
-          addNodeSet.add(rddArray(i))
-          //println("adding node as no contra")
-        }
+        addNodeSet.add(rddArray(i))
       }
-      //------------------Check if Remove edge command happens later or is negated by an add ------------------//
+      //------------------Check if Remove edge command ------------------//
       else if (command == "rmvEdge" ) {
-          //println("is rmvEdge")
-          if (addEdgeSet.contains("addEdge " + src + " " + msg + " " + dest)) {
-          //  println("contra add")
-          } // check if it is negated
-          else if (rmvNodeSet.contains("rmvNode " + src)) {
-          //  println("src being removed already")
-          } // check if negated by a node remove below
-          else if (rmvNodeSet.contains("rmvNode " + dest)) {
-          //  println("dest being removed already")
-          } // check if negated by a node remove below
-          else {
-            rmvEdgeSet.add(rddArray(i))
-         //   println("no contra - adding remove")
-          }
-        }
+        rmvEdgeSet.add(rddArray(i))
+      }
 
-      //------------------Check if Remove node command happens later ------------------//
+      //------------------Check if Remove node command ------------------//
       else if (command == "rmvNode") {
-          //rmv can't be negated as it removes all edges
-          //println("is rmvNode")
-          rmvNodeSet.add(rddArray(i)) //again as set no need to check if contains
-        }
+        rmvNodeSet.add(rddArray(i)) //again as set no need to check if contains
+      }
+
+      //------------------Check if end of file ------------------//
+      else if (command =="FILE_INFO"){
+        println("HELLO")
+        id = split(1).toInt
+        batch = split(2).toInt
+      }
+      //------------------Check if end of file ------------------//
+      else if (command == "END_OF_FILE"){
+        fileList.add((addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet,id,batch)) // add everything from file into tuple4 and reset sets
+        addEdgeSet = new HashSet[String]() // as we will not care about order once we are finished
+        addNodeSet = new HashSet[String]()
+        rmvEdgeSet = new HashSet[String]() // sets are used so we don't have to check if something is contained
+        rmvNodeSet = new HashSet[String]()
+        id =0;
+        batch = 0;
+      }
 
     }
-    //println("old length " + rddArray.length)
-    //println("add Node set " + addNodeSet.size)
-    //println("add edge set " + addEdgeSet.size)
-    //println("remove Node set " + rmvNodeSet.size)
-    //println("remove edge set " + rmvEdgeSet.size)
-    (addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet)
+    println("Ending that loop fam")
+    //fileList.add((addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet)) // last one (or if there is only one file) will not have end of file entry so must be down after loop
+    sortFileList(fileList) //return the list
+  }
+
+  def sortFileList (fileList:docList): docList = {
+    var size = fileList.size
+    var head = subList(fileList,0,(size/2))
+    var tail = subList(fileList,(size/2),size)
+    if(fileList.size==0){
+      println("ZERO")
+      fileList
+    }
+    else if(fileList.size==1){
+      println("ONE")
+      fileList
+    }
+    else{
+      var size = fileList.size
+      //head = sortFileList(fileList.subList(0,(size/2)).asInstanceOf[docList])
+      //tail = sortFileList(fileList.subList((size/2),size).asInstanceOf[docList])
+      //head = subList(fileList,0,(size/2))
+      //tail = subList(fileList,(size/2),size)
+      head = sortFileList(head)
+      tail = sortFileList(tail)
+      println("SPLIT")
+    }
+    combineFileLists(head,tail)
+  }
+  def subList (fileList:docList,start:Int,end:Int):docList = {
+    var sublist = new docList()
+    for (i <- start to (end-1) by 1) {
+      sublist.add(fileList.get(i))
+    }
+    sublist
+
+  }
+
+  def combineFileLists(head:docList , tail:docList ): docList ={
+
+    var fileList = new docList()
+    var check = true
+    while (check) {
+      if (head.size==0){
+        fileList.addAll(tail)
+        check=false
+      }
+      else if (tail.size==0){
+        fileList.addAll(head)
+        check = false
+      }
+      else {
+        var headID = head.get(0)._5
+        var headBatch = head.get(0)._6
+        var tailID = tail.get(0)._5
+        var tailBatch = tail.get(0)._6
+
+        if (headBatch==tailBatch) {
+          if (headID < tailID) {
+            fileList.add(head.get(0))
+            head.remove(0)
+          } else { 
+            fileList.add(tail.get(0))
+            tail.remove(0)
+          }
+        }
+        else if (headBatch < tailBatch){
+          fileList.add(head.get(0))
+          head.remove(0)
+        }
+        else {
+          fileList.add(tail.get(0))
+            tail.remove(0)
+        }
+      }
+    }
+    fileList
   }
 
   def graphRemove(graph: Graph[VertexId,String], rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String]):Graph[VertexId,String]={
@@ -343,8 +369,8 @@ object rddReduceTest {
     else true
   } 
 
-  def writeOut (addEdgeSet: HashSet[String],addNodeSet: HashSet[String],rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String]) {
-    val pw = new PrintWriter(new File("Output/output.txt"))
+  def writeOut (addEdgeSet: HashSet[String],addNodeSet: HashSet[String],rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String],count: Int,i: Int) {
+    val pw = new PrintWriter(new File("Output/output"+count+" "+i+".txt"))
     addEdgeSet.toArray.map(edge => {
       pw.write(edge+"\n")
     })

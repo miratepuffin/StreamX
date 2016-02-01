@@ -36,7 +36,7 @@ public class CommandSpout extends BaseRichSpout {
     
   }
   public void genRow(){
-    //Utils.sleep();
+    Utils.sleep(500);
     double probability = random.nextDouble();
     String command = "" ;
     if(probability<=0.70)
