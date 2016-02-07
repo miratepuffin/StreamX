@@ -124,7 +124,6 @@ public class TweetSpout extends BaseRichSpout{
       Status ret = queue.poll();
       if (ret==null){return;}
       collector.emit(new Values(ret));
-      Utils.sleep(30000);
     }
 
     @Override

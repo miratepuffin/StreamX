@@ -121,19 +121,18 @@
       ArrayList<Long> mainUserFollowers = getUserFollowers(usersInvolved.get(0),followerCount);
       generateCommands(user.getId(),mainUserFollowers,status.getText());
 
-      Random random = new Random(user.getId());
       for(int i=1; i<usersInvolved.size();i++){
-        int genFollowerCount = random.nextInt(5001);
+        int genFollowerCount = fakeFollwerCount(usersInvolved.get(i));
         ArrayList<Long> secondaryUserFollowers = getUserFollowers(usersInvolved.get(i),genFollowerCount);
         generateCommands(usersInvolved.get(i),secondaryUserFollowers,status.getText());
       }
 
     }
     private void generateCommands(Long id, ArrayList<Long> followers,String tweet){
-      String safeTweet = tweet.replaceAll(" ","_");
+      String safeTweet = tweet.replaceAll(" ","_").replaceAll("\n", "").replaceAll("\r", "");;
       for(int i =0;i<followers.size();i++){
         collector.emit(new Values("addEdge "+id+" "+safeTweet+" "+ followers.get(i)));
-        System.out.println("addEdge "+id+" "+safeTweet+" "+ followers.get(i));
+        //System.out.println(i+" addEdge "+id+" "+safeTweet+" "+ followers.get(i));
       }
     }
 
@@ -202,7 +201,20 @@
       }
       return genUsers;
     }
-
+    public int fakeFollwerCount(Long id){
+      Random random = new Random(id);
+      double sizeCap = random.nextDouble();
+      random = new Random(id);
+      if(sizeCap<=0.65){
+        return random.nextInt(200);
+      }
+      else if (sizeCap <= 0.90){
+        return random.nextInt(1000);
+      }
+      else {
+        return random.nextInt(5001);
+      }
+    }
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer){
       declarer.declare(new Fields("command"));
