@@ -1,5 +1,5 @@
 
-package storm.starter;
+package storm.starter.TestBolts;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -13,10 +13,6 @@ import java.util.Map;
 import java.util.Random;
 
 public class CommandSpout extends BaseRichSpout {
-  String consumerKey = "hY6rgk7n387pw48XrRTodw5S5";
-  String consumerSecret = "LSF41BtAOFmS1k8XmUHvXEOPHcNIMPIGI9p2oDTk7qNZxGScfH";
-  String accessToken = "1565672916-53qrz4XRuof7HcyiqKqQ9KoSSQ3hXty1WRjNbEK";
-  String accessTokenSecret = "AEqxYdIQ22JMwwb2rWFhcxur7LY8Xib1it8UBv5IGU6LC";
   SpoutOutputCollector collector;
   Random random;
   long count;

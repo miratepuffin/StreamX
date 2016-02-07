@@ -72,7 +72,7 @@ object combineTest {
         val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
         mainGraph = parseCommands(rdd, tempGraph,count)
       }
-     
+      println(status(mainGraph))
       println("End...")
       //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
@@ -90,7 +90,7 @@ object combineTest {
     //
     for(i <- 0 to (fileList.size()-1) by 1){
       val tuple = fileList.get(i)
-      System.out.println("ID =" + tuple._5+ " Batch ="+tuple._6)
+      //System.out.println("ID =" + tuple._5+ " Batch ="+tuple._6)
       var addEdgeSet = tuple._1
       var rmvEdgeSet = tuple._2
       var addNodeSet = tuple._3
@@ -146,7 +146,7 @@ object combineTest {
 
       //------------------Check if end of file ------------------//
       else if (command =="FILE_INFO"){
-        println("HELLO")
+        //println("HELLO")
         id = split(1).toInt
         batch = split(2).toInt
       }
@@ -162,7 +162,7 @@ object combineTest {
       }
 
     }
-    println("Ending that loop fam")
+    //println("Ending that loop fam")
     //fileList.add((addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet)) // last one (or if there is only one file) will not have end of file entry so must be down after loop
     sortFileList(fileList) //return the list
   }
@@ -172,11 +172,11 @@ object combineTest {
     var head = subList(fileList,0,(size/2))
     var tail = subList(fileList,(size/2),size)
     if(fileList.size==0){
-      println("ZERO")
+      //println("ZERO")
       fileList
     }
     else if(fileList.size==1){
-      println("ONE")
+      //println("ONE")
       fileList
     }
     else{
@@ -187,7 +187,7 @@ object combineTest {
       //tail = subList(fileList,(size/2),size)
       head = sortFileList(head)
       tail = sortFileList(tail)
-      println("SPLIT")
+      //println("SPLIT")
     }
     combineFileLists(head,tail)
   }

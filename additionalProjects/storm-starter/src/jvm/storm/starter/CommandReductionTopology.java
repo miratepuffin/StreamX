@@ -16,14 +16,29 @@ import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
 import java.util.Map;
 
+import storm.starter.twitter.TweetSpout;
+import storm.starter.twitter.ParseTweetBolt;
+import storm.starter.Bolts.CombinerBolt;
+import storm.starter.Bolts.ReduceBolt;
+import storm.starter.Groupings.CombinerGrouping;
+import storm.starter.Groupings.CommandGrouping;
+import storm.starter.TestSpouts.CommandSpout;
+
 public class CommandReductionTopology {
 
   public static void main(String[] args) throws Exception {
     TopologyBuilder builder = new TopologyBuilder();
+    TweetSpout tweetSpout = new TweetSpout(
+        "hY6rgk7n387pw48XrRTodw5S5",
+        "LSF41BtAOFmS1k8XmUHvXEOPHcNIMPIGI9p2oDTk7qNZxGScfH",
+        "1565672916-53qrz4XRuof7HcyiqKqQ9KoSSQ3hXty1WRjNbEK",
+        "AEqxYdIQ22JMwwb2rWFhcxur7LY8Xib1it8UBv5IGU6LC"
+    );
     int reduceSplit = 6;
-    builder.setSpout("commands", new CommandSpout(), 1);
+    builder.setSpout("tweets", tweetSpout, 1);
+    builder.setBolt("commands", new ParseTweetBolt(), 10).shuffleGrouping("tweets");
     builder.setBolt("reducer",   new ReduceBolt(), reduceSplit).customGrouping("commands", new CommandGrouping());
-    builder.setBolt("combiner",  new CombinerBolt(reduceSplit), 3).customGrouping("reducer", new CombinerGrouping());
+    builder.setBolt("combiner",  new CombinerBolt(reduceSplit), 10).customGrouping("reducer", new CombinerGrouping());
     Config conf = new Config();
     conf.setDebug(false);
 

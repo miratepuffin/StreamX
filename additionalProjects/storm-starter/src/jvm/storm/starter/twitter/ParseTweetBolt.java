@@ -78,20 +78,11 @@
     @Override
     public void execute(Tuple tuple)
     {
-      System.out.println();
-      System.out.println();
-      System.out.println();
-      System.out.println("TWEEET START");
-
 
       Status status = (Status) tuple.getValue(0);
       
       ArrayList<Long> usersInvolved = getInvolvedUsers(status);
       userCommands(usersInvolved,status);
-
-      System.out.println(status.getText());
-      System.out.println(usersInvolved.size());
-      System.out.println("TWEET END");
     }
 
     public ArrayList<Long> getInvolvedUsers(Status status){
@@ -156,9 +147,8 @@
 
         HttpResponse response = client.execute(request);
 
-        System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + 
-         response.getStatusLine().getStatusCode());
+        //System.out.println("\nSending 'GET' request to URL : " + url);
+        //System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
         if(response.getStatusLine().getStatusCode() == 401){
           return getFakeFollowers(userID,followerCount);
         }
@@ -217,6 +207,6 @@
     }
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer){
-      declarer.declare(new Fields("command"));
+      declarer.declare(new Fields("commands"));
     }
   }
