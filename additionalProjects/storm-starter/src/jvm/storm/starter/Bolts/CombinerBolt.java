@@ -25,13 +25,6 @@ import java.io.IOException;
 import java.io.*;
 import java.util.*;
 import java.net.*;
-import org.apache.hadoop.fs.*;
-import org.apache.hadoop.conf.*;
-import org.apache.hadoop.io.*;
-import org.apache.hadoop.mapred.*;
-import org.apache.hadoop.util.*;
-
-
 
   public class CombinerBolt extends BaseRichBolt {
     OutputCollector collector;
@@ -68,7 +61,7 @@ import org.apache.hadoop.util.*;
            //System.out.println(fileCount+" Total commands:"+totalCommands);
            receivedCount++;
            if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
-              HDFSoutput();
+             HDFSoutput();
            }
         }
         else{
@@ -111,22 +104,31 @@ import org.apache.hadoop.util.*;
       fileCount++;
     }
 
-    public void HDFSoutput(){
-      try{
-            Path pt=new Path("hdfs:/user/bas30/try.txt");
-            FileSystem fs = FileSystem.get(new Configuration());
-            BufferedWriter br=new BufferedWriter(new OutputStreamWriter(fs.create(pt,true)));
-            // TO append data to a file, use fs.append(Path f)
-            String line;
-            line="Hello world!";
-            System.out.println(line);
-            br.write(line);
-            br.close();
-        }catch(Exception e){
-            System.out.println("File not found");
+    public void HDFSoutput(){    
+	 try{
+        FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write("FILE_INFO "+id+" "+fileCount+"\n");
+        for (Map.Entry<String, String> command : commands.entrySet()){
+          bw.write(command.getValue());
         }
+	bw.write("END_OF_FILE "+id+" "+fileCount);
+        bw.close();
+        System.out.println("output/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
+	sendToHDFS("output/id="+id+"batch="+fileCount);
+      }catch(Exception e){e.printStackTrace();}
       reset();
       fileCount++;
+    
+    }
+    private void sendToHDFS(String filename) {
+        Process p;
+        try {
+		p = Runtime.getRuntime().exec("hadoop fs -copyFromLocal " + filename + " /user/bas30/output");
+		p.waitFor();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
     }
 
 
