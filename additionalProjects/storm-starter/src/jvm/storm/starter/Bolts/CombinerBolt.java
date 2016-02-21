@@ -21,6 +21,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//-------------------HDFS INPORTS -----------------//
+import java.io.*;
+import java.util.*;
+import java.net.*;
+import org.apache.hadoop.fs.*;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapred.*;
+import org.apache.hadoop.util.*;
+
+
+
   public class CombinerBolt extends BaseRichBolt {
     OutputCollector collector;
     TopologyContext context;
@@ -56,7 +68,7 @@ import java.io.IOException;
            //System.out.println(fileCount+" Total commands:"+totalCommands);
            receivedCount++;
            if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
-              output();
+              HDFSoutput();
            }
         }
         else{
@@ -70,7 +82,7 @@ import java.io.IOException;
         addToMap(command);
         //System.out.println(localid+": RE: "+ receivedCommands+" TC: "+totalCommands);
         if(receivedCommands == totalCommands){
-          output();
+          HDFSoutput();
         }
       }
       if((receivedCount==splitCount)&&(totalCommands==0)){
@@ -95,6 +107,24 @@ import java.io.IOException;
         bw.close();
         System.out.println("output/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
       }catch(IOException e){}
+      reset();
+      fileCount++;
+    }
+
+    public void HDFSoutput(){
+      try{
+            Path pt=new Path("hdfs:/user/bas30/try.txt");
+            FileSystem fs = FileSystem.get(new Configuration());
+            BufferedWriter br=new BufferedWriter(new OutputStreamWriter(fs.create(pt,true)));
+            // TO append data to a file, use fs.append(Path f)
+            String line;
+            line="Hello world!";
+            System.out.println(line);
+            br.write(line);
+            br.close();
+        }catch(Exception e){
+            System.out.println("File not found");
+        }
       reset();
       fileCount++;
     }
