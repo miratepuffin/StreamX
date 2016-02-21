@@ -1,0 +1,51 @@
+addNode 3012
+addEdge 151 dasd 4282
+rmvEdge 800 dasd 2093
+addNode 4357
+rmvNode 3708
+rmvEdge 1764 dasd 4584
+rmvEdge 4500 dasd 1843
+addNode 3065
+addNode 577
+rmvEdge 3365 dasd 1445
+rmvNode 1432
+rmvNode 4559
+addEdge 3738 dasd 2161
+addNode 2343
+addEdge 2487 dasd 2984
+addEdge 3607 dasd 3850
+addNode 235
+addNode 4291
+addNode 486
+addNode 4736
+rmvEdge 2612 dasd 54
+addNode 1760
+rmvEdge 3509 dasd 1865
+addNode 2687
+addEdge 3945 dasd 3190
+addEdge 2057 dasd 4932
+addEdge 4001 dasd 2051
+addNode 635
+addNode 3854
+addEdge 709 dasd 106
+addNode 963
+rmvNode 4526
+addNode 2160
+rmvEdge 3044 dasd 1574
+addEdge 1696 dasd 4982
+addEdge 28 dasd 4044
+rmvEdge 859 dasd 1260
+addEdge 2619 dasd 3173
+addNode 3496
+addNode 4264
+rmvNode 2119
+addEdge 2322 dasd 768
+addNode 956
+addNode 3633
+rmvEdge 4339 dasd 2983
+addNode 3736
+rmvEdge 4045 dasd 3883
+addNode 2510
+addEdge 1080 dasd 4352
+rmvNode 1303
+addEdge 3774 dasd 181

@@ -28,11 +28,11 @@ public class CommandSpout extends BaseRichSpout {
   }
   @Override
   public void nextTuple() {
-      // if(flip){
-      //   readTest();
-      //   flip=!flip;  
-      // }
-    genRow();
+    if(flip){
+      readTest();
+      flip=!flip;  
+    }
+    //genRow();
     
   }
   public void genRow(){
@@ -56,7 +56,8 @@ public class CommandSpout extends BaseRichSpout {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
             while((line = bufferedReader.readLine()) != null) {
-              collector.emit(new Values(id,line,count));
+              //System.out.println(line);
+              collector.emit(new Values(line));
               count++;
             }
             bufferedReader.close();         
@@ -65,5 +66,5 @@ public class CommandSpout extends BaseRichSpout {
   }
   @Override public void ack(Object id) {}
   @Override public void fail(Object id) {}
-  @Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("spoutID","commands","count"));}
+  @Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("commands"));}
 }

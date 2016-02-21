@@ -35,8 +35,9 @@ public class CommandReductionTopology {
         "AEqxYdIQ22JMwwb2rWFhcxur7LY8Xib1it8UBv5IGU6LC"
     );
     int reduceSplit = 6;
-    builder.setSpout("tweets", tweetSpout, 1);
-    builder.setBolt("commands", new ParseTweetBolt(), 10).shuffleGrouping("tweets");
+    //builder.setSpout("tweets", tweetSpout, 1);
+    //builder.setBolt("commands", new ParseTweetBolt(), 10).shuffleGrouping("tweets");
+    builder.setSpout("commands", new CommandSpout(), 1);
     builder.setBolt("reducer",   new ReduceBolt(), reduceSplit).customGrouping("commands", new CommandGrouping());
     builder.setBolt("combiner",  new CombinerBolt(reduceSplit), 10).customGrouping("reducer", new CombinerGrouping());
     Config conf = new Config();

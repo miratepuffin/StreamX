@@ -38,11 +38,9 @@ public class ReduceBolt extends TickBolt {
   @Override
   public void execute(Tuple tuple) {
     if (isTickTuple(tuple)) {
-      //collector.emit(new Values(batchNumber,"commandCount 1"));
-      //collector.emit(new Values(batchNumber,"addNode 1"));
       reduce();
-      updateEdges();
-      edgeCheck();
+      //updateEdges();
+      //edgeCheck();
     }
     else {
       commands.add(tuple);
@@ -50,6 +48,7 @@ public class ReduceBolt extends TickBolt {
      
   }
   private void reduce(){
+    System.out.println(commands.size() +" size");
     reduceCommands();
     //System.out.println("ID: "+localid+" Message: "+reducedCommands.size());
     collector.emit(new Values(batchNumber,"commandCount "+reducedCommands.size()));

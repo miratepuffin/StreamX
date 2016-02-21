@@ -26,19 +26,17 @@ object combineTest {
 
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
-  val ssc = new StreamingContext(sc, Seconds(5))
+  val ssc = new StreamingContext(sc, Seconds(1))
   var count = 0
-
+  var countComplete = 0
 
   // Turn off the 100's of messages
   Logger.getLogger("org").setLevel(Level.OFF)
   Logger.getLogger("akka").setLevel(Level.OFF)
 
   // Create empty graph
-  var mainGraph: Graph[VertexId, String] = Graph.fromEdges(
-    sc.parallelize(Array[Edge[String]]()), 0L
-  ).partitionBy(PartitionStrategy.EdgePartition2D)
-
+  var mainGraph: Graph[VertexId, String] = loadStartState()
+  var secondGraph: Graph[VertexId,String] = readGraph("secondCheck/gen")
   def main(args: Array[String]) {
 
     var lines: DStream[String] = null
@@ -62,8 +60,13 @@ object combineTest {
 
   def extractRDD(lines: DStream[String]){
     // Put RDD in scope
+    println()
     lines.foreachRDD(rdd => {
+      status(secondGraph)
       // Count of itterations run
+      while(count>countComplete){
+        println("Waiting for last batch")
+      }
       count = count + 1
       println("Itteration " + count)
       // Check if the partition is empty (no new data)
@@ -72,9 +75,15 @@ object combineTest {
         val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
         mainGraph = parseCommands(rdd, tempGraph,count)
       }
-      println(status(mainGraph))
+      //println(status(mainGraph))
       println("End...")
-      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+      //status(mainGraph)
+      println(graphEqual(mainGraph,secondGraph))
+      status(mainGraph)
+      saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+      println(count + "Complete")
+      countComplete = countComplete +1;
+      println()
     })
   }
 
@@ -90,7 +99,7 @@ object combineTest {
     //
     for(i <- 0 to (fileList.size()-1) by 1){
       val tuple = fileList.get(i)
-      //System.out.println("ID =" + tuple._5+ " Batch ="+tuple._6)
+      System.out.println("ID =" + tuple._5+ " Batch ="+tuple._6)
       var addEdgeSet = tuple._1
       var rmvEdgeSet = tuple._2
       var addNodeSet = tuple._3
@@ -146,7 +155,7 @@ object combineTest {
 
       //------------------Check if end of file ------------------//
       else if (command =="FILE_INFO"){
-        //println("HELLO")
+        println(rddArray(i))
         id = split(1).toInt
         batch = split(2).toInt
       }
@@ -159,6 +168,7 @@ object combineTest {
         rmvNodeSet = new HashSet[String]()
         id =0;
         batch = 0;
+        println("END OF FILE")
       }
 
     }
@@ -362,10 +372,13 @@ object combineTest {
   }
 
   def graphEqual(graph1: Graph[VertexId, String],graph2: Graph[VertexId, String]):Boolean = {
-    if((graph1.triplets.subtract(graph2.triplets)).count()!=0){false}
-    else if((graph2.triplets.subtract(graph1.triplets)).count()!=0){false}
-    else if((graph1.vertices.subtract(graph2.vertices)).count()!=0){false}
-    else if((graph2.vertices.subtract(graph1.vertices)).count()!=0){false}
+
+    var temp :  RDD[EdgeTriplet[VertexId,String]] = graph1.triplets.subtract(graph2.triplets)
+    if(!(temp.isEmpty)){false}
+    temp = graph2.triplets.subtract(graph1.triplets)
+    if(!(temp.isEmpty)){false}
+    if(!((graph1.vertices.subtract(graph2.vertices)).isEmpty)){false}
+    if(!((graph2.vertices.subtract(graph1.vertices)).isEmpty)){false}
     else true
   } 
 
@@ -384,6 +397,17 @@ object combineTest {
       pw.write(edge+"\n")
     }) 
     pw.close   
+  }
+
+  def loadStartState():Graph[VertexId, String]={
+    var empty = true;
+    if(empty){
+      Graph.fromEdges(sc.parallelize(Array[Edge[String]]()), 0L).partitionBy(PartitionStrategy.EdgePartition2D)
+    }
+    else{
+      readGraph("1455464045188")
+    }
+
   }
 
   def status(graph: Graph[VertexId, String]) {

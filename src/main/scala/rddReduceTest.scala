@@ -23,7 +23,7 @@ import java.io._
 object rddReduceTest {
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
-  val ssc = new StreamingContext(sc, Seconds(5))
+  val ssc = new StreamingContext(sc, Seconds(20))
   var count = 0
 
 
@@ -32,9 +32,7 @@ object rddReduceTest {
   Logger.getLogger("akka").setLevel(Level.OFF)
 
   // Create empty graph
-  var mainGraph: Graph[VertexId, String] = Graph.fromEdges(
-    sc.parallelize(Array[Edge[String]]()), 0L
-  ).partitionBy(PartitionStrategy.EdgePartition2D)
+  var mainGraph: Graph[VertexId, String] = loadStartState()
 
   def main(args: Array[String]) {
 
@@ -94,7 +92,7 @@ object rddReduceTest {
       //   }
       // }).start()
       println("End...")
-      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+      saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
 
   }
@@ -358,6 +356,18 @@ object rddReduceTest {
       pw.write(edge+"\n")
     }) 
     pw.close   
+  }
+
+
+  def loadStartState():Graph[VertexId, String]={
+    var empty = true;
+    if(empty){
+      Graph.fromEdges(sc.parallelize(Array[Edge[String]]()), 0L).partitionBy(PartitionStrategy.EdgePartition2D)
+    }
+    else{
+      readGraph("1455464045188")
+    }
+
   }
 
   def status(graph: Graph[VertexId, String]) {

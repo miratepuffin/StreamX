@@ -1,0 +1,25 @@
+addEdge 3 dasd 1
+addEdge 1 dasd 0
+addEdge 2 dasd 3
+addEdge 1 dasd 1
+addEdge 0 dasd 3
+addEdge 4 dasd 0
+addEdge 3 dasd 2
+addEdge 0 dasd 4
+addEdge 4 dasd 2
+addEdge 2 dasd 1
+addEdge 0 dasd 2
+addEdge 1 dasd 4
+addNode 3
+addNode 0
+addNode 4
+addNode 1
+addNode 2
+rmvEdge 2 dasd 4
+rmvEdge 0 dasd 1
+rmvEdge 0 dasd 0
+rmvEdge 2 dasd 0
+rmvNode 0
+rmvNode 2
+rmvNode 3
+rmvNode 4
