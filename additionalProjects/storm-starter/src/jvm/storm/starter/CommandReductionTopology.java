@@ -16,6 +16,8 @@ import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
 import java.util.Map;
 
+import java.io.*;
+
 import storm.starter.twitter.TweetSpout;
 import storm.starter.twitter.ParseTweetBolt;
 import storm.starter.Bolts.CombinerBolt;
@@ -35,6 +37,7 @@ public class CommandReductionTopology {
         "AEqxYdIQ22JMwwb2rWFhcxur7LY8Xib1it8UBv5IGU6LC"
     );
     int reduceSplit = 6;
+
     //builder.setSpout("tweets", tweetSpout, 1);
     //builder.setBolt("commands", new ParseTweetBolt(), 10).shuffleGrouping("tweets");
     builder.setSpout("commands", new CommandSpout(), 1);
@@ -50,7 +53,7 @@ public class CommandReductionTopology {
     cluster.killTopology("test");
     cluster.shutdown();
   }
-}
+
 
 
 /*
@@ -60,3 +63,22 @@ public class CommandReductionTopology {
       StormSubmitter.submitTopologyWithProgressBar(args[0], conf, builder.createTopology());
     }
     */
+ private static void resetOutput() {
+        StringBuffer output = new StringBuffer();
+        Process p;
+        try {
+             	p = Runtime.getRuntime().exec("hadoop fs -rm -r /user/bas30/output && hadoop fs -mkdir /user/bas30/output");
+                p.waitFor();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                String line = "";
+                while ((line = reader.readLine())!= null) {
+                        output.append(line + "\n");
+                }
+                System.out.println("ALLUSNACKBAR");
+                System.out.println(output);
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
+    }
+
+}

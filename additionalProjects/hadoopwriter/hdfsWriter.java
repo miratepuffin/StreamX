@@ -2,12 +2,13 @@ import java.io.*;
 import java.util.*;
 import java.net.*;
 import org.apache.hadoop.fs.*;
+import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.conf.*;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.util.*;
 
-public class Write{
+public class hdfsWriter{
     public static void main (String [] args) throws Exception{
         try{
             Path pt=new Path("hdfs:/user/bas30/try.txt");
