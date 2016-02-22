@@ -1,0 +1,3 @@
+Edge(1,2,dasd)
+Edge(2,1,dasd)
+Edge(3,2,dasd)

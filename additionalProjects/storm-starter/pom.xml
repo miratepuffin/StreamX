@@ -30,7 +30,6 @@
 
   <name>storm-starter</name>
 
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
