@@ -115,7 +115,7 @@ import java.net.*;
 	bw.write("END_OF_FILE "+id+" "+fileCount);
         bw.close();
         System.out.println("output/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
-	sendToHDFS("output/id="+id+"batch="+fileCount);
+	sendToHDFS("id="+id+"batch="+fileCount);
       }catch(Exception e){e.printStackTrace();}
       reset();
       fileCount++;
@@ -124,8 +124,9 @@ import java.net.*;
     private void sendToHDFS(String filename) {
         Process p;
         try {
-		p = Runtime.getRuntime().exec("hadoop fs -copyFromLocal " + filename + " /user/bas30/output");
+		p = Runtime.getRuntime().exec("hadoop fs -copyFromLocal output/" + filename + " /user/bas30/outputTemp");
 		p.waitFor();
+		p = Runtime.getRuntime().exec("hadoop fs -mv /user/bas30/outputTemp/"+filename+" /user/bas30/output"); 
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
