@@ -74,7 +74,7 @@ object snapshotter {
     })
   }
 
-  def parseCommands(rdd: RDD[String], graph: [Int, (Long, Long)]): Graph[Int, (Long, Long)] {
+  def parseCommands(rdd: RDD[String], graph: Graph[Int, (Long, Long)]): Graph[Int, (Long, Long)] ={
     val startTime = System.currentTimeMillis
 
     // reduce the RDD and return a tuple
@@ -305,7 +305,7 @@ object snapshotter {
         }
         case "addNode" => if (!rmvNodeSet.contains("rmvNode " + src)) addNodeSet.add(rddArray(i))
         case "rmvNode" => rmvNodeSet.add(rddArray(i)) // rmvNode  can't be contra
-        case _ = println("The operation " + command + " isn't valid.")
+        case _ => println("The operation " + command + " isn't valid.")
       }
     }
 

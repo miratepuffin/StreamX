@@ -29,7 +29,7 @@ object combineTest {
 
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
-  val ssc = new StreamingContext(sc, Seconds(1))
+  val ssc = new StreamingContext(sc, Seconds(5))
   var count = 0
   var countComplete = 0
 
@@ -46,7 +46,7 @@ object combineTest {
 
     if (args.length == 1)
       //lines = ssc.textFileStream(args(0))
-      lines = ssc.fileStream[LongWritable, Text, TextInputFormat]("hdfs://moonshot-ha-nameservice/user/bas30/output/", (path: Path) => !path.getName().contains("_"), true).map{case(x, y) => y.toString } // id=11batch=0
+      lines = ssc.textFileStream("hdfs://moonshot-ha-nameservice/user/bas30/output/") // id=11batch=0
     else if (args.length == 2)
       lines = ssc.socketTextStream(args(0), args(1).toInt, StorageLevel.MEMORY_AND_DISK_SER)
 
@@ -63,24 +63,30 @@ object combineTest {
 
   def extractRDD(lines: DStream[String]){
     // Put RDD in scope
-    println()
+    lines.count.print
     lines.foreachRDD(rdd => {
-      status(secondGraph)
+      //status(secondGraph)
       // Count of itterations run
       count = count + 1
       println("Iteration " + count)
       // Check if the partition is empty (no new data)
       // otherwise; causes empty collection exception.
-      if (!rdd.isEmpty) {
-        val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
-        mainGraph = parseCommands(rdd, tempGraph,count)
+      try{
+        if (!rdd.isEmpty) {
+          val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
+          mainGraph = parseCommands(rdd, tempGraph,count)
+        }
+      } catch{
+
+	case e: IllegalStateException => (println("GOT YOU SUCKA"))      
+
       }
       //println(status(mainGraph))
       println("End...")
       //status(mainGraph)
       println(graphEqual(mainGraph,secondGraph))
-      status(mainGraph)
-      saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+      //status(mainGraph)
+      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
       println(count + "Complete")
       countComplete = countComplete +1;
       println()
