@@ -19,6 +19,9 @@ import java.io.{PrintWriter, File}
 import scala.collection.mutable.{ArrayBuffer, HashSet}
 import java.util.ArrayList
 import java.io._
+import org.apache.hadoop.io.{LongWritable, Text}
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat
+import org.apache.hadoop.fs.{Path, PathFilter}
 
 object combineTest {
   // define the type used to store the list of documents that come in
@@ -42,8 +45,8 @@ object combineTest {
     var lines: DStream[String] = null
 
     if (args.length == 1)
-      lines = ssc.textFileStream(args(0))
-
+      //lines = ssc.textFileStream(args(0))
+      lines = ssc.fileStream[LongWritable, Text, TextInputFormat]("hdfs://moonshot-ha-nameservice/user/bas30/output/", (path: Path) => !path.getName().contains("_"), true).map{case(x, y) => y.toString } // id=11batch=0
     else if (args.length == 2)
       lines = ssc.socketTextStream(args(0), args(1).toInt, StorageLevel.MEMORY_AND_DISK_SER)
 
@@ -64,11 +67,8 @@ object combineTest {
     lines.foreachRDD(rdd => {
       status(secondGraph)
       // Count of itterations run
-      while(count>countComplete){
-        println("Waiting for last batch")
-      }
       count = count + 1
-      println("Itteration " + count)
+      println("Iteration " + count)
       // Check if the partition is empty (no new data)
       // otherwise; causes empty collection exception.
       if (!rdd.isEmpty) {
