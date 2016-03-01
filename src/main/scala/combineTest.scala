@@ -18,10 +18,12 @@ import java.util.Date
 import java.io.{PrintWriter, File}
 import scala.collection.mutable.{ArrayBuffer, HashSet}
 import java.util.ArrayList
+import scala.collection.immutable.List
 import java.io._
 import org.apache.hadoop.io.{LongWritable, Text}
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat
 import org.apache.hadoop.fs.{Path, PathFilter}
+import scala.collection.immutable.Map
 
 object combineTest {
   // define the type used to store the list of documents that come in
@@ -29,32 +31,17 @@ object combineTest {
 
   val sparkConf = new SparkConf().setAppName("NetworkWordCount")
   val sc = new SparkContext(sparkConf)
-  val ssc = new StreamingContext(sc, Seconds(5))
+  val ssc = new StreamingContext(sc, Seconds(15))
   var count = 0
   var countComplete = 0
-
+	println(sparkConf.toDebugString)
   // Turn off the 100's of messages
   Logger.getLogger("org").setLevel(Level.OFF)
   Logger.getLogger("akka").setLevel(Level.OFF)
 
   // Create empty graph
-  var mainGraph: Graph[VertexId, String] = loadStartState()
-  var secondGraph: Graph[VertexId,String] = readGraph("secondCheck/gen")
   def main(args: Array[String]) {
-
-    var lines: DStream[String] = null
-
-    if (args.length == 1)
-      //lines = ssc.textFileStream(args(0))
-      lines = ssc.textFileStream("hdfs://moonshot-ha-nameservice/user/bas30/output/") // id=11batch=0
-    else if (args.length == 2)
-      lines = ssc.socketTextStream(args(0), args(1).toInt, StorageLevel.MEMORY_AND_DISK_SER)
-
-    else {
-      // Requires IP/port i.e. (localhost 9999) or file path
-      System.err.println("Please input stream ip:port / file path!")
-      System.exit(1)
-    }
+    var lines: DStream[String] = ssc.textFileStream("hdfs://moonshot-ha-nameservice/user/bas30/output/") 
     extractRDD(lines) // Extract RDD inside the dstream
     // Run stream and await termination
     ssc.start()
@@ -63,63 +50,60 @@ object combineTest {
 
   def extractRDD(lines: DStream[String]){
     // Put RDD in scope
-    lines.count.print
-    lines.foreachRDD(rdd => {
-      //status(secondGraph)
-      // Count of itterations run
-      count = count + 1
-      println("Iteration " + count)
-      // Check if the partition is empty (no new data)
-      // otherwise; causes empty collection exception.
-      try{
-        if (!rdd.isEmpty) {
-          val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
-          mainGraph = parseCommands(rdd, tempGraph,count)
-        }
-      } catch{
-
-	case e: IllegalStateException => (println("GOT YOU SUCKA"))      
-
-      }
-      //println(status(mainGraph))
-      println("End...")
-      //status(mainGraph)
-      println(graphEqual(mainGraph,secondGraph))
-      //status(mainGraph)
-      //saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
-      println(count + "Complete")
-      countComplete = countComplete +1;
-      println()
-    })
+	  lines.count.print
+	  lines.foreachRDD(rdd => {
+	  	count = count + 1
+	  	println("Iteration " + count)
+	  	// Check if the partition is empty (no new data)
+	  	// otherwise; causes empty collection exception.
+			if (!rdd.isEmpty) {
+				val mainGraph: Graph[VertexId, String] = loadStartState(count)
+  			val secondGraph: Graph[VertexId,String] = readGraph("secondCheck/gen")
+				println("Count Start: "+secondGraph.edges.count())
+				parseCommands(rdd, mainGraph,secondGraph,count)
+				println("End...")
+	 		  println(count + "Complete")
+	 		  countComplete = countComplete +1;
+	 		  println()
+			}
+		})
   }
 
-  def parseCommands(rdd: RDD[String], tempGraph: Graph[VertexId, String],count:Int): Graph[VertexId, String] = {
+  def parseCommands(rdd: RDD[String], tempGraph: Graph[VertexId, String],secondGraph: Graph[VertexId, String],count:Int){
+    //build and sort fileList
     val startTime = System.currentTimeMillis
     var fileList = splitRDD(rdd, count)
-    val endTime = System.currentTimeMillis - startTime
-    println("split time = "+endTime)
-    val startTime2 = System.currentTimeMillis
-
-    var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
+    println("split time = "+(System.currentTimeMillis - startTime))
+    //build new graph from filelist and old graph
+		val startTime2 = System.currentTimeMillis
+    var altGraph: Graph[VertexId, String] = recursiveBuild(secondGraph,fileList)
+    println("build time = "+(System.currentTimeMillis - startTime2))
     
-    //
-    for(i <- 0 to (fileList.size()-1) by 1){
-      val tuple = fileList.get(i)
-      System.out.println("ID =" + tuple._5+ " Batch ="+tuple._6)
-      var addEdgeSet = tuple._1
+		//status(altGraph)
+	  //println(graphEqual(mainGraph,secondGraph))
+	  //saveGraph(mainGraph) // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+		println("Count End: "+altGraph.edges.count())
+  }
+
+	def recursiveBuild(graph: Graph[VertexId,String], fileList: docList): Graph[VertexId,String]={
+		if(fileList.size() <1){
+			graph
+		}
+		else{
+      val tuple = fileList.get(0)
+      println("ID =" + tuple._5+ " Batch ="+tuple._6)
+			//println(fileList.size())      
+			var addEdgeSet = tuple._1
       var rmvEdgeSet = tuple._2
       var addNodeSet = tuple._3
       var rmvNodeSet = tuple._4
-      altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
-      altGraph = graphAdd(altGraph,addEdgeSet,addNodeSet)
-      altGraph = partition(altGraph)
-      writeOut(addEdgeSet,addNodeSet,rmvEdgeSet,rmvNodeSet,count,i)
+			fileList.remove(0)
+			val tempGraph:Graph[VertexId,String] = graphAdd(graphRemove(graph,rmvEdgeSet,rmvNodeSet),addEdgeSet,addNodeSet)
+			//println("Count Inter: "+tempGraph.edges.count())
+      recursiveBuild(tempGraph,fileList)
     }
-    
-    val endTime2 = System.currentTimeMillis - startTime2
-    println("build time = "+endTime2)
-    altGraph
-  }
+	}
+
 
   def partition(graph: Graph[VertexId,String])={
     graph.partitionBy(PartitionStrategy.CanonicalRandomVertexCut).groupEdges((a, b) => {
@@ -129,6 +113,7 @@ object combineTest {
   }
 
   def splitRDD(rdd: RDD[String],count: Int):docList = {
+	println("inside split")
     var addEdgeSet = new HashSet[String]() // as we will not care about order once we are finished
     var addNodeSet = new HashSet[String]()
     var rmvEdgeSet = new HashSet[String]() // sets are used so we don't have to check if something is contained
@@ -136,7 +121,9 @@ object combineTest {
     var id = 0;
     var batch = 0;
     var fileList = new docList()
-    var rddArray = rdd.collect()
+	println("trying to collect")
+   var rddArray = rdd.collect()
+	println("finished collecting")
     val commandLength = rddArray.length
     for (i <- 0 to (commandLength - 1) by 1) { // go backwards so files read first are split first (We begin at length -2 as last pos is always END OF FILE )
       var split = rddArray(i).split(" ")
@@ -258,64 +245,53 @@ object combineTest {
   }
 
   def graphRemove(graph: Graph[VertexId,String], rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String]):Graph[VertexId,String]={
-
-    var tempGraph = graph.subgraph(epred => edgeChecker(epred,rmvEdgeSet))
-    tempGraph = tempGraph.subgraph(vpred = (vid, attr) => nodeChecker((vid, attr) ,rmvNodeSet))
-    tempGraph
-  }
+		//println("testRmr")
+    //graph.subgraph(vpred = (vid, attr) => nodeChecker((vid, attr) ,rmvNodeSet))//.subgraph(epred => edgeChecker(epred,rmvEdgeSet))//
+		//graph.subgraph(vpred = (vid, attr) => true)	
+	}
 
   def edgeChecker (edgeTriplet: EdgeTriplet[VertexId,String], rmvSet: HashSet[String] ):Boolean = {
-    rmvSet.foreach(edge => {
-      val commandSplit = edge.split(" ")
-      if((edgeTriplet.srcId == (commandSplit(1).toLong)) && (edgeTriplet.dstId == (commandSplit(3).toLong)) && (edgeTriplet.attr == (commandSplit(2)))){
-        //println("Removing "+edgeTriplet+" as " + edge )
-        return false
 
-      }
-    })
-    true
+    //rmvSet.foreach(edge => {
+    //  val commandSplit = edge.split(" ")
+    //  if((edgeTriplet.srcId == (commandSplit(1).toLong)) && (edgeTriplet.dstId == (commandSplit(3).toLong)) && (edgeTriplet.attr == (commandSplit(2)))){
+    //   false
+    //  }
+    //})
+    //true
+		true
   }
 
   def nodeChecker(vertex : (VertexId,VertexId), rmvSet: HashSet[String]): Boolean = {
-    rmvSet.foreach(vert => {
-      val commandSplit = vert.split(" ")
-      if (vertex._1 == commandSplit(1).toLong) {
-        //println("Removing " + vertex + " as " + vert)
-        return false
-      }
-    })
-    true
+    //rmvSet.foreach(vert => {
+    //  val commandSplit = vert.split(" ")
+    //  if (vertex._1 == commandSplit(1).toLong) {
+    //    false
+    //  }
+    //})
+    //true
+		true
   }
 
   def graphAdd(graph: Graph[VertexId,String], addEdgeSet: HashSet[String],addNodeSet: HashSet[String]):Graph[VertexId,String]={
-
     var edgeArray: Array[Edge[String]] = addEdgeSet.toArray.map(edge => {
       var command = edge.split(" ")
       Edge(command(1).toLong, command(3).toLong, command(2))
     })
-    var vertArray = addNodeSet.toArray.map(vert => {
-      var command = vert.split(" ")
-      (command(1).toLong,1L)
-    })
-    var vertGraph: Graph[VertexId, String] = Graph(sc.parallelize(vertArray), sc.parallelize(Array[Edge[String]]()))
-    //println("Vert Graph")
-    //vertGraph.vertices.foreach(vert => println(vert._1))
-    var edgeGraph: Graph[VertexId, String] = Graph.fromEdges(sc.parallelize(edgeArray), 1L)
-    //println("Edge Graph")
-    //edgeGraph.triplets.foreach(edge => println(edge.srcId+" "+edge.attr+" "+edge.dstId))
-    var midPointGraph = Graph(edgeGraph.vertices.union(vertGraph.vertices),edgeGraph.edges,1L)
-    //println("midPoint Graph")
-    //midPointGraph.triplets.foreach(edge => println(edge.srcId+" "+edge.attr+" "+edge.dstId))
-    Graph(graph.vertices.union(midPointGraph.vertices),graph.edges.union(midPointGraph.edges))
+    var vertArray = addNodeSet.toArray.map(vert => (vert.split(" ")(1).toLong,1L))
+
+		val verticies = sc.parallelize(vertArray)
+    val edges = sc.parallelize(edgeArray)
+    Graph(graph.vertices.union(verticies),graph.edges.union(edges))
   }
 
-  def saveGraph(){
+  def saveGraph(graph: Graph[VertexId, String]){
     // Write out edges and vertices of graph into file named after current time 
     val timestamp: Long = System.currentTimeMillis //get current time
 
-    mainGraph.vertices.saveAsTextFile("prev/" + timestamp + "/vertices")
+    graph.vertices.saveAsTextFile("prev/" + timestamp + "/vertices")
 
-    mainGraph.edges.saveAsTextFile("prev/" + timestamp + "/edges")
+    graph.edges.saveAsTextFile("prev/" + timestamp + "/edges")
   }
 
   def readGraph(savePoint: String): Graph[VertexId, String] = {
@@ -341,12 +317,12 @@ object combineTest {
     Graph(vertRDD, edgeRDD, 0L) // return new graphs consisting of read in vertices and edges
   }
 
-  def closestGraph(givenTime: Array[String]): String = {
+  def closestGraph(givenTime: Long): String = {
     // Returns time of graph closest to given time
-    val format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss") // set format of time
+    //val format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss") // set format of time
 
-    val date = format.parse(givenTime(0) + " " + givenTime(1)).getTime() // turn given time into Unix long
-
+    //val date = format.parse(givenTime(0) + " " + givenTime(1)).getTime() // turn given time into Unix long
+		val date = givenTime //used to do some string stuff, but no point any more
     // Extract list of all graphs in folder prev
     val prevList = new File("prev").listFiles.toList
 
@@ -377,15 +353,14 @@ object combineTest {
     chosen
   }
 
-  def graphEqual(graph1: Graph[VertexId, String],graph2: Graph[VertexId, String]):Boolean = {
+  def graphEqual(graph1: Graph[VertexId,String], graph2: Graph[VertexId,String]): Boolean = {
+    var thisV = graph1.vertices
+    var thisE = graph1.edges
 
-    var temp :  RDD[EdgeTriplet[VertexId,String]] = graph1.triplets.subtract(graph2.triplets)
-    if(!(temp.isEmpty)){false}
-    temp = graph2.triplets.subtract(graph1.triplets)
-    if(!(temp.isEmpty)){false}
-    if(!((graph1.vertices.subtract(graph2.vertices)).isEmpty)){false}
-    if(!((graph2.vertices.subtract(graph1.vertices)).isEmpty)){false}
-    else true
+    var otherV = graph2.vertices
+    var otherE = graph2.edges
+
+    thisV.count == (thisV.intersection(otherV).count) && thisE.count == (thisE.intersection(otherE).count)
   } 
 
   def writeOut (addEdgeSet: HashSet[String],addNodeSet: HashSet[String],rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String],count: Int,i: Int) {
@@ -405,16 +380,44 @@ object combineTest {
     pw.close   
   }
 
-  def loadStartState():Graph[VertexId, String]={
-    var empty = true;
-    if(empty){
-      Graph.fromEdges(sc.parallelize(Array[Edge[String]]()), 0L).partitionBy(PartitionStrategy.EdgePartition2D)
-    }
-    else{
-      readGraph("1455464045188")
-    }
-
+  def loadStartState(batch: Int):Graph[VertexId, String]={
+      //if(batch == 1){
+        Graph.fromEdges(sc.parallelize(Array[Edge[String]]()), 0L).partitionBy(PartitionStrategy.EdgePartition2D)
+      //}
+      //else{
+	    //  var vertNum =(-1);
+      //  var edgeNum =(-1);
+      //  val rdds = sc.getPersistentRDDs
+      //  for((k,v) <- rdds){
+			//		case v:Some[RDD[(VertexId, VertexId)]] =>{
+      //    	if(v.get.name == "vert "+batch){
+      //      	vertNum = k
+      //    	}
+			//		}
+			//		case v:Some[RDD[Edge[String]]] =>{
+      //  		if(v.get.name == "edges "+batch){
+			//				edgeNum = k
+			//			} 
+			//		}
+			//		case None => println("no name")
+       // }
+			//	 var vertex = rdds.get(vertNum) match {
+			//			case v:Some[RDD[(VertexId, VertexId)]] => v.get
+		//				case None => println("non")
+			//	 }
+			//	 var edges = rdds.get(edgeNum) match {
+			//			case e:Some[RDD[Edge[String]]] => e.get
+			//			case None => println("non")
+			//	 }
+				 //Graph(vertex, edges, 0L) 
+      //  Graph.fromEdges(sc.parallelize(Array[Edge[String]]()), 0L).partitionBy(PartitionStrategy.EdgePartition2D)
+    	//}	
   }
+
+  def cacheGraph(graph: Graph[VertexId, String], batch: Int) {
+      graph.vertices.setName("vert "+batch).cache()
+      graph.edges.setName("edges "+batch).cache()
+ } 
 
   def status(graph: Graph[VertexId, String]) {
 
