@@ -37,8 +37,10 @@ import java.net.*;
     int totalCommands;
     int receivedCommands;
     int localid;
-    public CombinerBolt(int splitCount){
+    String folder;
+    public CombinerBolt(int splitCount,String folder){
       this.splitCount  = splitCount;
+      this.folder = folder;
       reset();
     }
     @Override
@@ -57,7 +59,7 @@ import java.net.*;
       if(receivedCount!=splitCount){
         if(command.contains("commandCount")){
            totalCommands += Integer.parseInt(command.split(" ")[1].trim());
-           System.out.println(command.split(" ")[1].trim()+ "NEW VALUES: "+totalCommands);
+           //System.out.println(command.split(" ")[1].trim()+ "NEW VALUES: "+totalCommands);
            //System.out.println(fileCount+" Total commands:"+totalCommands);
            receivedCount++;
            if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
@@ -106,7 +108,7 @@ import java.net.*;
 
     public void HDFSoutput(){    
 	 try{
-        FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
+        FileWriter fw = new FileWriter(new File(folder+"/id="+id+"batch="+fileCount));
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write("FILE_INFO "+id+" "+fileCount+"\n");
         for (Map.Entry<String, String> command : commands.entrySet()){
@@ -114,7 +116,7 @@ import java.net.*;
         }
 	bw.write("END_OF_FILE "+id+" "+fileCount);
         bw.close();
-        System.out.println("output/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
+        System.out.println(folder+"/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
 	sendToHDFS("id="+id+"batch="+fileCount);
       }catch(Exception e){e.printStackTrace();}
       reset();
@@ -124,9 +126,10 @@ import java.net.*;
     private void sendToHDFS(String filename) {
         Process p;
         try {
-		p = Runtime.getRuntime().exec("hadoop fs -copyFromLocal output/" + filename + " /user/bas30/outputTemp");
+		p = Runtime.getRuntime().exec("hadoop fs -copyFromLocal "+folder+"/" + filename + " /user/bas30/"+folder+"Temp");
 		p.waitFor();
-		p = Runtime.getRuntime().exec("hadoop fs -mv /user/bas30/outputTemp/"+filename+" /user/bas30/output"); 
+		p = Runtime.getRuntime().exec("hadoop fs -mv /user/bas30/"+folder+"Temp/"+filename+" /user/bas30/"+folder);
+		p.waitFor(); 
 	} catch (Exception e) {
 		e.printStackTrace();
 	}

@@ -32,27 +32,27 @@ public class CommandSpout extends BaseRichSpout {
       readTest();
       flip=!flip;  
     }
-    //genRow();
+   genRow();
     
   }
   public void genRow(){
-    Utils.sleep(500);
+   // Utils.sleep(500);
     double probability = random.nextDouble();
     String command = "" ;
     if(probability<=0.70)
-      command += "addEdge "+random.nextInt(500) + " Relation " + random.nextInt(500)+ "\n";
-    else if(probability>0.70 && probability <= 0.9)
-      command += "addNode "+random.nextInt(500) +"\n";
-    //else if(probability>0.70 && probability <= 1)
-    //  command += "rmvEdge "+random.nextInt(5) + " Relation " + random.nextInt(5)+ "\n";
+      command += "addEdge "+random.nextInt(5000) + " Relation " + random.nextInt(5000)+ "\n";
+    else if(probability>0.70 && probability <= 0.8)
+      command += "addNode "+random.nextInt(5000) +"\n";
+    else if(probability>0.80 && probability <= 0.95)
+      command += "rmvEdge "+random.nextInt(5000) + " Relation " + random.nextInt(5000)+ "\n";
     else 
-      command += "rmvNode "+random.nextInt(500) +"\n";
-    collector.emit(new Values(id,command,count));
+      command += "rmvNode "+random.nextInt(5000) +"\n";
+    collector.emit(new Values(command));
     count++;
   }
   public void readTest(){
      try {
-            FileReader fileReader = new FileReader("input/inputset0.txt");
+            FileReader fileReader = new FileReader("input/inputset1.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
             while((line = bufferedReader.readLine()) != null) {

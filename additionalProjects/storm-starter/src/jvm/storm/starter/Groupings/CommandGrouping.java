@@ -20,6 +20,7 @@ public class CommandGrouping implements CustomStreamGrouping{
 	}
 	public List<Integer> chooseTasks(int taskId, List<Object> values){
 		List<Integer> boltIds = new ArrayList();
+		//System.out.println(values.get(0));
 		String command = (String) values.get(0);
 		String[] commandSplit = command.split(" ");
 		if(commandSplit[0].trim().equals("rmvNode")){

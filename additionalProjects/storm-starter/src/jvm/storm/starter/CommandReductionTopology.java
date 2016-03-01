@@ -42,7 +42,7 @@ public class CommandReductionTopology {
     //builder.setBolt("commands", new ParseTweetBolt(), 10).shuffleGrouping("tweets");
     builder.setSpout("commands", new CommandSpout(), 1);
     builder.setBolt("reducer",   new ReduceBolt(), reduceSplit).customGrouping("commands", new CommandGrouping());
-    builder.setBolt("combiner",  new CombinerBolt(reduceSplit), 10).customGrouping("reducer", new CombinerGrouping());
+    builder.setBolt("combiner",  new CombinerBolt(reduceSplit,args[0]), 10).customGrouping("reducer", new CombinerGrouping());
     Config conf = new Config();
     conf.setDebug(false);
 
