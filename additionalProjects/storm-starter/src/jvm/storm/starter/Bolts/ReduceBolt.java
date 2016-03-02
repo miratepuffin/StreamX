@@ -120,7 +120,11 @@ public class ReduceBolt extends TickBolt {
   }
 
   private void addEdge(String commandFull, String command, String src, String msg, String dest, HashMap<String,String> commandMap){
+    boolean debug=false;
+    if(src.equals("100") && dest.equals("3618")){debug =true;System.out.println("outside");}
+    
     if (commandMap.get("rmvNode " + src)!=null) {
+      if(debug){System.out.println("inside");}
       // check if the src Id is removed lower down
       if (commandMap.get("rmvNode " + dest)==null) {
       // if it is then we check if the dest node is also removed, otherwise add it

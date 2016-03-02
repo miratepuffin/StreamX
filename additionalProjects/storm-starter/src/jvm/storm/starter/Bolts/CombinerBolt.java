@@ -63,7 +63,7 @@ import java.net.*;
            //System.out.println(fileCount+" Total commands:"+totalCommands);
            receivedCount++;
            if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
-             HDFSoutput();
+             output();
            }
         }
         else{
@@ -77,7 +77,7 @@ import java.net.*;
         addToMap(command);
         //System.out.println(localid+": RE: "+ receivedCommands+" TC: "+totalCommands);
         if(receivedCommands == totalCommands){
-          HDFSoutput();
+          output();
         }
       }
       if((receivedCount==splitCount)&&(totalCommands==0)){

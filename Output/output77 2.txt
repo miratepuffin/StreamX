@@ -1,2 +1,0 @@
-addEdge 267 Relation 365
-addNode 122

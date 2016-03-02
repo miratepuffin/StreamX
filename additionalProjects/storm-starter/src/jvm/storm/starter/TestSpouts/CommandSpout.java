@@ -32,7 +32,7 @@ public class CommandSpout extends BaseRichSpout {
       readTest();
       flip=!flip;  
     }
-   genRow();
+   //genRow();
     
   }
   public void genRow(){
@@ -52,7 +52,7 @@ public class CommandSpout extends BaseRichSpout {
   }
   public void readTest(){
      try {
-            FileReader fileReader = new FileReader("input/inputset1.txt");
+            FileReader fileReader = new FileReader("input/inputset0.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
             while((line = bufferedReader.readLine()) != null) {
