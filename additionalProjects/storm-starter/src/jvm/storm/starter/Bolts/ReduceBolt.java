@@ -48,7 +48,7 @@ public class ReduceBolt extends TickBolt {
      
   }
   private void reduce(){
-    System.out.println(commands.size() +" size");
+    System.out.println(batchNumber +" "+commands.size() +" size");
     reduceCommands();
     //System.out.println("ID: "+localid+" Message: "+reducedCommands.size());
     collector.emit(new Values(batchNumber,"commandCount "+reducedCommands.size()));

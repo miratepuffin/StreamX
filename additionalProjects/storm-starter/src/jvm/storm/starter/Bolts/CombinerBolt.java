@@ -62,6 +62,7 @@ import java.net.*;
            //System.out.println(command.split(" ")[1].trim()+ "NEW VALUES: "+totalCommands);
            //System.out.println(fileCount+" Total commands:"+totalCommands);
            receivedCount++;
+           fileCount = tuple.getInteger(0);
            if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
              output();
            }
@@ -92,15 +93,13 @@ import java.net.*;
       try{
         //System.out.println("ID: "+id);
         //FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
-        FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
+        FileWriter fw = new FileWriter(new File("output/"+fileCount));
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write("FILE_INFO "+id+" "+fileCount+"\n");
         for (Map.Entry<String, String> command : commands.entrySet()){
           bw.write(command.getValue());
         }
-        bw.write("END_OF_FILE "+id+" "+fileCount);
         bw.close();
-        System.out.println("output/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
+        System.out.println("id="+id+"batch="+fileCount+" commands: "+receivedCommands);
       }catch(IOException e){}
       reset();
       fileCount++;
@@ -108,16 +107,14 @@ import java.net.*;
 
     public void HDFSoutput(){    
 	 try{
-        FileWriter fw = new FileWriter(new File(folder+"/id="+id+"batch="+fileCount));
+        FileWriter fw = new FileWriter(new File(folder+"/"+fileCount));
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write("FILE_INFO "+id+" "+fileCount+"\n");
         for (Map.Entry<String, String> command : commands.entrySet()){
           bw.write(command.getValue());
         }
-	bw.write("END_OF_FILE "+id+" "+fileCount);
         bw.close();
-        System.out.println(folder+"/id="+id+"batch="+fileCount+" commands: "+receivedCommands);
-	sendToHDFS("id="+id+"batch="+fileCount);
+        System.out.println(folder+"id="+id+"batch="+fileCount+" commands: "+receivedCommands);
+	      sendToHDFS(Integer.toString(fileCount));
       }catch(Exception e){e.printStackTrace();}
       reset();
       fileCount++;
