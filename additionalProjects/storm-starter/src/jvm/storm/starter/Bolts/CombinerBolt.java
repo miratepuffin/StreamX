@@ -78,7 +78,7 @@ import java.net.*;
         addToMap(command);
         //System.out.println(localid+": RE: "+ receivedCommands+" TC: "+totalCommands);
         if(receivedCommands == totalCommands){
-          output();
+         output();
         }
       }
       if((receivedCount==splitCount)&&(totalCommands==0)){

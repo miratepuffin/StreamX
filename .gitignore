@@ -1,3 +1,4 @@
 project
 target
 additionalProjects/generator/generatedData
+additionalProjects/storm-starter/output
