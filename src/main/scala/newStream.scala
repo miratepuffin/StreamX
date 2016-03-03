@@ -47,6 +47,7 @@ object newStream {
     while(true){
       if(System.currentTimeMillis > lastIteration + 5000){
         lastIteration = System.currentTimeMillis
+				println("checking new files")
         checkNewFiles()
       }
     }
@@ -55,95 +56,92 @@ object newStream {
   def checkNewFiles(){
     count = count + 1
     println("Iteration " + count)
-    println("Count Start: "+mainGraph.edges.count())
-    println("Count Start: "+mainGraph.vertices.count())
-    //sc.wholeTextFiles("hdfs://moonshot-ha-nameservice/user/bas30/output/")
-    val batchFolder: RDD[(String,String)] = sc.wholeTextFiles("additionalProjects/storm-starter/output")
-    val sortedBatch = batchFolder.sortBy(x=> (x._1.substring(x._1.lastIndexOf('/')+1).toInt),true,1)
-    sortedBatch.foreach(pair => {
-      println("processing "+pair._1 )
-      if(pair._2.length < 1){
-        println("Empty")
-      }
-      else{
-        mainGraph = parseCommands(pair._2, mainGraph,secondGraph,count)
-      }
-      //hdfsRemoveFile(pair._1)
-      localRemoveFile(pair._1)
+		val startTime = System.currentTimeMillis()
+    val batchFolder: RDD[(String,String)] = sc.wholeTextFiles("hdfs://moonshot-ha-nameservice/user/bas30/output/")
+    //val batchFolder: RDD[(String,String)] = sc.wholeTextFiles("additionalProjects/storm-starter/output")
+		println("Mapping")
+		val docListRDD: RDD[(String,docList)] = batchFolder.map(pair => {
+			var addEdgeSet = new HashSet[String]() // as we will not care about order once we are finished
+	    var addNodeSet = new HashSet[String]()
+  	  var rmvEdgeSet = new HashSet[String]() // sets are used so we don't have to check if something is contained
+  	  var rmvNodeSet = new HashSet[String]()
+  	  val rddArray = pair._2.split("\n")
+  	  val commandLength = rddArray.length
+  	  for (i <- 0 until commandLength) { // go backwards so files read first are split first (We begin at length -2 as last pos is always END OF FILE )
+  	    var split = rddArray(i).split(" ")
+  	    var command = split(0)
+	
+  	    if (command == "addEdge") {addEdgeSet.add(rddArray(i))}
+  	    else if (command == "addNode") {addNodeSet.add(rddArray(i))}
+  	    else if (command == "rmvEdge" ) {rmvEdgeSet.add(rddArray(i))}
+  	    else if (command == "rmvNode") {rmvNodeSet.add(rddArray(i))}
+  	  }
+			(pair._1, (addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet))
     })
-    println(count + "Complete")
-    println() 
-	}
-		
-  def parseCommands(commands: String, tempGraph: Graph[VertexId, String],secondGraph: Graph[VertexId, String],count:Int): Graph[VertexId, String]={
-    //build and sort fileList
-    val startTime = System.currentTimeMillis
-    var fileList = splitRDD(commands, count)
-    println("split time = "+(System.currentTimeMillis - startTime))
-    //build new graph from filelist and old graph
-		val startTime2 = System.currentTimeMillis
-    val edgeVertPair = build((tempGraph.edges,tempGraph.vertices),fileList)
-		var altGraph: Graph[VertexId, String] = Graph(edgeVertPair._2, edgeVertPair._1, 1L)
-    println("build time = "+(System.currentTimeMillis - startTime2))
-    
-		//status(altGraph)
-	  println(graphEqual(altGraph,secondGraph))
-	  saveGraph(altGraph) // used to save graph, currently off whilst testing, willl probably set some boolean or summin
-		println("Count End: "+altGraph.edges.count())
-    println("Count End: "+altGraph.vertices.count())
-		altGraph
-  }
+	
+    val rdds = docListRDD.map(pair => {
+			val sets = pair._2
+	
+			val addEdges = sets._1.map(string => {
+				val split = string.split(" ")				
+				Edge(split(1).toLong, split(3).toLong, split(2))
+			}).toArray
 
-	def build(edgeVertPair:(RDD[Edge[String]],RDD[(VertexId,VertexId)]), fileList: docList): (RDD[Edge[String]],RDD[(VertexId,VertexId)])={     
-			var addEdgeSet = fileList._1
-      var rmvEdgeSet = fileList._2
-      var addNodeSet = fileList._3
-      var rmvNodeSet = fileList._4
-			graphAdd(graphRemove(edgeVertPair,rmvEdgeSet,rmvNodeSet),addEdgeSet,addNodeSet)
-	}
-  def graphRemove(edgeVertPair: (RDD[Edge[String]],RDD[(VertexId,VertexId)]), rmvEdgeSet: HashSet[String],rmvNodeSet: HashSet[String]):(RDD[Edge[String]],RDD[(VertexId,VertexId)])={
-		val edges = edgeVertPair._1.filter(edge => (!rmvEdgeSet.contains("rmvEdge "+edge.srcId + edge.attr + edge.dstId))&&
-                                               (!rmvNodeSet.contains("rmvNode "+edge.srcId))&&
-                                               (!rmvNodeSet.contains("rmvNode "+edge.dstId)))
-		val verts = edgeVertPair._2.filter(vert => !rmvNodeSet.contains("rmvNode "+vert._1))
-		(edges,verts)
-	}
-  def graphAdd(edgeVertPair: (RDD[Edge[String]],RDD[(VertexId,VertexId)]), addEdgeSet: HashSet[String],addNodeSet: HashSet[String]):(RDD[Edge[String]],RDD[(VertexId,VertexId)])={
-    var edgeArray: Array[Edge[String]] = addEdgeSet.toArray.map(edge => {
-      var command = edge.split(" ")
-      Edge(command(1).toLong, command(3).toLong, command(2))
-    })
-    var vertArray = addNodeSet.toArray.map(vert => (vert.split(" ")(1).toLong,1L))
+			val addNodes = sets._3.map(string => {
+				val id = string.split(" ")(1).toLong
+				(id, 1L)
+			}).toArray
 
+			val rmvEdges = sets._2.map(string => {
+				val split = string.split(" ")				
+				Edge(split(1).toLong, split(3).toLong, split(2))
+			})
+
+			val rmvNodes = sets._4.map(string => {
+				val id = string.split(" ")(1).toLong
+				(id, 1L)
+			})
+					
+      (pair._1, (addEdges, rmvEdges, addNodes, rmvNodes))
+		})
+		rdds.cache
+		val beforeCollect = System.currentTimeMillis()
+		println("Before collect: "+(System.currentTimeMillis() - startTime))
+		val batches = rdds.sortBy(x => (x._1.substring(x._1.lastIndexOf('/')+1).toInt), true, 1).collect
+		println("After collect: "+(System.currentTimeMillis() - beforeCollect))			
+		val afterCollect = System.currentTimeMillis()
+		batches.foreach(batch => {
+			println(batch._1)
+			val activities = batch._2
+			mainGraph = graphRemove(mainGraph, activities._2, activities._4)
+			mainGraph = graphAdd(mainGraph, activities._1, activities._3)
+			hdfsRemoveFile(batch._1)
+		})
+		println("Finish: "+(System.currentTimeMillis() - afterCollect))
+		println("Edge Count:" + mainGraph.edges.count)
+		println(count + "Complete")
+    println() 		
+	}
+
+  def graphRemove(graph: Graph[Long,String], rmvEdgeSet: HashSet[Edge[String]], rmvNodeSet: HashSet[(Long,Long)]): Graph[Long, String] = {
+		val edges = graph.edges.filter(edge => (!rmvEdgeSet.contains(edge))&&
+                                           (!rmvNodeSet.contains((edge.srcId,1L)))&&
+                                           (!rmvNodeSet.contains((edge.dstId,1L))))
+		val verts = graph.vertices.filter(vert => !rmvNodeSet.contains((vert._1,1L)))
+		Graph(verts,edges,1L)
+	}
+
+  def graphAdd(graph: Graph[Long,String], edgeArray: Array[Edge[String]],vertArray: Array[(VertexId,Long)]):Graph[Long,String]={
 		val verticies = sc.parallelize(vertArray)
     val edges = sc.parallelize(edgeArray)
-    (edgeVertPair._1.union(edges),edgeVertPair._2.union(verticies))
-  }
-
-  def splitRDD(commands: String, count: Int):docList = {
-    var addEdgeSet = new HashSet[String]() // as we will not care about order once we are finished
-    var addNodeSet = new HashSet[String]()
-    var rmvEdgeSet = new HashSet[String]() // sets are used so we don't have to check if something is contained
-    var rmvNodeSet = new HashSet[String]()
-    val rddArray = commands.split("\n")
-    val commandLength = rddArray.length
-    for (i <- 0 until commandLength) { // go backwards so files read first are split first (We begin at length -2 as last pos is always END OF FILE )
-      var split = rddArray(i).split(" ")
-      var command = split(0)
-
-      if (command == "addEdge") {addEdgeSet.add(rddArray(i))}
-      else if (command == "addNode") {addNodeSet.add(rddArray(i))}
-      else if (command == "rmvEdge" ) {rmvEdgeSet.add(rddArray(i))}
-      else if (command == "rmvNode") {rmvNodeSet.add(rddArray(i))}
-    }
-    (addEdgeSet,rmvEdgeSet,addNodeSet,rmvNodeSet) // add everything from file into tuple4 and reset sets
+    Graph(graph.vertices.union(verticies),graph.edges.union(edges),1L)
   }
 
   def hdfsRemoveFile(path:String){
     val hadoopConf = sc.hadoopConfiguration
     var hdfs = org.apache.hadoop.fs.FileSystem.get(hadoopConf)
     try {
-      hdfs.delete(new org.apache.hadoop.fs.Path(path), true)
+      hdfs.delete(new org.apache.hadoop.fs.Path(path.replace("file:","")), true)
     } catch{ case e: Exception =>
       println("can't delete" + e)
     }
@@ -221,20 +219,17 @@ object newStream {
 
     chosen
   }
-  def graphEqual(graph1: Graph[VertexId,String], graph2: Graph[VertexId,String]): Boolean = {
+  def graphEqual(graph1: Graph[Long,String], graph2: Graph[Long,String]): Boolean = {
     var thisV = graph1.vertices
     var thisE = graph1.edges
-
     var otherV = graph2.vertices
-    var otherE = graph2.edges
-    println(thisV.count == (thisV.intersection(otherV).count))
-    println(thisE.count == (thisE.intersection(otherE).count))
+    var otherE = graph2.edges		
     thisV.count == (thisV.intersection(otherV).count) && thisE.count == (thisE.intersection(otherE).count)
   } 
-  def loadStartState(batch: Int):Graph[VertexId, String]={
+  def loadStartState(batch: Int):Graph[Long, String]={
     Graph.fromEdges(sc.parallelize(Array[Edge[String]]()), 1L).partitionBy(PartitionStrategy.EdgePartition2D)
   }
-  def cacheGraph(graph: Graph[VertexId, String], batch: Int) {
+  def cacheGraph(graph: Graph[Long, String], batch: Int) {
     graph.vertices.setName("vert "+batch).cache()
     graph.edges.setName("edges "+batch).cache()
   } 
