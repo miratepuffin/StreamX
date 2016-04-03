@@ -93,7 +93,7 @@ import java.net.*;
       try{
         //System.out.println("ID: "+id);
         //FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
-        FileWriter fw = new FileWriter(new File("output/"+fileCount));
+        FileWriter fw = new FileWriter(new File(folder+"/"+fileCount));
         BufferedWriter bw = new BufferedWriter(fw);
         for (Map.Entry<String, String> command : commands.entrySet()){
           bw.write(command.getValue());
