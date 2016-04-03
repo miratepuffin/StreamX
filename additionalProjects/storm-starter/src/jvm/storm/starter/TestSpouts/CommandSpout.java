@@ -40,13 +40,13 @@ public class CommandSpout extends BaseRichSpout {
     double probability = random.nextDouble();
     String command = "" ;
     if(probability<=0.70)
-      command += "addEdge "+random.nextInt(5000000) + " Relation " + random.nextInt(5000000)+ "\n";
+      command += "addEdge "+random.nextInt(500000) + " Relation " + random.nextInt(500000)+ "\n";
     else if(probability>0.70 && probability <= 0.8)
-      command += "addNode "+random.nextInt(5000000) +"\n";
+      command += "addNode "+random.nextInt(500000) +"\n";
     else if(probability>0.80 && probability <= 0.95)
-      command += "rmvEdge "+random.nextInt(5000000) + " Relation " + random.nextInt(5000000)+ "\n";
+      command += "rmvEdge "+random.nextInt(500000) + " Relation " + random.nextInt(500000)+ "\n";
     else 
-      command += "rmvNode "+random.nextInt(5000000) +"\n";
+      command += "rmvNode "+random.nextInt(500000) +"\n";
     collector.emit(new Values(command));
     count++;
   }
