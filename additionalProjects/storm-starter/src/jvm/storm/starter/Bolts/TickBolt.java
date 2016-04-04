@@ -50,7 +50,7 @@ import java.io.IOException;
   @Override
   public Map<String, Object> getComponentConfiguration() {
     Config conf = new Config();
-    int tickFrequencyInSeconds = 15;
+    int tickFrequencyInSeconds = 10;
     conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, tickFrequencyInSeconds);
     return conf;
   }

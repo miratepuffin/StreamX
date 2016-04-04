@@ -26,31 +26,34 @@ import org.apache.hadoop.fs.{Path, PathFilter}
 import scala.collection.immutable.Map
 import org.apache.commons.io.FileUtils
 import java.util.concurrent.TimeUnit
-
+import java.nio.file.{Paths, Files}
 object newStreamRedux {
   // define the type used to store the list of documents that come in
 
   val sparkConf = new SparkConf().setAppName("New Stream")
   val sc = new SparkContext(sparkConf)
-	sc.setCheckpointDir("/user/bas30/checkpoint/")
+  //sc.setCheckpointDir("/user/bas30/checkpoint/")
   var batchCount = 0
-	
-	val conf = sc.hadoopConfiguration
-	val fs = org.apache.hadoop.fs.FileSystem.get(conf)
+  
+  val conf = sc.hadoopConfiguration
+  val fs = org.apache.hadoop.fs.FileSystem.get(conf)
 
   // Turn off the 100's of messages
   Logger.getLogger("org").setLevel(Level.OFF)
   Logger.getLogger("akka").setLevel(Level.OFF)
 
-	var mainGraph: Graph[Long, String] = loadStartState()
-	var vertices: RDD[(VertexId, Long)] = sc.parallelize(Array.empty[(VertexId, Long)])
-	var edges: RDD[Edge[String]] = sc.parallelize(Array.empty[Edge[String]])
+  var vertices: RDD[(VertexId, Long)] = sc.parallelize(Array.empty[(VertexId, Long)])
+  var edges: RDD[Edge[String]] = sc.parallelize(Array.empty[Edge[String]])
   val secondGraph: Graph[Long,String] = readGraph("secondCheck/gen")
   var lastIteration = 0L;
 
   def main(args: Array[String]) {
-    while(true){			
-      if(fs.exists(new org.apache.hadoop.fs.Path("/user/bas30/output/"+batchCount))){
+    while(true){      
+      //if(fs.exists(new org.apache.hadoop.fs.Path("/user/bas30/output/"+batchCount))){
+      //  processNewFiles()
+      //}
+      if(Files.exists(Paths.get("additionalProjects/storm-starter/output/"+batchCount))){
+        println("true")
         processNewFiles()
       }
     }
@@ -58,68 +61,64 @@ object newStreamRedux {
 
   def processNewFiles(){
     println("Batch " + batchCount)
-		
-		val batch: RDD[String] = sc.textFile("/user/bas30/output/"+batchCount,10)		
-		batch.cache()
+    
+    //val batch: RDD[String] = sc.textFile("/user/bas30/output/"+batchCount,10)
+    val batch: RDD[String] = sc.textFile("additionalProjects/storm-starter/output/"+batchCount,10)   
+    batch.cache()
 
-		val rmvEdgeStrings = batch.filter(string => string.contains("rmvEdge"))
-		val rmvNodeStrings = batch.filter(string => string.contains("rmvNode"))
-		val addEdgeStrings = batch.filter(string => string.contains("addEdge"))
-		val addNodeStrings = batch.filter(string => string.contains("addNode"))
+    val rmvEdgeStrings = batch.filter(string => string.contains("rmvEdge"))
+    val rmvNodeStrings = batch.filter(string => string.contains("rmvNode"))
+    val addEdgeStrings = batch.filter(string => string.contains("addEdge"))
+    val addNodeStrings = batch.filter(string => string.contains("addNode"))
 
-		val rmvEdges: RDD[Edge[String]] = rmvEdgeStrings.map(string => {
-			val split = string.split(" ")				
-			Edge(split(1).toLong, split(3).toLong, split(2))
-		})
+    val rmvEdges: RDD[Edge[String]] = rmvEdgeStrings.map(string => {
+      val split = string.split(" ")       
+      Edge(split(1).toLong, split(3).toLong, split(2))
+    })
 
-		val rmvNodes: RDD[(VertexId,Long)] = rmvNodeStrings.map(string => {
-			val id = string.split(" ")(1).toLong
-			(id, 1L)
-		})		
+    val rmvNodes: RDD[(VertexId,Long)] = rmvNodeStrings.map(string => {
+      val id = string.split(" ")(1).toLong
+      (id, 1L)
+    })    
 
-		val addEdges: RDD[Edge[String]] = addEdgeStrings.map(string => {
-			val split = string.split(" ")				
-			Edge(split(1).toLong, split(3).toLong, split(2))
-		})
-		
-		val addNodes: RDD[(VertexId,Long)] = addNodeStrings.map(string => {
-			val id = string.split(" ")(1).toLong
-			(id, 1L)
-		})
+    val addEdges: RDD[Edge[String]] = addEdgeStrings.map(string => {
+      val split = string.split(" ")       
+      Edge(split(1).toLong, split(3).toLong, split(2))
+    })
+    
+    val addNodes: RDD[(VertexId,Long)] = addNodeStrings.map(string => {
+      val id = string.split(" ")(1).toLong
+      (id, 1L)
+    })
 
-		val buildTime = System.currentTimeMillis()
+    val buildTime = System.currentTimeMillis()
 
-		val removedEdges = edges//.subtract(rmvEdges)
-		val removedNodes = vertices//.subtract(rmvNodes)		
-
-		edges = removedEdges.union(addEdges)
-		vertices = removedNodes.union(addNodes)
-		
-		
-		
-  	//mainGraph = Graph(finalNodes, finalEdges, 1L)
-		
-		val cartesian = edges.cartesian(rmvNodes)
-		val cartRedux = cartesian.filter(pair =>{
-			(pair._1.srcId==pair._2._1)||(pair._1.dstId==pair._2._1)
-		}).map(pair => pair._1)		
-		val finalRemove = removedEdges.subtract(cartRedux)
-		edges.cache()
-		vertices.cache()
-		//if(batchCount % 5 ==0){
-		//	edges.checkpoint()
-		//	vertices.checkpoint()
-		//}
-		//mainGraph.checkpoint()		
-		//		saveGraph(mainGraph)	
-	
-		println("Edge Count: " + edges.count)
-		println("Vertex Count: " + vertices.count)		
-		println("Build time: " + (System.currentTimeMillis() - buildTime))
-		println("Batch no:" + batchCount)
+    val removedEdges = edges.subtract(rmvEdges)
+    val removedNodes = vertices.subtract(rmvNodes)    
+    val finalEdgesRemove = (removedEdges.map(v => (v.srcId, v)).union(removedEdges.map(v => (v.dstId, v)))).cogroup(rmvNodes.map(v => (v._1, null))).filter { case (_, (leftGroup, rightGroup)) => !rightGroup.nonEmpty }.map((_._2._1.last)).distinct
+    edges = finalEdgesRemove.union(addEdges)
+    vertices = removedNodes.union(addNodes)
+    
+    
+    
+    edges.cache()
+    vertices.cache()
+    val mainGraph = Graph(vertices, edges, 1L)
+    println("Graphs equal " +graphEqual(mainGraph,secondGraph))
+    //if(batchCount % 5 ==0){
+    //  edges.checkpoint()
+    //  vertices.checkpoint()
+    //}
+    //mainGraph.checkpoint()    
+    //    saveGraph(mainGraph)  
+  
+    println("Edge Count: " + edges.count)
+    println("Vertex Count: " + vertices.count)    
+    println("Build time: " + (System.currentTimeMillis() - buildTime))
+    println("Batch no:" + batchCount)
     println()
-		batchCount = batchCount+1 		
-	}
+    batchCount = batchCount+1     
+  }
 
   def saveGraph(graph: Graph[VertexId, String]){
     // Write out edges and vertices of graph into file named after current time 
@@ -158,7 +157,7 @@ object newStreamRedux {
     //val format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss") // set format of time
 
     //val date = format.parse(givenTime(0) + " " + givenTime(1)).getTime() // turn given time into Unix long
-		val date = givenTime //used to do some string stuff, but no point any more
+    val date = givenTime //used to do some string stuff, but no point any more
     // Extract list of all graphs in folder prev
     val prevList = new File("prev").listFiles.toList
 
@@ -193,15 +192,15 @@ object newStreamRedux {
     var thisV = graph1.vertices
     var thisE = graph1.edges
     var otherV = graph2.vertices
-    var otherE = graph2.edges		
+    var otherE = graph2.edges   
     thisV.count == (thisV.intersection(otherV).count) && thisE.count == (thisE.intersection(otherE).count)
   } 
 
   def loadStartState(): Graph[Long, String]={
     val nodes: RDD[(VertexId, Long)] = sc.parallelize(Array.empty[(VertexId, Long)])
-		val edges: RDD[Edge[String]] = sc.parallelize(Array.empty[Edge[String]])
+    val edges: RDD[Edge[String]] = sc.parallelize(Array.empty[Edge[String]])
 
-		Graph(nodes, edges, 1L)
+    Graph(nodes, edges, 1L)
   }
 
   def status(graph: Graph[VertexId, String]) {
