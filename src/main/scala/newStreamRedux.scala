@@ -49,21 +49,21 @@ object newStreamRedux {
 
   def main(args: Array[String]) {
     while(true){      
-      //if(fs.exists(new org.apache.hadoop.fs.Path("/user/bas30/output/"+batchCount))){
-      //  processNewFiles()
-      //}
-      if(Files.exists(Paths.get("additionalProjects/storm-starter/output/"+batchCount))){
-        println("true")
+      if(fs.exists(new org.apache.hadoop.fs.Path("/user/bas30/output/"+batchCount))){
         processNewFiles()
       }
+      //if(Files.exists(Paths.get("additionalProjects/storm-starter/output/"+batchCount))){
+      //  println("true")
+      //  processNewFiles()
+     // }
     }
   }
 
   def processNewFiles(){
     println("Batch " + batchCount)
     
-    //val batch: RDD[String] = sc.textFile("/user/bas30/output/"+batchCount,10)
-    val batch: RDD[String] = sc.textFile("additionalProjects/storm-starter/output/"+batchCount,10)   
+    val batch: RDD[String] = sc.textFile("/user/bas30/output/"+batchCount,10)
+    //val batch: RDD[String] = sc.textFile("additionalProjects/storm-starter/output/"+batchCount,10)   
     batch.cache()
 
     val rmvEdgeStrings = batch.filter(string => string.contains("rmvEdge"))
@@ -94,17 +94,23 @@ object newStreamRedux {
     val buildTime = System.currentTimeMillis()
 
     val removedEdges = edges.subtract(rmvEdges)
-    val removedNodes = vertices.subtract(rmvNodes)    
-    val finalEdgesRemove = (removedEdges.map(v => (v.srcId, v)).union(removedEdges.map(v => (v.dstId, v)))).cogroup(rmvNodes.map(v => (v._1, null))).filter { case (_, (leftGroup, rightGroup)) => !rightGroup.nonEmpty }.map((_._2._1.last)).distinct
-    edges = finalEdgesRemove.union(addEdges)
-    vertices = removedNodes.union(addNodes)
-    
-    
+    val removedNodes = vertices.subtract(rmvNodes)   
+
+    val finalEdgesRemove = removedEdges.map(v => (v.srcId, v))
+    .union(removedEdges.map(v => (v.dstId, v)))
+    .cogroup(rmvNodes.map(v => (v._1, null)))
+    .filter { case (_, (leftGroup, rightGroup)) => !rightGroup.nonEmpty }
+    .map((_._2._1.toList))
+		.flatMap(x => x)
+    .distinct
+
+    edges = removedEdges.subtract(finalEdgesRemove).union(addEdges)
+    vertices = removedNodes.union(addNodes)  
     
     edges.cache()
     vertices.cache()
     val mainGraph = Graph(vertices, edges, 1L)
-    println("Graphs equal " +graphEqual(mainGraph,secondGraph))
+    // println("Graphs equal " +graphEqual(mainGraph,secondGraph))
     //if(batchCount % 5 ==0){
     //  edges.checkpoint()
     //  vertices.checkpoint()
@@ -117,7 +123,7 @@ object newStreamRedux {
     println("Build time: " + (System.currentTimeMillis() - buildTime))
     println("Batch no:" + batchCount)
     println()
-    batchCount = batchCount+1     
+    batchCount = batchCount+1    
   }
 
   def saveGraph(graph: Graph[VertexId, String]){
