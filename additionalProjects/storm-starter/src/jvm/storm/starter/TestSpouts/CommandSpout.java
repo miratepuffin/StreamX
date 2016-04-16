@@ -15,7 +15,7 @@ import java.util.Random;
 public class CommandSpout extends BaseRichSpout {
   SpoutOutputCollector collector;
   Random random;
-  long count;
+  int count;
   int id;
   boolean flip;
   @Override
@@ -24,7 +24,7 @@ public class CommandSpout extends BaseRichSpout {
     random = new Random();
     count = 0;
     id = context.getThisTaskId();
-    flip =false;
+    flip =true;
   }
   @Override
   public void nextTuple() {
@@ -32,7 +32,7 @@ public class CommandSpout extends BaseRichSpout {
       readTest();
       flip=!flip;  
     }
-   genRow();
+   //genRow();
     
   }
   public void genRow(){
@@ -52,19 +52,25 @@ public class CommandSpout extends BaseRichSpout {
   }
   public void readTest(){
      try {
-            FileReader fileReader = new FileReader("input/inputset0.txt");
+            //FileReader fileReader = new FileReader("input/inputset0.txt");
+            FileReader fileReader = new FileReader("input/testSet1.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
+            int waitCount = 0;
             while((line = bufferedReader.readLine()) != null) {
               //System.out.println(line);
-              collector.emit(new Values(line));
+              if(waitCount % 10 == 0)
+                Utils.sleep(1);
+              waitCount++;
+              collector.emit(new Values(line,count));
               count++;
             }
             bufferedReader.close();         
         }
         catch(Exception ex) {}
+        System.out.println("total commands"+count);
   }
   @Override public void ack(Object id) {}
   @Override public void fail(Object id) {}
-  @Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("commands"));}
+  @Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("commands","count"));}
 }

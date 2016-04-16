@@ -12,25 +12,26 @@ public class CommandGrouping implements CustomStreamGrouping{
 	int count;
 	WorkerTopologyContext context;
 	GlobalStreamId stream;
+	ArrayList<Integer> order;
+	int lastnumber =0;
 	public void prepare(WorkerTopologyContext context, GlobalStreamId stream, List<Integer> targetTasks){
 		this.targetTasks = targetTasks;
 		this.context = context;
 		this.stream = stream;
 		count = targetTasks.size();
+		order = new ArrayList<>();
 	}
 	public List<Integer> chooseTasks(int taskId, List<Object> values){
 		List<Integer> boltIds = new ArrayList();
-		//System.out.println(values.get(0));
 		String command = (String) values.get(0);
 		String[] commandSplit = command.split(" ");
+		int num = (int) values.get(1);
+
 		if(commandSplit[0].trim().equals("rmvNode")){
 			return targetTasks;
 		}
 		else{
 			long id = Long.parseLong(commandSplit[1].trim());
-			// if(commandSplit[1].trim().equals("addNode")){
-			// 	System.out.println("num: "+commandSplit[0]+ " id: "+id +" split: "+ targetTasks.get(id%count));
-			// }
 			long temp = (id%count);
 			boltIds.add(targetTasks.get((int) temp));
 			return boltIds;

@@ -81,6 +81,8 @@ object rddReduceTest {
       if (!rdd.isEmpty) {
         val tempGraph: Graph[VertexId, String] = Graph(mainGraph.vertices, mainGraph.edges, 0)
         mainGraph = parseCommands(rdd, tempGraph)
+        println("hello")
+        saveGraph()
       }
       //status(mainGraph) // method for print statements etc
       // val testThread = new Thread(new Runnable {
@@ -92,7 +94,7 @@ object rddReduceTest {
       //   }
       // }).start()
       println("End...")
-      saveGraph() // used to save graph, currently off whilst testing, willl probably set some boolean or summin
+      // used to save graph, currently off whilst testing, willl probably set some boolean or summin
     })
 
   }
@@ -108,7 +110,7 @@ object rddReduceTest {
     println("reduce time = "+endTime)
     val startTime2 = System.currentTimeMillis
     
-    writeOut(addEdgeSet,addNodeSet,rmvEdgeSet,rmvNodeSet)
+    //writeOut(addEdgeSet,addNodeSet,rmvEdgeSet,rmvNodeSet)
 
     var altGraph: Graph[VertexId, String] = Graph(tempGraph.vertices, tempGraph.edges, 0)
     altGraph = graphRemove(altGraph,rmvEdgeSet,rmvNodeSet)
@@ -127,6 +129,8 @@ object rddReduceTest {
   }
 
   def reduceRDD(rdd: RDD[String]): (HashSet[String],HashSet[String],HashSet[String],HashSet[String]) = {
+    
+
     var addEdgeSet = new HashSet[String]() // as we will not care about order once we are finished
     var addNodeSet = new HashSet[String]()
     var rmvEdgeSet = new HashSet[String]() // sets are used so we don't have to check if something is contained

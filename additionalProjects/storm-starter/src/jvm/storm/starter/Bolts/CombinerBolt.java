@@ -26,132 +26,132 @@ import java.io.*;
 import java.util.*;
 import java.net.*;
 
-  public class CombinerBolt extends BaseRichBolt {
-    OutputCollector collector;
-    TopologyContext context;
-    int id;
-    int fileCount;
-    HashMap<String,String> commands;
-    int splitCount;
-    int receivedCount;
-    int totalCommands;
-    int receivedCommands;
-    int localid;
-    String folder;
-    public CombinerBolt(int splitCount,String folder){
-      this.splitCount  = splitCount;
-      this.folder = folder;
-      reset();
-    }
-    @Override
-    public void prepare(Map conf, TopologyContext context, OutputCollector collector) {
-      this.collector = collector;
-      this.context = context;
-      id = context.getThisTaskId();
-      fileCount =0;
-      localid = context.getThisTaskIndex();
-    }
+public class CombinerBolt extends BaseRichBolt {
+  OutputCollector collector;
+  TopologyContext context;
+  int id;
+  int fileCount;
+  HashMap<String,String> commands;
+  int splitCount;
+  int receivedCount;
+  int totalCommands;
+  int receivedCommands;
+  int localid;
+  String folder;
+  public CombinerBolt(int splitCount,String folder){
+    this.splitCount  = splitCount;
+    this.folder = folder;
+    reset();
+  }
+  @Override
+  public void prepare(Map conf, TopologyContext context, OutputCollector collector) {
+    this.collector = collector;
+    this.context = context;
+    id = context.getThisTaskId();
+    fileCount =0;
+    localid = context.getThisTaskIndex();
+  }
 
-    @Override
-    public void execute(Tuple tuple) {
-      collector.ack(tuple);
-      String command = tuple.getString(1);
-      if(receivedCount!=splitCount){
-        if(command.contains("commandCount")){
-           totalCommands += Integer.parseInt(command.split(" ")[1].trim());
-           //System.out.println(command.split(" ")[1].trim()+ "NEW VALUES: "+totalCommands);
-           //System.out.println(fileCount+" Total commands:"+totalCommands);
-           receivedCount++;
-           fileCount = tuple.getInteger(0);
-           if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
-             output();
-           }
-        }
-        else{
-          addToMap(command);
-        }
-      }
-      else if (command.contains("commandCount")){
-        System.out.println(localid+ ": BROKE BROKE "+ receivedCommands+ " "+totalCommands); 
-      }
-      else{
-        addToMap(command);
-        //System.out.println(localid+": RE: "+ receivedCommands+" TC: "+totalCommands);
-        if(receivedCommands == totalCommands){
-         output();
-        }
-      }
-      if((receivedCount==splitCount)&&(totalCommands==0)){
-        System.out.println("EMPTY");
-        reset();
-        fileCount++;
-      }
+  @Override
+  public void execute(Tuple tuple) {
+    String command = tuple.getString(1);
+    if(receivedCount!=splitCount){
+      presplitCount(tuple,command);
     }
-
-
-    public void output(){
-      try{
-        //System.out.println("ID: "+id);
-        //FileWriter fw = new FileWriter(new File("output/id="+id+"batch="+fileCount));
-        FileWriter fw = new FileWriter(new File(folder+"/"+fileCount));
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (Map.Entry<String, String> command : commands.entrySet()){
-          bw.write(command.getValue());
-        }
-        bw.close();
-        System.out.println("id="+id+"batch="+fileCount+" commands: "+receivedCommands);
-      }catch(IOException e){}
+    else{
+      postsplitCount(tuple);
+    }
+    if((receivedCount==splitCount)&&(totalCommands==0)){
       reset();
       fileCount++;
     }
+}
 
-    public void HDFSoutput(){    
-	 try{
-        FileWriter fw = new FileWriter(new File(folder+"/"+fileCount));
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (Map.Entry<String, String> command : commands.entrySet()){
-          bw.write(command.getValue());
-        }
-        bw.close();
-        System.out.println(folder+"id="+id+"batch="+fileCount+" commands: "+receivedCommands);
-	      sendToHDFS(Integer.toString(fileCount));
-      }catch(Exception e){e.printStackTrace();}
-      reset();
-      fileCount++;
-    
+private void presplitCount(Tuple tuple, String command){
+  if(command.contains("commandCount")){
+    totalCommands += Integer.parseInt(command.split(" ")[1].trim());
+    receivedCount++;
+    fileCount = tuple.getInteger(0);
+    if((receivedCount==splitCount)&&(totalCommands==receivedCommands)){ //This is the case of if the last ReduceBolt has 0, as this would mean output was never called.
+      output();
     }
-    private void sendToHDFS(String filename) {
-        Process p;
-        try {
-		p = Runtime.getRuntime().exec("hadoop fs -copyFromLocal "+folder+"/" + filename + " /user/bas30/"+folder+"Temp");
-		p.waitFor();
-		p = Runtime.getRuntime().exec("hadoop fs -mv /user/bas30/"+folder+"Temp/"+filename+" /user/bas30/"+folder);
-		p.waitFor(); 
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+  }
+  else{
+    addToMap(tuple);
+  }
+}
+
+private void postsplitCount(Tuple tuple){
+  addToMap(tuple);
+  if(receivedCommands == totalCommands){
+    output();
+  }
+}
+
+
+private void reset(){
+  receivedCount    = 0;
+  totalCommands    = 0;
+  receivedCommands = 0;
+  commands = new HashMap<>();
+}
+
+
+private void addToMap(Tuple tuple){
+  String command = tuple.getString(1);
+  commands.put(command,command);
+  receivedCommands++;
+}
+
+
+public void output(){
+  try{
+    FileWriter fw = new FileWriter(new File(folder+"/"+fileCount));
+    BufferedWriter bw = new BufferedWriter(fw);
+    for (Map.Entry<String, String> command : commands.entrySet()){
+      bw.write(command.getValue());
     }
+    bw.close();
+    System.out.println("batch: "+fileCount+" commands: "+receivedCommands);
+  }catch(IOException e){}
+  reset();
+  fileCount++;
+}
+
+  @Override
+  public void declareOutputFields(OutputFieldsDeclarer declarer) {
+    declarer.declare(new Fields("finished"));
+  }
 
 
-    private void reset(){
-      //System.out.println(localid+": Resetting");
-      receivedCount    = 0;
-      totalCommands    = 0;
-      receivedCommands = 0;
-      commands = new HashMap<>();
-    }
+ /////////////////////////////////OLD FUNCTIONS KEPT FOR REFERENCE 
 
 
-    private void addToMap(String command){
-      if(command.equals("REMOVED")){}
-      else if(commands.get(command)==null){
-        commands.put(command,command);  
+  public void HDFSoutput(){    
+    try{
+      FileWriter fw = new FileWriter(new File(folder+"/"+fileCount));
+      BufferedWriter bw = new BufferedWriter(fw);
+      for (Map.Entry<String, String> command : commands.entrySet()){
+        bw.write(command.getValue());
       }
-      receivedCommands++;
-    }
-    @Override
-    public void declareOutputFields(OutputFieldsDeclarer declarer) {
-      declarer.declare(new Fields("finished"));
-    }
+      bw.close();
+      System.out.println(folder+"id="+id+"batch="+fileCount+" commands: "+receivedCommands);
+      sendToHDFS(Integer.toString(fileCount));
+    }catch(Exception e){e.printStackTrace();}
+    reset();
+    fileCount++;
 
   }
+  private void sendToHDFS(String filename) {
+    Process p;
+    try {
+      p = Runtime.getRuntime().exec("hadoop fs -copyFromLocal "+folder+"/" + filename + " /user/bas30/"+folder+"Temp");
+      p.waitFor();
+      p = Runtime.getRuntime().exec("hadoop fs -mv /user/bas30/"+folder+"Temp/"+filename+" /user/bas30/"+folder);
+      p.waitFor(); 
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+}

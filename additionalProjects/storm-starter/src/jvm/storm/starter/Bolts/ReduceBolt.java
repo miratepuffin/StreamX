@@ -26,13 +26,19 @@ import java.io.IOException;
 public class ReduceBolt extends TickBolt {
 
   HashMap<String,String> reducedCommands;
+
+
   ArrayList<String> rmvGenList;
   ArrayList<String> batchEdges;
   HashMap<String,Long> edges;
+  int rmvNodeCount;
+
+
   public ReduceBolt(){
     edges = new HashMap<>();
     rmvGenList = new ArrayList<String>();
     batchEdges = new ArrayList<String>();
+    rmvNodeCount =0;
   }
 
   @Override
@@ -45,32 +51,27 @@ public class ReduceBolt extends TickBolt {
     else {
       commands.add(tuple);
     }
-     
   }
   private void reduce(){
-    System.out.println(batchNumber +" "+commands.size() +" size");
     reduceCommands();
-    //System.out.println("ID: "+localid+" Message: "+reducedCommands.size());
-    collector.emit(new Values(batchNumber,"commandCount "+reducedCommands.size()));
+    int totalsize =reducedCommands.size();
+    //if(localid != 0){
+    //  totalsize = totalsize - rmvNodeCount;
+   // }
+    //System.out.println(batchNumber +" "+totalsize +" size");
+    collector.emit(new Values(batchNumber,"commandCount "+totalsize));
     for (Map.Entry<String, String> command : reducedCommands.entrySet()){
-      if(command.getValue().split(" ")[1].trim().equals("rmvNode")){
-        if(localid == 0){
-          //System.out.println("ID: "+localid+" Message: "+command.getValue());
-          collector.emit(new Values(batchNumber,command.getValue()));
-        }
-        else{
-          //System.out.println("ID: "+localid+" Message: "+command.getValue());
-          collector.emit(new Values(batchNumber,"REMOVED"));
-        }   
-      }
-      else {
-        //System.out.println("ID: "+localid+" Message: "+command.getValue());
+      //if(!command.getValue().contains("rmvNode")){
+      //  collector.emit(new Values(batchNumber,command.getValue()));
+     // }
+      //else if(localid == 0){
         collector.emit(new Values(batchNumber,command.getValue()));
-      }
+      //}
     }
     commands = new ArrayList<>();
     batchNumber++;
     reducedCommands = null;
+    rmvNodeCount =0;
   }
 
 
@@ -88,13 +89,16 @@ public class ReduceBolt extends TickBolt {
        msg  = split[2];
        dest = split[3];
       }
+
       if (command.equals("addEdge")) {
         addEdge(commandFull,command,src,msg,dest, commandMap);
       }
+
       //------------------Check if Add Node command happens later or is negated by a remove ------------------//
       else if (command.equals("addNode")) {
         if (commandMap.get("rmvNode " + src)==null) {commandMap.put("addNode "+src.trim(),commandFull.trim()+"\n");}
       }
+
       //------------------Check if Remove edge command happens later or is negated by an add ------------------//
       else if (command.equals("rmvEdge")) {
         rmvEdge(commandFull,command,src,msg,dest,commandMap);
@@ -102,21 +106,14 @@ public class ReduceBolt extends TickBolt {
 
       //------------------Check if Remove node command happens later ------------------//
       else if (command.equals("rmvNode")) {
-          commandMap.put("rmvNode " + src.trim(),commandFull.trim()+"\n"); //again as set no need to check if contains
+        if(commandMap.get(commandFull.trim())==null){
+          rmvNodeCount++; //check needed as duplicates would not exist due to hashing (leading to incorrect total above)
+          commandMap.put(commandFull.trim(),commandFull.trim()+"\n"); 
+        }
       }
     }
-    for(int i =0;i<rmvGenList.size();i++){
-      String[] split = rmvGenList.get(i).split(" ");
-      String command = split[0];
-      String src  = split[1];
-      String msg  = split[2];
-      String dest = split[3];
-      rmvEdge(rmvGenList.get(i),command,src,msg,dest,commandMap); 
-
-    }
-    rmvGenList = new ArrayList<String>();
+    rmvEdgeToBatch(commandMap);
     reducedCommands = commandMap;
-    //System.out.println("ID: " + localid + " Before: "+commands.size() +" After:"+reducedCommands.size());
   }
 
   private void addEdge(String commandFull, String command, String src, String msg, String dest, HashMap<String,String> commandMap){
@@ -154,7 +151,13 @@ public class ReduceBolt extends TickBolt {
      else {commandMap.put("rmvEdge " + src + " " + msg + " " + dest.trim(),commandFull.trim()+"\n");}
   }
 
-
+  private void rmvEdgeToBatch(HashMap<String,String> commandMap){
+    for(int i =0;i<rmvGenList.size();i++){
+      String[] split = rmvGenList.get(i).split(" ");
+      rmvEdge(rmvGenList.get(i),split[0],split[1],split[2],split[3],commandMap); 
+    }
+    rmvGenList = new ArrayList<String>();
+  }
   public void updateEdges(){
     Long time = System.currentTimeMillis();
     for(int i =0; i<batchEdges.size();i++){
@@ -183,4 +186,15 @@ public class ReduceBolt extends TickBolt {
     declarer.declare(new Fields("batch","command"));
   }
 
+  public void printList(){
+    try{
+        File file = new File("eqtest/"+batchNumber+" "+localid+".txt");
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (int i = 0; i < commands.size(); i++) {
+          bw.write("Line: "+commands.get(i).getInteger(1)+" command: "+commands.get(i).getString(0)+"\n");
+        }
+        bw.close();
+      }catch(IOException e){e.printStackTrace();}
+  }
 }

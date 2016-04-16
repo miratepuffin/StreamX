@@ -74,7 +74,6 @@ public class CommandReductionTopology {
                 while ((line = reader.readLine())!= null) {
                         output.append(line + "\n");
                 }
-                System.out.println("ALLUSNACKBAR");
                 System.out.println(output);
         } catch (Exception e) {
                 e.printStackTrace();
