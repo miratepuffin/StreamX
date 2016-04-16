@@ -20,13 +20,15 @@ import java.io.*;
 
 import storm.starter.twitter.TweetSpout;
 import storm.starter.twitter.ParseTweetBolt;
+import storm.starter.twitter.ParseTweetForSaveBolt;
 import storm.starter.Bolts.CombinerBolt;
+import storm.starter.twitter.TwitterOutBolt;
 import storm.starter.Bolts.ReduceBolt;
 import storm.starter.Groupings.CombinerGrouping;
 import storm.starter.Groupings.CommandGrouping;
 import storm.starter.TestSpouts.CommandSpout;
 
-public class CommandReductionTopology {
+public class TwitterDownloadTopology {
 
   public static void main(String[] args) throws Exception {
     TopologyBuilder builder = new TopologyBuilder();
@@ -38,37 +40,18 @@ public class CommandReductionTopology {
     );
     int reduceSplit = 6;
 
-    //builder.setSpout("tweets", tweetSpout, 1);
-    //builder.setBolt("commands", new ParseTweetBolt(), 10).shuffleGrouping("tweets");
-    builder.setSpout("commands", new CommandSpout(), 1);
-    builder.setBolt("reducer",   new ReduceBolt(), reduceSplit).customGrouping("commands", new CommandGrouping());
-    builder.setBolt("combiner",  new CombinerBolt(reduceSplit,args[0]), 10).customGrouping("reducer", new CombinerGrouping());
+    builder.setSpout("tweets", tweetSpout, 1);
+    builder.setBolt("commands", new ParseTweetForSaveBolt(), 10).shuffleGrouping("tweets");
+    //builder.setSpout("commands", new CommandSpout(), 1);
+    builder.setBolt("twitterOut",   new TwitterOutBolt(), 1).shuffleGrouping("commands");
     Config conf = new Config();
     conf.setDebug(false);
 
     LocalCluster cluster = new LocalCluster();
     cluster.submitTopology("test", conf, builder.createTopology());
     
-    Utils.sleep(10000000);
+    for(int i =0;i<10000000;i++){Utils.sleep(1000000000);}
     cluster.killTopology("test");
     cluster.shutdown();
   }
-
- private static void resetOutput() {
-        StringBuffer output = new StringBuffer();
-        Process p;
-        try {
-             	p = Runtime.getRuntime().exec("hadoop fs -rm -r /user/bas30/output && hadoop fs -mkdir /user/bas30/output");
-                p.waitFor();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                String line = "";
-                while ((line = reader.readLine())!= null) {
-                        output.append(line + "\n");
-                }
-                System.out.println(output);
-        } catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-
 }

@@ -45,8 +45,8 @@ public class ReduceBolt extends TickBolt {
   public void execute(Tuple tuple) {
     if (isTickTuple(tuple)) {
       reduce();
-      //updateEdges();
-      //edgeCheck();
+      updateEdges();
+      edgeCheck();
     }
     else {
       commands.add(tuple);
@@ -55,18 +55,11 @@ public class ReduceBolt extends TickBolt {
   private void reduce(){
     reduceCommands();
     int totalsize =reducedCommands.size();
-    //if(localid != 0){
-    //  totalsize = totalsize - rmvNodeCount;
-   // }
-    //System.out.println(batchNumber +" "+totalsize +" size");
+
     collector.emit(new Values(batchNumber,"commandCount "+totalsize));
     for (Map.Entry<String, String> command : reducedCommands.entrySet()){
-      //if(!command.getValue().contains("rmvNode")){
-      //  collector.emit(new Values(batchNumber,command.getValue()));
-     // }
-      //else if(localid == 0){
-        collector.emit(new Values(batchNumber,command.getValue()));
-      //}
+      collector.emit(new Values(batchNumber,command.getValue()));
+
     }
     commands = new ArrayList<>();
     batchNumber++;
@@ -117,11 +110,8 @@ public class ReduceBolt extends TickBolt {
   }
 
   private void addEdge(String commandFull, String command, String src, String msg, String dest, HashMap<String,String> commandMap){
-    boolean debug=false;
-    if(src.equals("100") && dest.equals("3618")){debug =true;System.out.println("outside");}
     
     if (commandMap.get("rmvNode " + src)!=null) {
-      if(debug){System.out.println("inside");}
       // check if the src Id is removed lower down
       if (commandMap.get("rmvNode " + dest)==null) {
       // if it is then we check if the dest node is also removed, otherwise add it
@@ -170,7 +160,7 @@ public class ReduceBolt extends TickBolt {
     Long time = System.currentTimeMillis();
     HashSet<String> toRemove  = new HashSet<>();
     for (Map.Entry<String, Long> command : edges.entrySet()){
-      if((time-command.getValue())>30000){
+      if((time-command.getValue())>10000){
         String[] split = command.getKey().trim().split(" ");
         rmvGenList.add("rmvEdge "+split[1]+" "+split[2]+" "+split[3]+"\n");
         //System.out.println("Removing Node: "+command.getKey());

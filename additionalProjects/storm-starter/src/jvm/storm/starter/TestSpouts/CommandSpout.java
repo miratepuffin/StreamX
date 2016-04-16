@@ -24,7 +24,7 @@ public class CommandSpout extends BaseRichSpout {
     random = new Random();
     count = 0;
     id = context.getThisTaskId();
-    flip =true;
+    flip =false;
   }
   @Override
   public void nextTuple() {
@@ -32,11 +32,12 @@ public class CommandSpout extends BaseRichSpout {
       readTest();
       flip=!flip;  
     }
-   //genRow();
+    readMulti(8787);
+    System.out.println("reset");
+    //genRow();
     
   }
   public void genRow(){
-    //Utils.sleep(100);
     double probability = random.nextDouble();
     String command = "" ;
     if(probability<=0.70)
@@ -51,26 +52,51 @@ public class CommandSpout extends BaseRichSpout {
     count++;
   }
   public void readTest(){
-     try {
+   try {
             //FileReader fileReader = new FileReader("input/inputset0.txt");
-            FileReader fileReader = new FileReader("input/testSet1.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = "";
-            int waitCount = 0;
-            while((line = bufferedReader.readLine()) != null) {
+    FileReader fileReader = new FileReader("input/testSet1.txt");
+    BufferedReader bufferedReader = new BufferedReader(fileReader);
+    String line = "";
+    int waitCount = 0;
+    while((line = bufferedReader.readLine()) != null) {
               //System.out.println(line);
-              if(waitCount % 10 == 0)
-                Utils.sleep(1);
-              waitCount++;
-              collector.emit(new Values(line,count));
-              count++;
-            }
-            bufferedReader.close();         
-        }
-        catch(Exception ex) {}
-        System.out.println("total commands"+count);
+      if(waitCount % 10 == 0)
+        Utils.sleep(1);
+      waitCount++;
+      collector.emit(new Values(line));
+      count++;
+    }
+    bufferedReader.close();         
   }
-  @Override public void ack(Object id) {}
-  @Override public void fail(Object id) {}
-  @Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("commands","count"));}
+  catch(Exception ex) {}
+  System.out.println("total commands"+count);
+}
+
+public void readMulti(int files){
+  try {
+    for(int i =0;i<files;i++){
+    //FileReader fileReader = new FileReader("input/inputset0.txt");
+      FileReader fileReader = new FileReader("twitter/"+i+".txt");
+      BufferedReader bufferedReader = new BufferedReader(fileReader);
+      String line = "";
+      int waitCount = 0;
+      while((line = bufferedReader.readLine()) != null) {
+    //System.out.println(line);
+        if(waitCount % 10 == 0)
+          Utils.sleep(1);
+        waitCount++;
+        collector.emit(new Values(line));
+        count++;
+      }
+      bufferedReader.close();
+    }         
+  }
+  catch(Exception ex) {}
+  System.out.println("total commands"+count);
+}
+
+
+@Override public void ack(Object id) {}
+@Override public void fail(Object id) {}
+@Override public void declareOutputFields(OutputFieldsDeclarer declarer) {declarer.declare(new Fields("commands"));}
 }

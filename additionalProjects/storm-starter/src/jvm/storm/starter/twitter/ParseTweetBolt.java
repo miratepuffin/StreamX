@@ -196,13 +196,13 @@
       double sizeCap = random.nextDouble();
       random = new Random(id);
       if(sizeCap<=0.65){
-        return random.nextInt(200);
+        return random.nextInt(2000);
       }
       else if (sizeCap <= 0.90){
-        return random.nextInt(1000);
+        return random.nextInt(10000);
       }
       else {
-        return random.nextInt(5001);
+        return random.nextInt(50010);
       }
     }
     @Override

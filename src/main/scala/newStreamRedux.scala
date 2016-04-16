@@ -45,7 +45,7 @@ object newStreamRedux {
   var vertices: RDD[(VertexId, Long)] = sc.parallelize(Array.empty[(VertexId, Long)])
   var edges: RDD[Edge[String]] = sc.parallelize(Array.empty[Edge[String]])
   //val secondGraph: Graph[Long,String] = readGraph("secondCheck/gen")
-  val secondGraph: Graph[Long,String] = readGraph("testOutput5")
+  //val secondGraph: Graph[Long,String] = readGraph("testOutput5")
   var lastIteration = 0L;
 
   def main(args: Array[String]) {
@@ -53,7 +53,7 @@ object newStreamRedux {
       //if(fs.exists(new org.apache.hadoop.fs.Path("/user/bas30/output/"+batchCount))){
       //  processNewFiles()
      // }
-      if(Files.exists(Paths.get("additionalProjects/storm-starter/equalityTest5/"+batchCount))){
+      if(Files.exists(Paths.get("additionalProjects/storm-starter/genOutput/"+batchCount))){
         processNewFiles()
       }
     }
@@ -64,7 +64,7 @@ object newStreamRedux {
     
     //val batch: RDD[String] = sc.textFile("/user/bas30/output/"+batchCount,10)
     //val batch: RDD[String] = sc.textFile("additionalProjects/storm-starter/equalityTest4/"+batchCount,10)
-    val batch: RDD[String] = sc.textFile("additionalProjects/storm-starter/equalityTest5/"+batchCount,10)    
+    val batch: RDD[String] = sc.textFile("additionalProjects/storm-starter/genOutput/"+batchCount,10)    
     batch.cache()
 
     val buildTime = System.currentTimeMillis()
@@ -154,7 +154,9 @@ object newStreamRedux {
     edges.cache()
     vertices.cache()
     val mainGraph = Graph(vertices, edges, 1L)
-    println("Graphs equal " +graphEqual(mainGraph,secondGraph))
+    //println("Graphs equal " +graphEqual(mainGraph,secondGraph))
+    println("Edge total: "+edges.count)
+    println("Vertex toal: "+vertices.count)
     println("Build time: " + (System.currentTimeMillis() - buildTime))
     println("Batch no:" + batchCount)
     println()
@@ -234,12 +236,12 @@ object newStreamRedux {
     var thisE = graph1.edges.distinct
     var otherV = graph2.vertices
     var otherE = graph2.edges
-    println("intersection " +thisE.intersection(otherE).count)
-    println("thisE " +thisE.count)
-    println("otherE " +otherE.count)
-    println("intersection " +thisV.intersection(otherV).count)
-    println("thisV " +thisV.count)
-    println("thisV " +otherV.count)
+    //println("intersection " +thisE.intersection(otherE).count)
+    //println("thisE " +thisE.count)
+    //println("otherE " +otherE.count)
+    //println("intersection " +thisV.intersection(otherV).count)
+    //println("thisV " +thisV.count)
+    //println("thisV " +otherV.count)
 
     thisV.count == (thisV.intersection(otherV).count) && thisE.count == (thisE.intersection(otherE).count)
     thisV.count == (thisV.intersection(otherV).count) &&
